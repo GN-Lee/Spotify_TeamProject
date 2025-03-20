@@ -15,8 +15,8 @@ import Image from "next/image";
 
 type Album = {
   id: number;
-  name: string;
-  artists: string[];
+  albumsName: string;
+  artistName: string;
   genres: string[];
   popularity: number;
   followers: number;
@@ -29,8 +29,6 @@ type Album = {
 const AdminPage = () => {
   const [albumName, setAlbumName] = useState("");
   const [artistName, setArtistName] = useState("");
-  const [artists, setArtists] = useState<string[]>([]);
-  //   const [song, setSong] = useState("");
   const [genres, setGenres] = useState(["k-pop"]);
   const [popularity, setPopularity] = useState(0);
   const [followers, setFollowers] = useState(0);
@@ -46,14 +44,8 @@ const AdminPage = () => {
     const querySnapshot = await getDocs(collection(fireStore, "Album"));
     const albumList = querySnapshot.docs.map((doc) => doc.data() as Album);
     setNextId(
-      albumList.length ? Math.max(...albumList.map((album) => album.id)) + 1 : 1
+      albumList.length ? Math.max(...albumList.map((Album) => Album.id)) + 1 : 1
     );
-  };
-
-  const addArtist = () => {
-    if (!artistName.trim()) return;
-    setArtists([...artists, artistName]);
-    setArtistName("");
   };
 
   const onClickUpLoadButton = async () => {
@@ -64,11 +56,12 @@ const AdminPage = () => {
     const randomId = crypto.randomUUID(); // 🔥 랜덤 UUID 생성
 
     const albumRef = doc(fireStore, "Album", randomId); // 🔹 랜덤 ID 사용
-    await setDoc(albumRef, {
+
+    // 저장할 데이터 준비
+    const albumData = {
       id: nextId,
-      name: albumName,
-      //   song: [song],
-      artists,
+      albumsName: albumName,
+      artistName,
       genres,
       popularity,
       followers,
@@ -77,11 +70,23 @@ const AdminPage = () => {
       releaseDate,
       trackName,
       trackDuration,
-    });
+    };
 
+    // 🔥 데이터 크기 확인
+    console.log(
+      "저장할 데이터 크기:",
+      JSON.stringify(albumData).length / 1024,
+      "KB"
+    );
+
+    // Firestore에 데이터 저장
+    await setDoc(albumRef, albumData);
+
+    console.log("✅ 데이터 저장 완료!");
+
+    // 입력 필드 초기화
     setAlbumName("");
-    setArtists([]);
-    // setSong("");
+    setArtistName("");
     setPopularity(0);
     setFollowers(0);
     setArtistsImageUrl("");
@@ -89,6 +94,7 @@ const AdminPage = () => {
     setReleaseDate("");
     setTrackName("");
     setTrackDuration("");
+    // 최신 ID 및 앨범 목록 가져오기
     await fetchNextId();
     await getAlbums();
   };
@@ -122,24 +128,13 @@ const AdminPage = () => {
           />
         </div>
         <div style={{ display: "flex", gap: "5px" }}>
-          <p>아티스트 입력 -</p>
+          <p>아티스트 이름 -</p>
           <input
             type="text"
             value={artistName}
             onChange={(e) => setArtistName(e.target.value)}
-            placeholder="아티스트 추가"
+            placeholder="아티스트 이름 입력"
           />
-          <button
-            onClick={addArtist}
-            style={{
-              border: "1px solid white",
-              backgroundColor: "gray",
-              color: "black",
-              padding: "0 10px",
-            }}
-          >
-            추가
-          </button>
         </div>
         <div style={{ display: "flex", gap: "5px" }}>
           <p>인기도 입력 -</p>
@@ -224,12 +219,13 @@ const AdminPage = () => {
         {albums.map((album) => (
           <li key={album.id}>
             <strong>{album.id}</strong>
-            <p>앨범이름 : {album.name}</p> <p>발행년도 : {album.releaseDate}</p>
-            <p>아티스트: {album.artists.join(", ")}</p>
+            <p>앨범이름 : {album.albumsName}</p>
+            <p>발행년도 : {album.releaseDate}</p>
+            <p>아티스트: {album.artistName}</p>
             {album.albumImageUrl ? ( // 이미지가 존재할 때만 렌더링
               <Image
                 src={album.albumImageUrl}
-                alt={album.name}
+                alt={album.albumsName}
                 width={100}
                 height={100}
                 onError={(e) => (e.currentTarget.style.display = "none")} // 이미지 로드 실패 시 숨김
@@ -240,7 +236,7 @@ const AdminPage = () => {
             {album.artistsImageUrl ? ( // 이미지가 존재할 때만 렌더링
               <Image
                 src={album.artistsImageUrl}
-                alt={album.name}
+                alt={album.artistName}
                 width={100}
                 height={100}
                 onError={(e) => (e.currentTarget.style.display = "none")} // 이미지 로드 실패 시 숨김
@@ -252,12 +248,9 @@ const AdminPage = () => {
             <p>
               인기도: {album.popularity} | 팔로워: {album.followers}
             </p>
-            {/* <p>트랙(노래 제목): {album.song}</p> */}
-            <p>장르: {album.genres}</p>
+            <p>장르: {album.genres.join(", ")}</p>
             <p>트랙(노래 제목): {album.trackName}</p>
             <p>재생시간 : {album.trackDuration}</p>
-            <br />
-            <br />
           </li>
         ))}
       </ul>

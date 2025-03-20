@@ -33,7 +33,7 @@ export default function RootLayout({
         <div className="flex-1/6 justify-center">
           <Aside />
         </div>
-        <div className="flex-5/6">
+        <div className="flex-5/6 ml-1">
           <Header />
           <div className="p-12">{children}</div>
           <Footer />

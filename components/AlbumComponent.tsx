@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 import { firestore } from "@/firebase/firebase";
 // import { firestore } from "./firebase"; // 🔹 Firebase 설정 파일 import
-const albums = [
+const Albums = [
   {
     id: "12YODvwEH9NPutL8OhObfD",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Rebirth (Intro)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -22,10 +20,8 @@ const albums = [
   },
   {
     id: "3vKBoDN6DGrxMRDBOe5bQa",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Interlude : Showtime",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -39,10 +35,8 @@ const albums = [
   },
   {
     id: "0KsBlpW6csX9YBVckbTDZh",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Smeraldo Garden Marching Band (feat. Loco)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -56,10 +50,8 @@ const albums = [
   },
   {
     id: "5XvFNFNsgvmwsWk1T7BfRj",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Slow Dance (feat. Sofia Carson)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -73,10 +65,8 @@ const albums = [
   },
   {
     id: "59ldd5koyBqo1vFp6MusW1",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Be Mine",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -90,10 +80,8 @@ const albums = [
   },
   {
     id: "5wPnPIZS8wr4lPNLz4qvHK",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -107,10 +95,8 @@ const albums = [
   },
   {
     id: "2Zyto2vRT9MEj44Y4qbzcs",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Closer Than This",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -124,10 +110,8 @@ const albums = [
   },
   {
     id: "1Px44tw80Q4rcCl8FxDGOi",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Instrumental)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -141,10 +125,8 @@ const albums = [
   },
   {
     id: "10I5rhhFoWZDIN3kEc6Dbo",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Acoustic Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -158,10 +140,8 @@ const albums = [
   },
   {
     id: "1MC8JLPV4fbvVBqvGSLoDf",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Rock Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -175,10 +155,8 @@ const albums = [
   },
   {
     id: "1ZtkxrnxZB6r8nIiHwqaUn",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Rebirth (Intro)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -192,10 +170,8 @@ const albums = [
   },
   {
     id: "12HctF6VyD118g7eXtWLBo",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Interlude : Showtime",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -209,10 +185,8 @@ const albums = [
   },
   {
     id: "7yODD9DKQIllpZ5eioLZRY",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Smeraldo Garden Marching Band (feat. Loco)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -226,10 +200,8 @@ const albums = [
   },
   {
     id: "5nyhz1bxLCiBBIAIcBgiEP",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Slow Dance (feat. Sofia Carson)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -243,10 +215,8 @@ const albums = [
   },
   {
     id: "3VaKWbW68AyOkEl4AxhXA2",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Be Mine",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -260,10 +230,8 @@ const albums = [
   },
   {
     id: "32lSgbCqRcIOyUSnfuUZEQ",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -277,10 +245,8 @@ const albums = [
   },
   {
     id: "6OIVG9TFJnqOec4G5rD8pW",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Closer Than This",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -294,10 +260,8 @@ const albums = [
   },
   {
     id: "1ySWoGgrduSzvtJ3PUzO41",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Shibuyakei Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -311,10 +275,8 @@ const albums = [
   },
   {
     id: "7KZNgri6Jxw88FAfATw6i9",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Funky Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -328,10 +290,8 @@ const albums = [
   },
   {
     id: "2isRbZIIU4PqPrECffn7QO",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Beautiful Mind Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -345,10 +305,8 @@ const albums = [
   },
   {
     id: "7gMfVc4zfNIxuMyMGglOHa",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Rebirth (Intro)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -362,10 +320,8 @@ const albums = [
   },
   {
     id: "45zLrK0668WQ5JFMyiYmCS",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Interlude : Showtime",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -379,10 +335,8 @@ const albums = [
   },
   {
     id: "1agDCV4zQqaFwJQNsTgmL1",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Smeraldo Garden Marching Band (feat. Loco)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -396,10 +350,8 @@ const albums = [
   },
   {
     id: "3d2bsbugow8JiNvuaRupFH",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Slow Dance (feat. Sofia Carson)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -413,10 +365,8 @@ const albums = [
   },
   {
     id: "3LWVXp636uLT356Rj08Jaz",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Be Mine",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -430,10 +380,8 @@ const albums = [
   },
   {
     id: "7tI8dRuH2Yc6RuoTjxo4dU",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -447,10 +395,8 @@ const albums = [
   },
   {
     id: "6qafqn8bBMy7t5c5WqpyRk",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Closer Than This",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -464,10 +410,8 @@ const albums = [
   },
   {
     id: "4DairgmwgyfmFHm0e7kRPL",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Be Mine (English Version)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -481,10 +425,8 @@ const albums = [
   },
   {
     id: "1yqdD2ScjkqvaNBUzPQ4vR",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -498,10 +440,8 @@ const albums = [
   },
   {
     id: "6t7t37Bex3DV4ADqAwUmwa",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Instrumental)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -515,10 +455,8 @@ const albums = [
   },
   {
     id: "2YKecnWyzkGEDTyNaKBG2H",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Acoustic Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -532,10 +470,8 @@ const albums = [
   },
   {
     id: "2x9lpe6UIHNqLf8fB8qpb7",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Rock Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -549,10 +485,8 @@ const albums = [
   },
   {
     id: "1PNdJibg1adHD1pTpYBfGc",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Shibuyakei Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -566,10 +500,8 @@ const albums = [
   },
   {
     id: "6E9BsGMop0G1jrpQNzugXv",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Funky Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -583,10 +515,8 @@ const albums = [
   },
   {
     id: "1GDjQlek7EFZ3qTyySTSAF",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Beautiful Mind Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -600,14 +530,12 @@ const albums = [
   },
   {
     id: "6IST7HiO2OlytkRp866Xdd",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "HOME SWEET HOME (feat. TAEYANG & DAESUNG)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Übermensch",
     releaseDate: "2025-02-25",
     albumImageUrl:
@@ -617,14 +545,12 @@ const albums = [
   },
   {
     id: "3hRg8A9PwC5YWrgLRJ4OFf",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "PO￦ER",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Übermensch",
     releaseDate: "2025-02-25",
     albumImageUrl:
@@ -634,14 +560,12 @@ const albums = [
   },
   {
     id: "0Kk5TRkYuWXY89KamtFEFw",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "TOO BAD (feat. Anderson .Paak)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Übermensch",
     releaseDate: "2025-02-25",
     albumImageUrl:
@@ -651,14 +575,12 @@ const albums = [
   },
   {
     id: "5p888hnYmPMQTMcVZXF8Dd",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "DRAMA",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Übermensch",
     releaseDate: "2025-02-25",
     albumImageUrl:
@@ -668,14 +590,12 @@ const albums = [
   },
   {
     id: "1YfsKKIW19u5QMeWdiFvk1",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "IBELONGIIU",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Übermensch",
     releaseDate: "2025-02-25",
     albumImageUrl:
@@ -685,14 +605,12 @@ const albums = [
   },
   {
     id: "1rHhowJ15GjsTqCGoTXm5e",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "TAKE ME",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Übermensch",
     releaseDate: "2025-02-25",
     albumImageUrl:
@@ -702,14 +620,12 @@ const albums = [
   },
   {
     id: "4wq8RcVA4GdRx8w6GUrjio",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "보나마나 (BONAMANA)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Übermensch",
     releaseDate: "2025-02-25",
     albumImageUrl:
@@ -719,14 +635,12 @@ const albums = [
   },
   {
     id: "5WNRDeYpON54LEZOoiI3Xf",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "GYRO-DROP",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Übermensch",
     releaseDate: "2025-02-25",
     albumImageUrl:
@@ -736,14 +650,12 @@ const albums = [
   },
   {
     id: "1SYcF2fUYDYQsISyFehQYI",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "COUP D'ETAT",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -753,14 +665,12 @@ const albums = [
   },
   {
     id: "62qrReIGZC8zzdmw9DXEuS",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "NILIRIA - Missy Elliott Version",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -770,14 +680,12 @@ const albums = [
   },
   {
     id: "3iBJHz5krbr4zUM40zzwcJ",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "R.O.D.",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -787,14 +695,12 @@ const albums = [
   },
   {
     id: "44f1TNdoQUgf3PUYraCTsH",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Black (Feat. JENNIE of BLACKPINK)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -804,14 +710,12 @@ const albums = [
   },
   {
     id: "4uS12OS6QeNgiCHpaqwvlR",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "WHO YOU?",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -821,14 +725,12 @@ const albums = [
   },
   {
     id: "3jeGRLccqBJ0CxkUVZQKxE",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "SHAKE THE WORLD",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -838,14 +740,12 @@ const albums = [
   },
   {
     id: "3N9lH3C9oykSau0Q74bVsi",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "GO",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -855,14 +755,12 @@ const albums = [
   },
   {
     id: "3mb0tvqsU8IPaAYvyf55az",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "CROOKED",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -872,14 +770,12 @@ const albums = [
   },
   {
     id: "5CRuf5AnlXoapQfwi1sxbS",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "NILIRIA - G-Dragon Version",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -889,14 +785,12 @@ const albums = [
   },
   {
     id: "6wCNJoZaOLnFzXoNFlR65V",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "RUNAWAY",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -906,14 +800,12 @@ const albums = [
   },
   {
     id: "2tNdosMthOOTnH1KYdKl16",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "I LOVE IT",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -923,14 +815,12 @@ const albums = [
   },
   {
     id: "7nySA2CVivNXZvjwJLe9dG",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "YOU DO (Outro)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT (Korean Version)",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -940,14 +830,12 @@ const albums = [
   },
   {
     id: "3q0evJwZohI2FfXkfC5tSR",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "COUP D'ETAT",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -957,14 +845,12 @@ const albums = [
   },
   {
     id: "1fZGJrxPq82zcHVoYMntZt",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "NILIRIA - Missy Elliott Version",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -974,14 +860,12 @@ const albums = [
   },
   {
     id: "1TmvMsKakEUCtLgkGYEZp4",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "R.O.D.",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -991,14 +875,12 @@ const albums = [
   },
   {
     id: "7BYGfn9F73atTWMdAHVdPk",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "BLACK",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -1008,14 +890,12 @@ const albums = [
   },
   {
     id: "7iT56ss42YdtYnNQEnxp9Z",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "WHO YOU?",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -1025,14 +905,12 @@ const albums = [
   },
   {
     id: "0yQVxHQ8MPI7jxkewravSD",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "SHAKE THE WORLD",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -1042,14 +920,12 @@ const albums = [
   },
   {
     id: "7gPF3Mu0DVWj75SXdZaYCY",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "GO",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -1059,14 +935,12 @@ const albums = [
   },
   {
     id: "4EwNWRBWdZ6bgvxRHlZ8OO",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "CROOKED",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -1076,14 +950,12 @@ const albums = [
   },
   {
     id: "3lLFAlgTMNJdXEl9bhkowL",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "NILIRIA - G-Dragon Version",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -1093,14 +965,12 @@ const albums = [
   },
   {
     id: "4yUZkcPv80Wi4TYgpJaZ9e",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "RUNAWAY",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -1110,14 +980,12 @@ const albums = [
   },
   {
     id: "1K1DpAZoH5jbpvxcAY07Sy",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "I LOVE IT",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -1127,14 +995,12 @@ const albums = [
   },
   {
     id: "2346AzTq5Qtru2VJv1Wreq",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "YOU DO (Outro)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "COUP D'ETAT",
     releaseDate: "2013-09-05",
     albumImageUrl:
@@ -1144,14 +1010,12 @@ const albums = [
   },
   {
     id: "5KIPe6uCM6rosCxeGcfPTA",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "GO - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1161,14 +1025,12 @@ const albums = [
   },
   {
     id: "2fbvGELVvBGeCt5PGEvxNf",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Heartbreaker - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1178,14 +1040,12 @@ const albums = [
   },
   {
     id: "52fUpY23U2AsSdVCOcfK5v",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "One of a Kind - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1195,14 +1055,12 @@ const albums = [
   },
   {
     id: "4CxEcSx0FIYmzwDGDbUHoO",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Butterfly - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1212,14 +1070,12 @@ const albums = [
   },
   {
     id: "6gSO9nwQqrgfMBXEmWCyQL",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Missing You - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1229,14 +1085,12 @@ const albums = [
   },
   {
     id: "62QLmXhOjh4iWC1CKy90xK",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "That XX - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1246,14 +1100,12 @@ const albums = [
   },
   {
     id: "6pxrme6UtEm7KaFI1RMdQl",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Without You - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1263,14 +1115,12 @@ const albums = [
   },
   {
     id: "7GVT1u4kAKlIAkVkPaSZ9p",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Today - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1280,14 +1130,12 @@ const albums = [
   },
   {
     id: "7nsdz4KlIj91cwCJ9m33Fx",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "A Boy - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1297,14 +1145,12 @@ const albums = [
   },
   {
     id: "1iNWC4Bu09R0o9DJXlKJGF",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "This Love - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1314,14 +1160,12 @@ const albums = [
   },
   {
     id: "0fAeXI8WxncT8IkMaNI75c",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "1 Year - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1331,14 +1175,12 @@ const albums = [
   },
   {
     id: "1TkjST5uC2Kx4A6Ktg7RXV",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Obsession - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1348,14 +1190,12 @@ const albums = [
   },
   {
     id: "6E9qJkWX0Kae59pZelC02V",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "She's Gone - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1365,14 +1205,12 @@ const albums = [
   },
   {
     id: "2J7RfDZhlJo4PPcF6S3SuO",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Crayon + Fantastic Baby - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "2013 G-DRAGON WORLD TOUR 'ONE OF A KIND in SEOUL'",
     releaseDate: "2013-09-03",
     albumImageUrl:
@@ -1382,14 +1220,12 @@ const albums = [
   },
   {
     id: "0jzNkPeK3W1g7G1MoqIfeZ",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Heartbreaker",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1399,14 +1235,12 @@ const albums = [
   },
   {
     id: "4eAbsf15Xi5ItqJiTOVHKQ",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "This Love",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1416,14 +1250,12 @@ const albums = [
   },
   {
     id: "3ar6JH26PgvWitEsBx2H4I",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Hello (Feat. DARA)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1433,14 +1265,12 @@ const albums = [
   },
   {
     id: "19o6PAA7YhNuKlJ6McmvP6",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Gossip Man (Feat. Kim Gun Mo)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1450,14 +1280,12 @@ const albums = [
   },
   {
     id: "02b9u4HtbgWDEDWmmkv061",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Korean Dream + Storm + Hip Hop Gentlemen + G-DRAGON",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1467,14 +1295,12 @@ const albums = [
   },
   {
     id: "1LERA11k6mBQVtPON9xrxX",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "A Boy",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1484,14 +1310,12 @@ const albums = [
   },
   {
     id: "7eUU0sWJq3k0GPca9Ak8cP",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "The Leaders (Feat. Teddy, CL)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1501,14 +1325,12 @@ const albums = [
   },
   {
     id: "7p6ZmgzWeZPIqoqMr1GgEQ",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Breathe",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1518,14 +1340,12 @@ const albums = [
   },
   {
     id: "0cwyRZpI8CmHF3Inx78Hgo",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Butterfly (Feat. Jin Jung)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1535,14 +1355,12 @@ const albums = [
   },
   {
     id: "5QIp9cwiXJdCI8Bz2k8i8c",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "But I Love U",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1552,14 +1370,12 @@ const albums = [
   },
   {
     id: "4zAGN8kU33hfTrhQRHhYdU",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "She's Gone (Feat. KUSH)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1569,14 +1385,12 @@ const albums = [
   },
   {
     id: "1JaGOGGmxiMUlQ2SGwheLk",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Only Look At Me",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1586,14 +1400,12 @@ const albums = [
   },
   {
     id: "3lShYM0Ts3HfEDFpfkGO5z",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Korean Dream (Feat. TAEYANG)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1603,14 +1415,12 @@ const albums = [
   },
   {
     id: "4McJBwPCVaey67P7Vva81s",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "1 Year",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1620,14 +1430,12 @@ const albums = [
   },
   {
     id: "3bNTPfEavB3i1RD4g8AaDn",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Lies",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1637,14 +1445,12 @@ const albums = [
   },
   {
     id: "0bEca0Fd6dmW9PmEDGeEi7",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Heartbreaker (Encore)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1654,14 +1460,12 @@ const albums = [
   },
   {
     id: "5HH0VAoIyxEL5X4ZES6TEx",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Heartbreaker (Feat. Flo Rida)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1671,14 +1475,12 @@ const albums = [
   },
   {
     id: "163261XJJ4vA69ZXKW6WeP",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "This love (G.H remix)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1688,14 +1490,12 @@ const albums = [
   },
   {
     id: "6pcsEv1oLDQa3SggnaASsg",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "A Boy (CHOICE 37 Remix)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1705,14 +1505,12 @@ const albums = [
   },
   {
     id: "0z3tku2tK4E9hAj7PmLRzd",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Breathe (hitchhiker Remix)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb783a6a578e8eb992bfd74765",
+      "https://i.scdn.co/image/ab6761610000e5eb99234fca18ba6bc8e75620ca",
     albumsName: "Shine A Light",
     releaseDate: "2010-03-30",
     albumImageUrl:
@@ -1722,10 +1520,8 @@ const albums = [
   },
   {
     id: "0BA3uoKlu9CsHgXIeAiXmJ",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Chroma Drift",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1739,10 +1535,8 @@ const albums = [
   },
   {
     id: "2sDcIrosoXqiGv1D5OQUvF",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Dash",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1756,10 +1550,8 @@ const albums = [
   },
   {
     id: "6JbyOUBLnkMadKcPQoQeTR",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "RIZZ",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1773,10 +1565,8 @@ const albums = [
   },
   {
     id: "3ICrCBhFiLaX0qP7KErHLe",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Island",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1790,10 +1580,8 @@ const albums = [
   },
   {
     id: "4gQJFhPYEVLuxyriyUubzD",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "12:32 (A to T)",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1807,10 +1595,8 @@ const albums = [
   },
   {
     id: "1riEr6o3obQxrQRFmD9Sed",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "We don't stop",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1824,10 +1610,8 @@ const albums = [
   },
   {
     id: "4jdlmdxikDrQc4YNhkRccv",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "We don't stop - Inst.",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1841,10 +1625,8 @@ const albums = [
   },
   {
     id: "0CN7xUFQbPRzffogC4FgBR",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "What If",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1858,10 +1640,8 @@ const albums = [
   },
   {
     id: "3KSkAziu70R5dvs0gmaNLv",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "What If - Instrumental",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1875,10 +1655,8 @@ const albums = [
   },
   {
     id: "34DtDWmIUacoop6Md298vE",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Pump Up The Volume!",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1892,10 +1670,8 @@ const albums = [
   },
   {
     id: "1NubJcJa12xLssOkQfWZDZ",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Watch Me Woo!",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1909,10 +1685,8 @@ const albums = [
   },
   {
     id: "1T6xi2QrnmwaebXGvWAjLg",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "WAY 4 LUV",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1926,10 +1700,8 @@ const albums = [
   },
   {
     id: "4mMtn8zhy4IaOwzNCgSbCT",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Virtual Idol",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1943,10 +1715,8 @@ const albums = [
   },
   {
     id: "1UyrFk2u0Asqmys76trMLi",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "From",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1960,10 +1730,8 @@ const albums = [
   },
   {
     id: "2ODZujtUNxCQDfKCxCeRxZ",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Our Movie",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1977,10 +1745,8 @@ const albums = [
   },
   {
     id: "30FH8tNdUgHqZbB6ENgOwY",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Merry PLLIstmas",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -1994,10 +1760,8 @@ const albums = [
   },
   {
     id: "6xGr4tVzpTX99p9Cf0hRRL",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2011,10 +1775,8 @@ const albums = [
   },
   {
     id: "06Qo2fYR2KS1F7bL338iVT",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Closer to You (feat. Major Lazer)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2028,10 +1790,8 @@ const albums = [
   },
   {
     id: "2HRgqmZQC0MC7GeNuDIXHN",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Seven (feat. Latto) (Explicit Ver.)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2045,10 +1805,8 @@ const albums = [
   },
   {
     id: "2KslE17cAJNHTsI2MI0jb2",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Standing Next to You",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2062,10 +1820,8 @@ const albums = [
   },
   {
     id: "2gkVEnpahpE3bQuvGuCpAV",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Yes or No",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2079,10 +1835,8 @@ const albums = [
   },
   {
     id: "0k0GtcnyQLMiXrdEDbLXmJ",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Please Don't Change (feat. DJ Snake)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2096,10 +1850,8 @@ const albums = [
   },
   {
     id: "5ONOlTiqymhzwcFjqcIT6E",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Hate You",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2113,10 +1865,8 @@ const albums = [
   },
   {
     id: "5KfJvZ0PZzRdwFRaTUDAA7",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Somebody",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2130,10 +1880,8 @@ const albums = [
   },
   {
     id: "3bNNvJA7hsGw0wSpGkfOBm",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Too Sad to Dance",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2147,10 +1895,8 @@ const albums = [
   },
   {
     id: "7AbqgE05nFl9qY4FRUiq2p",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Shot Glass of Tears",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2164,10 +1910,8 @@ const albums = [
   },
   {
     id: "7Hcj0duTWiCSYDtJaztNIt",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Seven (feat. Latto) (Clean Ver.)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2181,10 +1925,8 @@ const albums = [
   },
   {
     id: "01qFKNWq73UfEslI0GvumE",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2198,10 +1940,8 @@ const albums = [
   },
   {
     id: "6Xa9B3iE7bo3GkyUOVAhB9",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow) (Instrumental)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2215,10 +1955,8 @@ const albums = [
   },
   {
     id: "5BKiMkWucQVb7wrFi29VtX",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (Alternate Ver.)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2232,10 +1970,8 @@ const albums = [
   },
   {
     id: "7fQKDpB4i0hiQacjVCXVU2",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow) (A. G. Cook Remix)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2249,10 +1985,8 @@ const albums = [
   },
   {
     id: "0TaaG2kxjzSjVbmmiiSZEa",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow) (Clean Ver.)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2266,10 +2000,8 @@ const albums = [
   },
   {
     id: "1ewYtP6BZlak8qokzZe4Bx",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow) (Sped Up)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2283,10 +2015,8 @@ const albums = [
   },
   {
     id: "0dzT72K2RElXDMuMOyuKOI",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow) (Slowed Down)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2300,10 +2030,8 @@ const albums = [
   },
   {
     id: "2nRMW95dnOILirpjbksLTs",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Never Let Go",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2317,10 +2045,8 @@ const albums = [
   },
   {
     id: "0VPFT123HKoQ2J6ipeDcI1",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Standing Next to You (USHER Remix)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2334,10 +2060,8 @@ const albums = [
   },
   {
     id: "2mHw0KoEyDw8Yaw3yPoke6",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (Justin Timberlake Remix)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -2351,10 +2075,8 @@ const albums = [
   },
   {
     id: "42e6dogVzAPSudzaBqRUIV",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HANDS UP - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2369,10 +2091,8 @@ const albums = [
   },
   {
     id: "4DOvi3I7GtgVErqXnjAs3o",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "SOBER - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2386,10 +2106,8 @@ const albums = [
   },
   {
     id: "3RVgqjACPWt7LC7TgcCD7w",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WE LIKE 2 PARTY - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2404,10 +2122,8 @@ const albums = [
   },
   {
     id: "5Ym7yyiFy5Z2GW8zYH45ms",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "FXXK IT - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2422,10 +2138,8 @@ const albums = [
   },
   {
     id: "7kBSj85ufJ1VpvSqLAr75X",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOSER - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2439,10 +2153,8 @@ const albums = [
   },
   {
     id: "6HldMPK1mbjgI0Y5t370j9",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BAD BOY - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2457,10 +2169,8 @@ const albums = [
   },
   {
     id: "3emIcxw9NWVwKEdaXvXxF7",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WAKE ME UP - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2475,10 +2185,8 @@ const albums = [
   },
   {
     id: "3pP5rsaeJMIovsClmJmh3i",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "DARLING - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2493,10 +2201,8 @@ const albums = [
   },
   {
     id: "2GrmNtTCulwxR9lk8NQBAD",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "SUPER STAR - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2511,10 +2217,8 @@ const albums = [
   },
   {
     id: "2C0LOJPcnVcSKCX3N0DqEn",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Untitled, 2014 - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2529,10 +2233,8 @@ const albums = [
   },
   {
     id: "6Q00t2IdzTzcWgaevt2AQ7",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "D-Day - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2546,10 +2248,8 @@ const albums = [
   },
   {
     id: "5nCje7k5ZjgJ2XISx7cUZd",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "A・ZE・CHO ! - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2564,10 +2264,8 @@ const albums = [
   },
   {
     id: "7uJ9p6GuOS5F5GnY94Kq5v",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "COME TO MY - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2582,10 +2280,8 @@ const albums = [
   },
   {
     id: "2Gu2yJtqxaJsq0fEozyChQ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "I KNOW - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2599,10 +2295,8 @@ const albums = [
   },
   {
     id: "2QtzsCMEuxZ5TAfOGVJpLY",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Look at me, Gwisun - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2617,10 +2311,8 @@ const albums = [
   },
   {
     id: "5wmUNZ7P5GUjZ0JBWKBDZs",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "GOOD BOY - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2635,10 +2327,8 @@ const albums = [
   },
   {
     id: "7ijpfBQv7sW0EHwbzRgI1a",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "IF YOU - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2652,10 +2342,8 @@ const albums = [
   },
   {
     id: "5LkYB8BCNIDf6ZWwrRNacI",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HaruHaru - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2670,10 +2358,8 @@ const albums = [
   },
   {
     id: "31jPf3RQi35D9NaOIgwX4P",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "FANTASTIC BABY - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2688,10 +2374,8 @@ const albums = [
   },
   {
     id: "55iMEsMm9td9daH0mHPoBG",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BANG BANG BANG - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2706,10 +2390,8 @@ const albums = [
   },
   {
     id: "45mMN0OSFF5Nv7hBmeOUQx",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HEAVEN - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2723,10 +2405,8 @@ const albums = [
   },
   {
     id: "1zq8heBhjwmCnqx4RSZhb7",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WE LIKE 2 PARTY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2740,10 +2420,8 @@ const albums = [
   },
   {
     id: "0tYT6RdFKcSgBiaMfs3mdR",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HANDS UP - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2757,10 +2435,8 @@ const albums = [
   },
   {
     id: "6w17ZLpTonbMfRRDdrofVj",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BAD BOY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2774,10 +2450,8 @@ const albums = [
   },
   {
     id: "1QdpaBkjNApYmwYlDuWHik",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOSER - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2791,10 +2465,8 @@ const albums = [
   },
   {
     id: "6iCrpFpnNJO7FY8Iu7z7Hf",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "FXXK IT - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2808,10 +2480,8 @@ const albums = [
   },
   {
     id: "4uov3g2rlZdNY9GORNsh4b",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LET’S TALK ABOUT LOVE - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2825,10 +2495,8 @@ const albums = [
   },
   {
     id: "4pJRJMMTymF7IeRYHrHThC",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "STRONG BABY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2842,10 +2510,8 @@ const albums = [
   },
   {
     id: "225g4x1sW9Zm3lULmJrVKa",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WINGS - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2859,10 +2525,8 @@ const albums = [
   },
   {
     id: "4SHIhIglN6lQzBWzjfPRE8",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOOK AT ME GWISOON - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2876,10 +2540,8 @@ const albums = [
   },
   {
     id: "6kv5MN91E2yByJ1XWD76vQ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HEARTBREAKER - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2893,10 +2555,8 @@ const albums = [
   },
   {
     id: "5OmzFuUbe7djQLT2uG6I3r",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "CRAYON - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2910,10 +2570,8 @@ const albums = [
   },
   {
     id: "1YD8M14uJW3DXrCs4FeO8o",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HIGH HIGH - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2927,10 +2585,8 @@ const albums = [
   },
   {
     id: "4Kz8OC4sm2uCaCrEp9mLZ1",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "GOOD BOY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2944,10 +2600,8 @@ const albums = [
   },
   {
     id: "0fIiCm9Pf19dcIrmZ7stf8",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "PRETENDED - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2961,10 +2615,8 @@ const albums = [
   },
   {
     id: "10CDw5PAK3WmqkNQYJ1kuN",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "DOOM DADA - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2978,10 +2630,8 @@ const albums = [
   },
   {
     id: "6nrgWCby7MpEpbcRJxRRZ9",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "EYES, NOSE, LIPS - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -2995,10 +2645,8 @@ const albums = [
   },
   {
     id: "00zcv0aqdWQep2DrVWNPjO",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "ONLY LOOK AT ME - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3012,10 +2660,8 @@ const albums = [
   },
   {
     id: "7zqLN6qt1ZNlEFLgB3LBWx",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "RINGA LINGA - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3029,10 +2675,8 @@ const albums = [
   },
   {
     id: "00hHDWHG3MiE2OOUmve79F",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "IF YOU - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3046,10 +2690,8 @@ const albums = [
   },
   {
     id: "33e3jzlgpXBQgTQ6radEv8",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HEAVEN - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3063,10 +2705,8 @@ const albums = [
   },
   {
     id: "4h0kPyfScsOoKlNRJ1l5Ty",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WE LIKE 2 PARTY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3080,10 +2720,8 @@ const albums = [
   },
   {
     id: "0wjAWaUxM3moRA6jvtsxPJ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HANDS UP - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3097,10 +2735,8 @@ const albums = [
   },
   {
     id: "27PYGYRXxejUF4cYulQmtS",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BAD BOY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3114,10 +2750,8 @@ const albums = [
   },
   {
     id: "3r6dAVVWsmqCDFvgSBiHEz",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOSER - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3131,10 +2765,8 @@ const albums = [
   },
   {
     id: "0qdJctmCqOqUL3kanmkmRi",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "FEELING - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3148,10 +2780,8 @@ const albums = [
   },
   {
     id: "3NggKc4eylweTkujZEgHJ8",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LET'S TALK ABOUT LOVE - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3165,10 +2795,8 @@ const albums = [
   },
   {
     id: "69uYZk1xUWUGAGaTG3dfNm",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "STRONG BABY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3182,10 +2810,8 @@ const albums = [
   },
   {
     id: "3LhyrhaUISsp2adwBdRLVX",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WINGS - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3199,10 +2825,8 @@ const albums = [
   },
   {
     id: "70ZcnxosNyBkxqNnaVdVcB",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOOK AT ME GWISOON - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3216,10 +2840,8 @@ const albums = [
   },
   {
     id: "6asqAqKRwHKQh2ANgDiJXe",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "CROOKED - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3233,10 +2855,8 @@ const albums = [
   },
   {
     id: "3PRaRBkHgzmxer5HIh0vGF",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HEARTBREAKER - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3250,10 +2870,8 @@ const albums = [
   },
   {
     id: "6BTfPlTa9AvOM3H3szjaRL",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "CRAYON - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3267,10 +2885,8 @@ const albums = [
   },
   {
     id: "0dflZ9lezOwO0AZVgYQSQL",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HIGH HIGH - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3284,10 +2900,8 @@ const albums = [
   },
   {
     id: "18oGfIsfOaNHMrq8dyyk3e",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "GOOD BOY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3301,10 +2915,8 @@ const albums = [
   },
   {
     id: "31eR03TwO2IRMYsCgKy6C3",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "PRETENDED - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3318,10 +2930,8 @@ const albums = [
   },
   {
     id: "1euM6MeQnbHHz1IgMyixo5",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "DOOM DADA - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3335,10 +2945,8 @@ const albums = [
   },
   {
     id: "7w45jf4z9fNIJYE59BtjiC",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "EYES, NOSE, LIPS - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3352,10 +2960,8 @@ const albums = [
   },
   {
     id: "5npsyXX3PBPXv48zF8o6bh",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "ONLY LOOK AT ME - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3369,10 +2975,8 @@ const albums = [
   },
   {
     id: "0Vhmd3nrLXS9cVMiFaXg1T",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "RINGA LINGA - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3386,10 +2990,8 @@ const albums = [
   },
   {
     id: "3lYvepDz6yYj29z7e4r5z0",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "FXXK IT",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3403,10 +3005,8 @@ const albums = [
   },
   {
     id: "7ijWcf4FsoxoyPK4B9WGp6",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LAST DANCE",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3420,10 +3020,8 @@ const albums = [
   },
   {
     id: "0FRVxxD5ZaLVnlwI9nxkqP",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "GIRLFRIEND",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3437,10 +3035,8 @@ const albums = [
   },
   {
     id: "6UgkB0xM45TR3Zjqm3GQ6T",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LET'S NOT FALL IN LOVE",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3454,10 +3050,8 @@ const albums = [
   },
   {
     id: "2vzn8usBcuNL93DnTjEK0z",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOSER",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3471,10 +3065,8 @@ const albums = [
   },
   {
     id: "3miMeSGd7rzJEtuhQnzm0f",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BAE BAE",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3488,10 +3080,8 @@ const albums = [
   },
   {
     id: "3dI59jLoFMjMAyUAyRZnkE",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BANG BANG BANG",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3505,10 +3095,8 @@ const albums = [
   },
   {
     id: "3gUSmSBeeYsSMWECJcQW8w",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "SOBER",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3522,10 +3110,8 @@ const albums = [
   },
   {
     id: "4kaY4LbdbomICC25gYGGtn",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "IF YOU",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3539,10 +3125,8 @@ const albums = [
   },
   {
     id: "6ePbs5ln6NGmMMuA6DrSaQ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "ZUTTER (GD&T.O.P)",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3556,10 +3140,8 @@ const albums = [
   },
   {
     id: "07gp2fnoTbVCsRJYazycI4",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WE LIKE 2 PARTY",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3573,10 +3155,8 @@ const albums = [
   },
   {
     id: "3kseM0JJ9CgrCKAv1uoQmu",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Bang Bang Bang - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3590,10 +3170,8 @@ const albums = [
   },
   {
     id: "36uTWoCYuYtO1Qp9u7a7hF",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Tonight - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3607,10 +3185,8 @@ const albums = [
   },
   {
     id: "7LfrP6RxGo9dMZYKVwewgC",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Stupid Liar - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3624,10 +3200,8 @@ const albums = [
   },
   {
     id: "7ADw9GQ6A97ytTLwUAciFa",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Haru Haru - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3641,10 +3215,8 @@ const albums = [
   },
   {
     id: "5RcJp2r9ZHREM56nV2lTp5",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Loser - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3658,10 +3230,8 @@ const albums = [
   },
   {
     id: "3yfcH0kOXWgc95wdL62tPw",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Blue - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3675,10 +3245,8 @@ const albums = [
   },
   {
     id: "0PRny2NKo7iBdU47zTOoSJ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Bad Boy - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3692,10 +3260,8 @@ const albums = [
   },
   {
     id: "0iAgdDYh8Y9CETXoz1psiV",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "If You - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3709,10 +3275,8 @@ const albums = [
   },
   {
     id: "5Cnt2UgBxTIO65mlD5ELeQ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Strong Baby - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3726,10 +3290,8 @@ const albums = [
   },
   {
     id: "2mYTfHz0wolZrAlF2bEX6M",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Wings - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3743,10 +3305,8 @@ const albums = [
   },
   {
     id: "0753tiqVdX34CvtoMgVYZF",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Doom Dada - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3760,10 +3320,8 @@ const albums = [
   },
   {
     id: "21po0SccfQs9FBEojjhmNN",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Eyes, Nose, Lips - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3777,10 +3335,8 @@ const albums = [
   },
   {
     id: "7efFRFZXZEwXCYrvFvNnOy",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Zutter - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3794,10 +3350,8 @@ const albums = [
   },
   {
     id: "3SgqaUT4PjwO84nO6OIhyI",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Good Boy - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3811,10 +3365,8 @@ const albums = [
   },
   {
     id: "6rxMYaoZlTWqWRyCDMHo0s",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Crooked - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3828,10 +3380,8 @@ const albums = [
   },
   {
     id: "5gNATY0PKGl0iCJ1cj7RCY",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Sober - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3845,10 +3395,8 @@ const albums = [
   },
   {
     id: "4Oq7zp72QZLwNbLlwvcSAz",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Bae Bae - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3862,10 +3410,8 @@ const albums = [
   },
   {
     id: "7wkdrGxG3jWLCpMhifoAGD",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Fantastic Baby - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3879,10 +3425,8 @@ const albums = [
   },
   {
     id: "3vG5OctNjOeRjZwxzAXTNv",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "We Like 2 Party (Encore) - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3896,10 +3440,8 @@ const albums = [
   },
   {
     id: "18I6Sg8Avsf5LIAzyYiNYH",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Lies (Encore) - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -3913,10 +3455,8 @@ const albums = [
   },
   {
     id: "2RENZFrMGuOtr162uKsjOn",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Intro : JANE with FKJ",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -3930,10 +3470,8 @@ const albums = [
   },
   {
     id: "0DC62SYIRKMFgx2f7OyvwD",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "like JENNIE",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -3947,10 +3485,8 @@ const albums = [
   },
   {
     id: "4YoN6sOtjWgbtB2jKgLPHL",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "start a war",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -3964,10 +3500,8 @@ const albums = [
   },
   {
     id: "2eOXb8aSpBUQLSk1sTBPEK",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Handlebars (feat. Dua Lipa)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -3981,10 +3515,8 @@ const albums = [
   },
   {
     id: "0wQASbxN6UbZXZhKXvuczj",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "with the IE (way up)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -3998,10 +3530,8 @@ const albums = [
   },
   {
     id: "3fN2swfuBHUljCyPlA8wBN",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "ExtraL (feat. Doechii)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4015,10 +3545,8 @@ const albums = [
   },
   {
     id: "0oYhOxvxd95jtTWXHkYsPh",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Mantra",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4032,10 +3560,8 @@ const albums = [
   },
   {
     id: "2DW9UqvL7vcG3qCGFUmvXp",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Love Hangover (feat. Dominic Fike)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4049,10 +3575,8 @@ const albums = [
   },
   {
     id: "76tWxLk4KWOw1Qd8dC5SdI",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "ZEN",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4066,10 +3590,8 @@ const albums = [
   },
   {
     id: "3KldgsZmR6nCItrTrP8zbl",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Damn Right (feat. Childish Gambino & Kali Uchis)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4083,10 +3605,8 @@ const albums = [
   },
   {
     id: "6wbLxHGBCpTWIpLZ5L0Zuv",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "F.T.S.",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4100,10 +3620,8 @@ const albums = [
   },
   {
     id: "4p3oOaC3Fo38tEXp3SR5DN",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Filter",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4117,10 +3635,8 @@ const albums = [
   },
   {
     id: "3IPh4v7HFJ8Egba3lYNDrQ",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Seoul City",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4134,10 +3650,8 @@ const albums = [
   },
   {
     id: "0rNCeIkEvz61X0oP48z6cC",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Starlight",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4151,10 +3665,8 @@ const albums = [
   },
   {
     id: "5rP5Mwcx5IYavwVTCmdVIK",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "twin",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4168,10 +3680,8 @@ const albums = [
   },
   {
     id: "2cR7c0dxkHnPcnWMLUlRVo",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Intro : JANE with FKJ",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4185,10 +3695,8 @@ const albums = [
   },
   {
     id: "4kh7FBVzeyRC0rMWRFDmMC",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Handlebars (feat. Dua Lipa)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4202,10 +3710,8 @@ const albums = [
   },
   {
     id: "4cfiNs7Yvr9UTLvbYWal1o",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Damn Right (feat. Childish Gambino & Kali Uchis)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4219,10 +3725,8 @@ const albums = [
   },
   {
     id: "4g0F7gpT3iVHqKjXF87eX1",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "ExtraL (feat. Doechii)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -4236,10 +3740,8 @@ const albums = [
   },
   {
     id: "6JVXVLqCPaodBSEwRFUN8w",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Ditto (250 Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4253,10 +3755,8 @@ const albums = [
   },
   {
     id: "4yjDMKCAeLovlo9ih0AgXW",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "OMG (FRNK Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4270,10 +3770,8 @@ const albums = [
   },
   {
     id: "2nW48vXnZZ5EYka46v7GOk",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Attention (250 Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4287,10 +3785,8 @@ const albums = [
   },
   {
     id: "6CUKsv928uT4561qJovhhG",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Hype Boy (250 Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4304,10 +3800,8 @@ const albums = [
   },
   {
     id: "5bwpbZBOY0mrmRhZ94c0kW",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Cookie (FRNK Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4321,10 +3815,8 @@ const albums = [
   },
   {
     id: "2gWWYL6iXZKkOqCE3TQHBM",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Hurt (250 Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4338,10 +3830,8 @@ const albums = [
   },
   {
     id: "3dCCHYqCAMdm1GCuklUaZG",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Ditto (250 Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4355,10 +3845,8 @@ const albums = [
   },
   {
     id: "2oLVT9Lo0SavCNpGw4WfPp",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "OMG (FRNK Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4372,10 +3860,8 @@ const albums = [
   },
   {
     id: "4MhgDz4lSj2HtlUcpe3yrd",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Attention (250 Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4389,10 +3875,8 @@ const albums = [
   },
   {
     id: "6tU4EeTSSawN9sbfAjWPX4",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Hype Boy (250 Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4406,10 +3890,8 @@ const albums = [
   },
   {
     id: "2akxtSALPUX8orriSWyDi4",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Cookie (FRNK Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4423,10 +3905,8 @@ const albums = [
   },
   {
     id: "1q9V1vsIEehAm2hDT6l53g",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Hurt (250 Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4440,10 +3920,8 @@ const albums = [
   },
   {
     id: "5ocSQW5sIUIOFojwXEz9Ki",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Supernatural",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4457,10 +3935,8 @@ const albums = [
   },
   {
     id: "58Q3FZFs1YXPpliWQB5kXB",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Right Now",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4474,10 +3950,8 @@ const albums = [
   },
   {
     id: "4823f9W4xmR3n1BebPyNaR",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Supernatural (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4491,10 +3965,8 @@ const albums = [
   },
   {
     id: "6jgUrLEivd4DaiYb1izJLF",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Right Now (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4508,10 +3980,8 @@ const albums = [
   },
   {
     id: "38tXZcL1gZRfbqfOG0VMTH",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "How Sweet",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4525,10 +3995,8 @@ const albums = [
   },
   {
     id: "19D8LNpWwIPpi6hs9BG7dq",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Bubble Gum",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4542,10 +4010,8 @@ const albums = [
   },
   {
     id: "54tBIDmNdxGp04gPNWCCbi",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "How Sweet (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4559,10 +4025,8 @@ const albums = [
   },
   {
     id: "54uNtM77iZ5gawWBQGnEar",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Bubble Gum (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4576,10 +4040,8 @@ const albums = [
   },
   {
     id: "11YovYUVkZdLyOFncbecWL",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Our Night is more beautiful than your Day",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4593,10 +4055,8 @@ const albums = [
   },
   {
     id: "6sJ6EoG4vyUC1tW718ww7f",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Our Night is more beautiful than your Day (Inst.)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4610,10 +4070,8 @@ const albums = [
   },
   {
     id: "210JJAa9nJOgNa0YNrsT5g",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "GODS",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -4626,504 +4084,9 @@ const albums = [
     trackDuration: "03:40",
   },
   {
-    id: "45DB3yqxYGAnKN3YmLWbAX",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Running Wild",
-    trackDuration: "02:31",
-  },
-  {
-    id: "2SR0alFA2oWYXSoePGTj0V",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "I’ll Be There",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "I’ll Be There",
-    trackDuration: "03:01",
-  },
-  {
-    id: "6L4VgCOiyt8MzYfH4llkQg",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Another Level",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Another Level",
-    trackDuration: "02:42",
-  },
-  {
-    id: "5jxuw4S5IDEY6CjjAHvRAt",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Falling",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Falling",
-    trackDuration: "02:58",
-  },
-  {
-    id: "0gzXQHsv4zYHQ1pvlyYZZa",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Heart on the Window (with WENDY)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Heart on the Window (with WENDY)",
-    trackDuration: "02:57",
-  },
-  {
-    id: "79ldP0lRJABss2gUdH346e",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "I will come to you",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "I will come to you",
-    trackDuration: "02:36",
-  },
-  {
-    id: "2ub590isVV1Xy5u8JgBFuV",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Ballad Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Running Wild (Ballad Remix)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "6X6b1RQFCkzhUCpHQlbOiW",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Holiday Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Running Wild (Holiday Remix)",
-    trackDuration: "02:33",
-  },
-  {
-    id: "3WcWE3cvBJpRoJSbrxrVkY",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Afropop Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Running Wild (Afropop Remix)",
-    trackDuration: "02:29",
-  },
-  {
-    id: "5xwyQy35cGlBuheV8fvutf",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (UK Garage Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Running Wild (UK Garage Remix)",
-    trackDuration: "02:42",
-  },
-  {
-    id: "50zAEIE4B1QqhPjRMK2Xmh",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Running Wild",
-    trackDuration: "02:31",
-  },
-  {
-    id: "5zOv7QzCMrSkPJKQr1Tcif",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "I’ll Be There",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "I’ll Be There",
-    trackDuration: "03:01",
-  },
-  {
-    id: "1YmY0HUm05BUpcHibc1bhB",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Another Level",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Another Level",
-    trackDuration: "02:42",
-  },
-  {
-    id: "5oSUmLelhXItguqPQ0Qn2b",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Falling",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Falling",
-    trackDuration: "02:58",
-  },
-  {
-    id: "4qUmNOnS81p8wrMdBHRbS3",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Heart on the Window (with WENDY)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Heart on the Window (with WENDY)",
-    trackDuration: "02:57",
-  },
-  {
-    id: "5s7flUAYsDmcUWtHsMCihv",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "I will come to you",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "I will come to you",
-    trackDuration: "02:36",
-  },
-  {
-    id: "6mbbLSTKMMG50xML4OzlVS",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Extended Ver.)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Running Wild (Extended Ver.)",
-    trackDuration: "03:34",
-  },
-  {
-    id: "2L56YCM5eA8xWsUcGgo4zV",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Band Ver.)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Running Wild (Band Ver.)",
-    trackDuration: "02:43",
-  },
-  {
-    id: "4z0vfU3JiAsl99ZHL29hMm",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Close to You",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "When the Stars Gossip OST Part.3",
-    releaseDate: "2025-01-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b850cdaf11ac8dd77591d423",
-    trackName: "Close to You",
-    trackDuration: "03:48",
-  },
-  {
-    id: "6J48hy1freVjme4h7DFaDt",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Close to You (Inst.)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "When the Stars Gossip OST Part.3",
-    releaseDate: "2025-01-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b850cdaf11ac8dd77591d423",
-    trackName: "Close to You (Inst.)",
-    trackDuration: "03:48",
-  },
-  {
-    id: "7HaUkQ34NYlOXFFspHeoG6",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Falling (feat. Taka)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Falling (feat. Taka)",
-    releaseDate: "2024-11-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3830c84379ff6c02c4a50ba",
-    trackName: "Falling (feat. Taka)",
-    trackDuration: "02:58",
-  },
-  {
-    id: "1EEvAuVSb57ryIlNKuMWyr",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild",
-    trackDuration: "02:31",
-  },
-  {
-    id: "3WBkiZRpmyDBXIHi0o4xjK",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Instrumental)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Instrumental)",
-    trackDuration: "02:31",
-  },
-  {
-    id: "6dCqghpYHuD1LqBloAzgDv",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Extended Ver.)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Extended Ver.)",
-    trackDuration: "03:34",
-  },
-  {
-    id: "6mJRx8ghgw9QwJk0v5DfVj",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Band Ver.)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Band Ver.)",
-    trackDuration: "02:43",
-  },
-  {
-    id: "1XZeIqnzH8LKB1SmUL7tpy",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Ballad Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Ballad Remix)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "1faf3hb79uGzk5a7O5H144",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Holiday Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Holiday Remix)",
-    trackDuration: "02:33",
-  },
-  {
-    id: "7uHAhFnUOfJXlDzfyvRJQD",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Afropop Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Afropop Remix)",
-    trackDuration: "02:29",
-  },
-  {
-    id: "0K0lpwTATjvexmWWVURaZP",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (UK Garage Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (UK Garage Remix)",
-    trackDuration: "02:42",
-  },
-  {
     id: "2VdSktBqFfkW7y6q5Ik4Z4",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Supernova",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5137,10 +4100,8 @@ const albums = [
   },
   {
     id: "5eWcGfUCrVFMoYskyfkEPE",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Armageddon",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5154,10 +4115,8 @@ const albums = [
   },
   {
     id: "27LqJ29VMqwKQQC2CE9FHr",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Set The Tone",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5171,10 +4130,8 @@ const albums = [
   },
   {
     id: "4AZ4Y1QAOLBwnWaX9cguoF",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Mine",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5188,10 +4145,8 @@ const albums = [
   },
   {
     id: "4iSiRU5nGU7EP5TbkEEcsj",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Licorice",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5205,10 +4160,8 @@ const albums = [
   },
   {
     id: "67yDGKXKIkyBhwbey8AmEU",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "BAHAMA",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5222,10 +4175,8 @@ const albums = [
   },
   {
     id: "0u24lLekIGJ0CifIrHdD8N",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Long Chat (#♥)",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5239,10 +4190,8 @@ const albums = [
   },
   {
     id: "4oBpXs4KppprE6ql0Dmr2O",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Prologue",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5256,10 +4205,8 @@ const albums = [
   },
   {
     id: "1x1oCGsFUDViOvcISuoKW0",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Live My Life",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5273,10 +4220,8 @@ const albums = [
   },
   {
     id: "4T5AbXz68PpZyKewHO5Tqw",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Melody",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5290,10 +4235,8 @@ const albums = [
   },
   {
     id: "5XWlyfo0kZ8LF7VSyfS4Ew",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Drama",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5307,10 +4250,8 @@ const albums = [
   },
   {
     id: "3EI3OLBeM89B0o0UsIGCOx",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Trick or Trick",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5324,10 +4265,8 @@ const albums = [
   },
   {
     id: "2uJEnyojuGg31VVlLTQFpp",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Don't Blink",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5341,10 +4280,8 @@ const albums = [
   },
   {
     id: "1mdtLny0zugh89vokWGG80",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Hot Air Balloon",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5358,10 +4295,8 @@ const albums = [
   },
   {
     id: "3OQWohbPUsvbXaH1AiRazX",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "YOLO",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5375,10 +4310,8 @@ const albums = [
   },
   {
     id: "52qof5uEYA0TV0EpR7jNxs",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "You",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5392,10 +4325,8 @@ const albums = [
   },
   {
     id: "330IIz7d75eqAsKq1xhzXR",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Better Things",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5409,10 +4340,8 @@ const albums = [
   },
   {
     id: "07fqC2Puj13frv9iYtlcri",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Girls",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5426,10 +4355,8 @@ const albums = [
   },
   {
     id: "2cGf0hmhkACTwRj58XNGlP",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "도깨비불 (Illusion)",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5443,10 +4370,8 @@ const albums = [
   },
   {
     id: "3QXov5M0VLI3ROldfiSwj0",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Lingo",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5460,10 +4385,8 @@ const albums = [
   },
   {
     id: "0WiadRUdgEIjgmYFAmTttb",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Life's Too Short",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5477,10 +4400,8 @@ const albums = [
   },
   {
     id: "4jzrYUhlzXROpV5M944Yvu",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "ICU (쉬어가도 돼)",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5494,10 +4415,8 @@ const albums = [
   },
   {
     id: "1AqyAbANWcx0B4f0WpYeM2",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Life's Too Short (English Version)",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5511,10 +4430,8 @@ const albums = [
   },
   {
     id: "7v1X2PGU3uZXu7tzFTTsSh",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Black Mamba",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5528,10 +4445,8 @@ const albums = [
   },
   {
     id: "4UVgc46bNblcuD6nj0RsXF",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Forever (약속)",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5545,10 +4460,8 @@ const albums = [
   },
   {
     id: "7aLwuGyYNWKnxOSWXQK88V",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Dreams Come True",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5562,10 +4475,8 @@ const albums = [
   },
   {
     id: "6uPnrBgweGOcwjFL4ItAvV",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Whiplash",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5579,10 +4490,8 @@ const albums = [
   },
   {
     id: "7dYEUpcXJLDcI22m0dgmnH",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Kill It",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5596,10 +4505,8 @@ const albums = [
   },
   {
     id: "1aRyIsgzfUdSGAGz8zgFR2",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Flights, Not Feelings",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5613,10 +4520,8 @@ const albums = [
   },
   {
     id: "2Kf6WQmc6TU4bYIu3Szsz2",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Pink Hoodie",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5630,10 +4535,8 @@ const albums = [
   },
   {
     id: "4u9cOL7R5OjAmlWkeEFXzf",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Flowers",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5647,10 +4550,8 @@ const albums = [
   },
   {
     id: "3Oi1pDSYLVkz3i8jOXaQdt",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Just Another Girl",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5664,10 +4565,8 @@ const albums = [
   },
   {
     id: "5sjnkOfTLCLNfkkchI2re2",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "UP - KARINA Solo",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5681,10 +4580,8 @@ const albums = [
   },
   {
     id: "6pIuPm3u7QgUFAX1V0D9wY",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Dopamine - GISELLE Solo",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5698,10 +4595,8 @@ const albums = [
   },
   {
     id: "44qlcokPO2RjD8791ohJFR",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Bored! - NINGNING Solo",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5715,10 +4610,8 @@ const albums = [
   },
   {
     id: "2xoA126GEgFhrYzRaTH7E4",
-    name: "aespa",
+    artistName: "aespa",
     genres: ["k-pop"],
-    song: "Spark - WINTER Solo",
-    artists: ["aespa"],
     popularity: 79,
     followers: 8203000,
     artistsImageUrl:
@@ -5731,15 +4624,448 @@ const albums = [
     trackDuration: "03:21",
   },
   {
-    id: "0OaHZgVm77zLQNR3kwFf6n",
-    name: "BOYNEXTDOOR",
+    id: "45DB3yqxYGAnKN3YmLWbAX",
+    artistName: "Jin",
     genres: ["k-pop"],
-    song: "Dangerous",
-    artists: ["BOYNEXTDOOR"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :D (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
+    trackName: "Running Wild",
+    trackDuration: "02:31",
+  },
+  {
+    id: "2SR0alFA2oWYXSoePGTj0V",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :D (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
+    trackName: "I’ll Be There",
+    trackDuration: "03:01",
+  },
+  {
+    id: "6L4VgCOiyt8MzYfH4llkQg",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :D (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
+    trackName: "Another Level",
+    trackDuration: "02:42",
+  },
+  {
+    id: "5jxuw4S5IDEY6CjjAHvRAt",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :D (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
+    trackName: "Falling",
+    trackDuration: "02:58",
+  },
+  {
+    id: "0gzXQHsv4zYHQ1pvlyYZZa",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :D (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
+    trackName: "Heart on the Window (with WENDY)",
+    trackDuration: "02:57",
+  },
+  {
+    id: "79ldP0lRJABss2gUdH346e",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :D (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
+    trackName: "I will come to you",
+    trackDuration: "02:36",
+  },
+  {
+    id: "2ub590isVV1Xy5u8JgBFuV",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :D (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
+    trackName: "Running Wild (Ballad Remix)",
+    trackDuration: "02:23",
+  },
+  {
+    id: "6X6b1RQFCkzhUCpHQlbOiW",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :D (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
+    trackName: "Running Wild (Holiday Remix)",
+    trackDuration: "02:33",
+  },
+  {
+    id: "3WcWE3cvBJpRoJSbrxrVkY",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :D (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
+    trackName: "Running Wild (Afropop Remix)",
+    trackDuration: "02:29",
+  },
+  {
+    id: "5xwyQy35cGlBuheV8fvutf",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :D (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
+    trackName: "Running Wild (UK Garage Remix)",
+    trackDuration: "02:42",
+  },
+  {
+    id: "50zAEIE4B1QqhPjRMK2Xmh",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :') (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
+    trackName: "Running Wild",
+    trackDuration: "02:31",
+  },
+  {
+    id: "5zOv7QzCMrSkPJKQr1Tcif",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :') (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
+    trackName: "I’ll Be There",
+    trackDuration: "03:01",
+  },
+  {
+    id: "1YmY0HUm05BUpcHibc1bhB",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :') (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
+    trackName: "Another Level",
+    trackDuration: "02:42",
+  },
+  {
+    id: "5oSUmLelhXItguqPQ0Qn2b",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :') (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
+    trackName: "Falling",
+    trackDuration: "02:58",
+  },
+  {
+    id: "4qUmNOnS81p8wrMdBHRbS3",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :') (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
+    trackName: "Heart on the Window (with WENDY)",
+    trackDuration: "02:57",
+  },
+  {
+    id: "5s7flUAYsDmcUWtHsMCihv",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :') (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
+    trackName: "I will come to you",
+    trackDuration: "02:36",
+  },
+  {
+    id: "6mbbLSTKMMG50xML4OzlVS",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :') (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
+    trackName: "Running Wild (Extended Ver.)",
+    trackDuration: "03:34",
+  },
+  {
+    id: "2L56YCM5eA8xWsUcGgo4zV",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Happy - :') (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
+    trackName: "Running Wild (Band Ver.)",
+    trackDuration: "02:43",
+  },
+  {
+    id: "4z0vfU3JiAsl99ZHL29hMm",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "When the Stars Gossip OST Part.3",
+    releaseDate: "2025-01-26",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b273b850cdaf11ac8dd77591d423",
+    trackName: "Close to You",
+    trackDuration: "03:48",
+  },
+  {
+    id: "6J48hy1freVjme4h7DFaDt",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "When the Stars Gossip OST Part.3",
+    releaseDate: "2025-01-26",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b273b850cdaf11ac8dd77591d423",
+    trackName: "Close to You (Inst.)",
+    trackDuration: "03:48",
+  },
+  {
+    id: "7HaUkQ34NYlOXFFspHeoG6",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Falling (feat. Taka)",
+    releaseDate: "2024-11-25",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b273d3830c84379ff6c02c4a50ba",
+    trackName: "Falling (feat. Taka)",
+    trackDuration: "02:58",
+  },
+  {
+    id: "1EEvAuVSb57ryIlNKuMWyr",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Running Wild (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
+    trackName: "Running Wild",
+    trackDuration: "02:31",
+  },
+  {
+    id: "3WBkiZRpmyDBXIHi0o4xjK",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Running Wild (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
+    trackName: "Running Wild (Instrumental)",
+    trackDuration: "02:31",
+  },
+  {
+    id: "6dCqghpYHuD1LqBloAzgDv",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Running Wild (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
+    trackName: "Running Wild (Extended Ver.)",
+    trackDuration: "03:34",
+  },
+  {
+    id: "6mJRx8ghgw9QwJk0v5DfVj",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Running Wild (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
+    trackName: "Running Wild (Band Ver.)",
+    trackDuration: "02:43",
+  },
+  {
+    id: "1XZeIqnzH8LKB1SmUL7tpy",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Running Wild (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
+    trackName: "Running Wild (Ballad Remix)",
+    trackDuration: "02:23",
+  },
+  {
+    id: "1faf3hb79uGzk5a7O5H144",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Running Wild (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
+    trackName: "Running Wild (Holiday Remix)",
+    trackDuration: "02:33",
+  },
+  {
+    id: "7uHAhFnUOfJXlDzfyvRJQD",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Running Wild (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
+    trackName: "Running Wild (Afropop Remix)",
+    trackDuration: "02:29",
+  },
+  {
+    id: "0K0lpwTATjvexmWWVURaZP",
+    artistName: "Jin",
+    genres: ["k-pop"],
+    popularity: 78,
+    followers: 8832129,
+    artistsImageUrl:
+      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
+    albumsName: "Running Wild (Remixes)",
+    releaseDate: "2024-11-19",
+    albumImageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
+    trackName: "Running Wild (UK Garage Remix)",
+    trackDuration: "02:42",
+  },
+  {
+    id: "0OaHZgVm77zLQNR3kwFf6n",
+    artistName: "BOYNEXTDOOR",
+    genres: ["k-pop"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "19.99",
     releaseDate: "2024-09-09",
     albumImageUrl:
@@ -5749,14 +5075,12 @@ const albums = [
   },
   {
     id: "1t4a4bAObtfBiiNo0a0vle",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "Gonna Be A Rock",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "19.99",
     releaseDate: "2024-09-09",
     albumImageUrl:
@@ -5766,14 +5090,12 @@ const albums = [
   },
   {
     id: "52NdZoytptz6k8oMtDWtzX",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "SKIT",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "19.99",
     releaseDate: "2024-09-09",
     albumImageUrl:
@@ -5783,14 +5105,12 @@ const albums = [
   },
   {
     id: "6pqyZNnLKyJKtrlf42FQoq",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "Nice Guy",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "19.99",
     releaseDate: "2024-09-09",
     albumImageUrl:
@@ -5800,14 +5120,12 @@ const albums = [
   },
   {
     id: "0Pd79ZmfbrE6690cuN9fHC",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "20",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "19.99",
     releaseDate: "2024-09-09",
     albumImageUrl:
@@ -5817,14 +5135,12 @@ const albums = [
   },
   {
     id: "1Oa2zQLfI44pN76mZgAoqT",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "Call Me",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "19.99",
     releaseDate: "2024-09-09",
     albumImageUrl:
@@ -5834,14 +5150,12 @@ const albums = [
   },
   {
     id: "7n3rgZ7GWmoVwhDrrF41Rn",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "Nice Guy (English Ver.)",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "19.99",
     releaseDate: "2024-09-09",
     albumImageUrl:
@@ -5851,14 +5165,12 @@ const albums = [
   },
   {
     id: "54wqX30KnwGZdLmi8r0Wgo",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "OUR",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "HOW?",
     releaseDate: "2024-04-15",
     albumImageUrl:
@@ -5868,14 +5180,12 @@ const albums = [
   },
   {
     id: "1w1kvWFdm3u0GgkG9VSFGH",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "Amnesia",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "HOW?",
     releaseDate: "2024-04-15",
     albumImageUrl:
@@ -5885,14 +5195,12 @@ const albums = [
   },
   {
     id: "7x9s9KVpMOrQ2z2fzOGo8z",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "So let's go see the stars",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "HOW?",
     releaseDate: "2024-04-15",
     albumImageUrl:
@@ -5902,14 +5210,12 @@ const albums = [
   },
   {
     id: "0Tq7v8YAmwdnAYBwyR1pZ4",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "Earth, Wind & Fire",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "HOW?",
     releaseDate: "2024-04-15",
     albumImageUrl:
@@ -5919,14 +5225,12 @@ const albums = [
   },
   {
     id: "7rXUWfUAaOmPNHS7cwfTL2",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "l i f e i s c o o l",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "HOW?",
     releaseDate: "2024-04-15",
     albumImageUrl:
@@ -5936,14 +5240,12 @@ const albums = [
   },
   {
     id: "4gHBVNtx6Kh5F97GoIg0fq",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "Dear. My Darling",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "HOW?",
     releaseDate: "2024-04-15",
     albumImageUrl:
@@ -5953,14 +5255,12 @@ const albums = [
   },
   {
     id: "7sEkQPK4bxBum9CoAp5Onl",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "Earth, Wind & Fire (English Ver.)",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "HOW?",
     releaseDate: "2024-04-15",
     albumImageUrl:
@@ -5970,14 +5270,12 @@ const albums = [
   },
   {
     id: "1cgtNgk0bkBjKaHmhes7f0",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "Never Loved This Way Before",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName:
       "Never Loved This Way Before (Odd Girl Out X BOYNEXTDOOR) [Original Soundtrack]",
     releaseDate: "2025-03-14",
@@ -5988,14 +5286,12 @@ const albums = [
   },
   {
     id: "47vaCu7VXBxOZrtt7MVlH3",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "Never Loved This Way Before - Inst.",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName:
       "Never Loved This Way Before (Odd Girl Out X BOYNEXTDOOR) [Original Soundtrack]",
     releaseDate: "2025-03-14",
@@ -6006,14 +5302,12 @@ const albums = [
   },
   {
     id: "7DPrrI5VUfCI0TslImBQDc",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "It's Beginning To Look A Lot Like Christmas",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "It's Beginning To Look A Lot Like Christmas",
     releaseDate: "2025-02-03",
     albumImageUrl:
@@ -6023,14 +5317,12 @@ const albums = [
   },
   {
     id: "61MgNE2WKJh27wRgw1zuFI",
-    name: "BOYNEXTDOOR",
+    artistName: "BOYNEXTDOOR",
     genres: ["k-pop"],
-    song: "IF I SAY, I LOVE YOU - Japanese Version",
-    artists: ["BOYNEXTDOOR"],
     popularity: 70,
     followers: 1307975,
     artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
+      "https://i.scdn.co/image/ab6761610000e5ebcfdb5b7a40a359345dc49270",
     albumsName: "IF I SAY, I LOVE YOU (Japanese Version)",
     releaseDate: "2025-01-31",
     albumImageUrl:
@@ -6039,8409 +5331,9 @@ const albums = [
     trackDuration: "02:41",
   },
   {
-    id: "0XbHqCn0SIBKLaZvZWPPII",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Deep in Love",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "Deep in Love",
-    trackDuration: "03:47",
-  },
-  {
-    id: "3G3c7sWlKSv12ft9TGy3D0",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Sweet Chaos",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "Sweet Chaos",
-    trackDuration: "03:47",
-  },
-  {
-    id: "3SRBulKSpzAhdmkfDQLMoA",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "EMERGENCY",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "EMERGENCY",
-    trackDuration: "03:17",
-  },
-  {
-    id: "1Kuk3gJSZO6bci1TM5byIh",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Rescue Me",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "Rescue Me",
-    trackDuration: "03:21",
-  },
-  {
-    id: "6CUx9eLEzPayC722kcZ06L",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "365247",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "365247",
-    trackDuration: "02:53",
-  },
-  {
-    id: "5wq51Xh3FVP3d5cvEFuTbU",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "지금쯤",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "지금쯤",
-    trackDuration: "02:59",
-  },
-  {
-    id: "6HTWcnxSBP0deTtyoX67vl",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "아야야",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "아야야",
-    trackDuration: "03:17",
-  },
-  {
-    id: "65Ru3CZvxISXgmKHEscQeJ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Not Fine (나빠)",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "Not Fine (나빠)",
-    trackDuration: "03:35",
-  },
-  {
-    id: "68z5zvtHbNji2SgPM0LKof",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "막말",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "막말",
-    trackDuration: "03:46",
-  },
-  {
-    id: "3D9imDVFZ58EjgIe6XVu3M",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Not Mine",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "Not Mine",
-    trackDuration: "03:15",
-  },
-  {
-    id: "63SkuEP4wJNMgg7SovncQc",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "마치 흘러가는 바람처럼",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "마치 흘러가는 바람처럼",
-    trackDuration: "03:22",
-  },
-  {
-    id: "3TwVNsQwKqPuLUgVctugum",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Better Better",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "Better Better",
-    trackDuration: "03:30",
-  },
-  {
-    id: "3Xbp3hF6DOjfjixm707B0i",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "좋아합니다",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "좋아합니다",
-    trackDuration: "04:00",
-  },
-  {
-    id: "43AQ3dY0lOge0dKRQNQ2qx",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "좋은걸 뭐 어떡해",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "좋은걸 뭐 어떡해",
-    trackDuration: "03:52",
-  },
-  {
-    id: "5GKiaClanFqql87PpVq94G",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "남겨둘게",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "남겨둘게",
-    trackDuration: "03:54",
-  },
-  {
-    id: "2SZsyEzCNp6C8oCdQYuMfQ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "놀래!",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "놀래!",
-    trackDuration: "03:16",
-  },
-  {
-    id: "2PVAEjSJw2KPdY6vYJW4g4",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Be Lazy",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "Be Lazy",
-    trackDuration: "03:14",
-  },
-  {
-    id: "1UjbGZK9k48SsCAtMWa4In",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Hi Hello",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "Hi Hello",
-    trackDuration: "03:52",
-  },
-  {
-    id: "6pXrKg2fKzRICc0SghWrTl",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "I Loved You",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "I Loved You",
-    trackDuration: "03:54",
-  },
-  {
-    id: "419Oc8GGyLPEpR6UNWgdqO",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "그렇더라고요",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "그렇더라고요",
-    trackDuration: "03:46",
-  },
-  {
-    id: "0OqxKqWVtehnFPhosPnsGQ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "혼자야",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "혼자야",
-    trackDuration: "03:44",
-  },
-  {
-    id: "1nFJ78pqJW8GBIxqqx6RYu",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "쏟아진다",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "쏟아진다",
-    trackDuration: "04:05",
-  },
-  {
-    id: "18KrJhfAdDpXbGB4xoTWBj",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "누군가 필요해",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "누군가 필요해",
-    trackDuration: "03:38",
-  },
-  {
-    id: "4rHyldhPUWBot22JmVpmZb",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "노력해볼게요",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "노력해볼게요",
-    trackDuration: "03:43",
-  },
-  {
-    id: "6i1PzZO32sfJMvTvVx23sK",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "오늘은 내게",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "오늘은 내게",
-    trackDuration: "03:29",
-  },
-  {
-    id: "7tkQWycd9o8c4JVW5BG6p8",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "반드시 웃는다",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "반드시 웃는다",
-    trackDuration: "03:47",
-  },
-  {
-    id: "1vGoAFGWSDMZkpZCqSYsu8",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Man in a Movie",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "Man in a Movie",
-    trackDuration: "03:46",
-  },
-  {
-    id: "4b6PRYBb9LjvaaI7sGvH8i",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "아 왜 (I Wait)",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "아 왜 (I Wait)",
-    trackDuration: "03:38",
-  },
-  {
-    id: "1gakoxacOGcAA4K9HjXkdU",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "어떻게 말해",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "어떻게 말해",
-    trackDuration: "03:21",
-  },
-  {
-    id: "0wuqq3gYZikqRbneejkBVQ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "놓아 놓아 놓아 - Rebooted Ver.",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "놓아 놓아 놓아 - Rebooted Ver.",
-    trackDuration: "04:14",
-  },
-  {
-    id: "6BOK6dVXcXVoQkr9duErE0",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "그럴 텐데",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "그럴 텐데",
-    trackDuration: "03:43",
-  },
-  {
-    id: "0mXcNZr47c20zd4yEXDQlj",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "겨울이 간다",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "겨울이 간다",
-    trackDuration: "03:07",
-  },
-  {
-    id: "5Bv2De7EzaryH40FUz0wMh",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "장난 아닌데",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "장난 아닌데",
-    trackDuration: "03:14",
-  },
-  {
-    id: "1Qc7n76Tqmaj7KnhYMTMMN",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Say Wow",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "Say Wow",
-    trackDuration: "03:09",
-  },
-  {
-    id: "4cJQcQQDLdPWy6YcmsxkVZ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "DANCE DANCE",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "DANCE DANCE",
-    trackDuration: "03:43",
-  },
-  {
-    id: "0w55rt5Hi2orJ8IWCU6EDq",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "My Day",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "My Day",
-    trackDuration: "03:00",
-  },
-  {
-    id: "3HAkoNmThZhyFejhpRXXYI",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "예뻤어",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "예뻤어",
-    trackDuration: "04:43",
-  },
-  {
-    id: "2vyNjrBXARiT1BXBQ9sCHB",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Congratulations - Final Ver.",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "Congratulations - Final Ver.",
-    trackDuration: "03:49",
-  },
-  {
-    id: "4a4pBfIkHEUAYRdJHQX73G",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "괴물 Monster",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "괴물 Monster",
-    trackDuration: "03:36",
-  },
-  {
-    id: "5Invv3m92xZvztdCbZrmZ6",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "녹아내려요 Melt Down",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "녹아내려요 Melt Down",
-    trackDuration: "02:45",
-  },
-  {
-    id: "0KluOoZx03KC3NucRSm8n4",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "그녀가 웃었다 She Smiled",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "그녀가 웃었다 She Smiled",
-    trackDuration: "03:22",
-  },
-  {
-    id: "3HC3QgThjUtZcqiHM0neAJ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "망겜 Shxtty Game",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "망겜 Shxtty Game",
-    trackDuration: "03:09",
-  },
-  {
-    id: "49mntFe7XtS9Zut6ySEdtw",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "도와줘요 Rock&Roll Help Me Rock&Roll",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "도와줘요 Rock&Roll Help Me Rock&Roll",
-    trackDuration: "02:36",
-  },
-  {
-    id: "2qKBDTag2pLh9aJwKTyB6M",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "COUNTER",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "COUNTER",
-    trackDuration: "02:58",
-  },
-  {
-    id: "1l8MduTqOzwfr9f53JY5o1",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "I'm Fine",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "I'm Fine",
-    trackDuration: "03:15",
-  },
-  {
-    id: "0PtsUJhLbQUlnfCleLUFHl",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "아직 거기 살아 Still There",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "아직 거기 살아 Still There",
-    trackDuration: "03:19",
-  },
-  {
-    id: "1Mr0PGyergfMZ7swKiWiBP",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Psycho",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Psycho, Loveholic [THE SEASONS: Red Carpet with Lee Hyo Ri]",
-    releaseDate: "2024-03-31",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734986931fbb88f0db947335cd",
-    trackName: "Psycho",
-    trackDuration: "03:32",
-  },
-  {
-    id: "66cl9dpkfm7WMJcfufL0Tu",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Loveholic",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Psycho, Loveholic [THE SEASONS: Red Carpet with Lee Hyo Ri]",
-    releaseDate: "2024-03-31",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734986931fbb88f0db947335cd",
-    trackName: "Loveholic",
-    trackDuration: "03:38",
-  },
-  {
-    id: "0mP5g0VVh3TenBszcphqM9",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Psycho - Instrumental",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Psycho, Loveholic [THE SEASONS: Red Carpet with Lee Hyo Ri]",
-    releaseDate: "2024-03-31",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734986931fbb88f0db947335cd",
-    trackName: "Psycho - Instrumental",
-    trackDuration: "03:32",
-  },
-  {
-    id: "110Xlv114Asg9s4Ujhf8aD",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Loveholic - Instrumental",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Psycho, Loveholic [THE SEASONS: Red Carpet with Lee Hyo Ri]",
-    releaseDate: "2024-03-31",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734986931fbb88f0db947335cd",
-    trackName: "Loveholic - Instrumental",
-    trackDuration: "03:38",
-  },
-  {
-    id: "1IthE5GNiRzFN5CVaCa445",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Born Singer",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Born Singer",
-    trackDuration: "03:58",
-  },
-  {
-    id: "27S8iOXD7Z58yvJtyk2S9j",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "No More Dream",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "No More Dream",
-    trackDuration: "03:42",
-  },
-  {
-    id: "2GEnvQgSJhedm2sqZlOP8o",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "N.O",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "N.O",
-    trackDuration: "03:29",
-  },
-  {
-    id: "0vMk4IrUfSJQkhwZnVX6us",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Boy In Luv",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Boy In Luv",
-    trackDuration: "03:51",
-  },
-  {
-    id: "0Q53fuiKLGjDKD7Mme7EoQ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Danger",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Danger",
-    trackDuration: "04:05",
-  },
-  {
-    id: "1GunnGtZCSjLUAPG6yrDUC",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "I NEED U",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "I NEED U",
-    trackDuration: "03:30",
-  },
-  {
-    id: "20Qqyt4bd1oe4KmkTagb2K",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "RUN",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "RUN",
-    trackDuration: "03:56",
-  },
-  {
-    id: "5cQPIQAF2T1elxWs7EqB9W",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Burning Up (FIRE)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Burning Up (FIRE)",
-    trackDuration: "03:23",
-  },
-  {
-    id: "1wiqEFd8phSCSlteDLSyp2",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Blood Sweat & Tears",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Blood Sweat & Tears",
-    trackDuration: "03:37",
-  },
-  {
-    id: "4upRoEWkMWhhMfEgPZMFRP",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Spring Day",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Spring Day",
-    trackDuration: "04:34",
-  },
-  {
-    id: "2Ygw4CPjg1lg4zxTITYY2V",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "DNA",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "DNA",
-    trackDuration: "03:43",
-  },
-  {
-    id: "3YspylwDrs1LuzPONbKmAL",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "FAKE LOVE",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "FAKE LOVE",
-    trackDuration: "04:02",
-  },
-  {
-    id: "0KCvsHmGvW2XcsxEWJvLPr",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "IDOL",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "IDOL",
-    trackDuration: "03:42",
-  },
-  {
-    id: "07qrA1FxZpXy383wX3IDEb",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Boy With Luv (Feat. Halsey)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Boy With Luv (Feat. Halsey)",
-    trackDuration: "03:49",
-  },
-  {
-    id: "0U4hNZFJYNFdEAXZcHbkkc",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "ON",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "ON",
-    trackDuration: "04:06",
-  },
-  {
-    id: "1hIuSG6xV4RDgD8bDVKP7N",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Dynamite",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Dynamite",
-    trackDuration: "03:19",
-  },
-  {
-    id: "1VjqXwHU3isibdXLEtXc4q",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Life Goes On",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Life Goes On",
-    trackDuration: "03:28",
-  },
-  {
-    id: "6jjYDGxVJsWS0a5wlVF5vS",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Butter",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Butter",
-    trackDuration: "02:44",
-  },
-  {
-    id: "10SRMwb9EuVS1K9rYsBfHQ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Yet To Come",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Yet To Come",
-    trackDuration: "03:13",
-  },
-  {
-    id: "69xohKu8C1fsflYAiSNbwM",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Run BTS",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Run BTS",
-    trackDuration: "03:24",
-  },
-  {
-    id: "2klid0zSCvIkOjXa0EKbVd",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Life Goes On",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "Life Goes On",
-    trackDuration: "03:27",
-  },
-  {
-    id: "5JcUAMvjUUM0z3OVIcnuvM",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "내 방을 여행하는 법",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "내 방을 여행하는 법",
-    trackDuration: "03:42",
-  },
-  {
-    id: "7jn7Twa2blnw4sx8w9Igu9",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Blue & Grey",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "Blue & Grey",
-    trackDuration: "04:14",
-  },
-  {
-    id: "5WAiTRzC981eOxgldlxVd5",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Skit",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "Skit",
-    trackDuration: "02:59",
-  },
-  {
-    id: "6XesM5tApm8ARWMjoD1EMm",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "잠시",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "잠시",
-    trackDuration: "03:22",
-  },
-  {
-    id: "6aGtSx8xkaDULmxdx92gkO",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "병",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "병",
-    trackDuration: "03:59",
-  },
-  {
-    id: "7izAEpXmZjjmvKKYuoSLRP",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Stay",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "Stay",
-    trackDuration: "03:24",
-  },
-  {
-    id: "5aHwYjiSGgJAxy10mBMlDT",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Dynamite",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "Dynamite",
-    trackDuration: "03:19",
-  },
-  {
-    id: "5raJ9QoZOdoRZ1MZOcygkR",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "INTRO : Calling",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "INTRO : Calling",
-    trackDuration: "01:24",
-  },
-  {
-    id: "3Ys2PYl1wyPKQIwyqhP9cQ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Stay Gold",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Stay Gold",
-    trackDuration: "04:03",
-  },
-  {
-    id: "1GAAUZBTaIM1LwNpOJQJrZ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Boy With Luv - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Boy With Luv - Japanese ver.",
-    trackDuration: "03:50",
-  },
-  {
-    id: "6P0Ni8GrnwRScC4uk8tKqM",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Make It Right - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Make It Right - Japanese ver.",
-    trackDuration: "03:45",
-  },
-  {
-    id: "6j0NiWoRQDiNC05RwVVZNa",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Dionysus - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Dionysus - Japanese ver.",
-    trackDuration: "04:08",
-  },
-  {
-    id: "2vYF5MHeCNtqCVastthDAo",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "IDOL - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "IDOL - Japanese ver.",
-    trackDuration: "03:43",
-  },
-  {
-    id: "4EeVAiJtyblHzvkN9sZCmM",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Airplane pt.2 - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Airplane pt.2 - Japanese ver.",
-    trackDuration: "03:40",
-  },
-  {
-    id: "4jTEbIwCMcHSwlSEiR4NlQ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "FAKE LOVE - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "FAKE LOVE - Japanese ver.",
-    trackDuration: "04:03",
-  },
-  {
-    id: "5smmjzMNkj4YSacTBH6taZ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Black Swan - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Black Swan - Japanese ver.",
-    trackDuration: "03:18",
-  },
-  {
-    id: "2hhizKAVm9wNn0d2N05jkG",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "ON - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "ON - Japanese ver.",
-    trackDuration: "04:07",
-  },
-  {
-    id: "3TDUktzfYXMWjkWqwoT5F1",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Lights",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Lights",
-    trackDuration: "04:52",
-  },
-  {
-    id: "3TZ7NHkMT82AhwuYsd00Hz",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Your eyes tell",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Your eyes tell",
-    trackDuration: "04:05",
-  },
-  {
-    id: "0VF357Gjay5vvCqWA1kSu6",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "OUTRO : The Journey",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "OUTRO : The Journey",
-    trackDuration: "01:16",
-  },
-  {
-    id: "2xKpEiPm7SWJTxUJgUI7Wg",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Intro : Persona",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Intro : Persona",
-    trackDuration: "02:51",
-  },
-  {
-    id: "5sF9xwCDidhTovLRrr22sT",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "작은 것들을 위한 시 (Boy With Luv) [feat. Halsey]",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "작은 것들을 위한 시 (Boy With Luv) [feat. Halsey]",
-    trackDuration: "03:49",
-  },
-  {
-    id: "0nAK07NX5OQYibxYZJKthX",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Make It Right",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Make It Right",
-    trackDuration: "03:46",
-  },
-  {
-    id: "1Gz07U8Hhet3cVEeeqVel6",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Jamais Vu",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Jamais Vu",
-    trackDuration: "03:47",
-  },
-  {
-    id: "6n0nzGXOD3mbJwX8tvkOqA",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Dionysus",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Dionysus",
-    trackDuration: "04:09",
-  },
-  {
-    id: "6dTQxiNU1qc0ob4BV9AxrH",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Interlude : Shadow",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Interlude : Shadow",
-    trackDuration: "04:19",
-  },
-  {
-    id: "31UyoQYfXdquugSTclaPG1",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Black Swan",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Black Swan",
-    trackDuration: "03:18",
-  },
-  {
-    id: "1MIUb1YqTmBRnZrSxgxXEd",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Filter",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Filter",
-    trackDuration: "03:00",
-  },
-  {
-    id: "4Yqung81v8CmhDCEXUyjTm",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "시차",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "시차",
-    trackDuration: "03:54",
-  },
-  {
-    id: "12oB9TEj1ILuQEZt4VAs5e",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Louder than bombs",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Louder than bombs",
-    trackDuration: "03:37",
-  },
-  {
-    id: "2vh6yTfSkyO37hj5M3A3JW",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "ON",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "ON",
-    trackDuration: "04:06",
-  },
-  {
-    id: "4QWPKecgt2lc4GpWtYgYtJ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "욱 (UGH!)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "욱 (UGH!)",
-    trackDuration: "03:45",
-  },
-  {
-    id: "39qNsDe6e6y0ZMBFYfVdx9",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "00:00 (Zero O’Clock)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "00:00 (Zero O’Clock)",
-    trackDuration: "04:10",
-  },
-  {
-    id: "42TGLajWw43lkOF671gtDE",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Inner Child",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Inner Child",
-    trackDuration: "03:53",
-  },
-  {
-    id: "4NQ8DTueMrnI7u5qUEaR7b",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "친구",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "친구",
-    trackDuration: "03:19",
-  },
-  {
-    id: "4IyZRfH1jGzXjVg9RH6a3p",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Moon",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Moon",
-    trackDuration: "03:28",
-  },
-  {
-    id: "1nkQNNXQIUvzA2kicC7mfX",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Respect",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Respect",
-    trackDuration: "03:57",
-  },
-  {
-    id: "4kHoeGe1iDCSdyueYtb3EV",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "We are Bulletproof : the Eternal",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "We are Bulletproof : the Eternal",
-    trackDuration: "04:21",
-  },
-  {
-    id: "12aSYs0fRflbzSeaaQzZtp",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Outro : Ego",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Outro : Ego",
-    trackDuration: "03:16",
-  },
-  {
-    id: "2WLVBA5fOIIAHYb0DsRhDk",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "ON (Feat. Sia)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "ON (Feat. Sia)",
-    trackDuration: "04:06",
-  },
-  {
-    id: "1e60XXx2p9W87HCEZlnaB3",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Intro : Persona",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "Intro : Persona",
-    trackDuration: "02:51",
-  },
-  {
-    id: "2V7Gxq4QW2Fm4zizDF0V6Z",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "작은 것들을 위한 시 (Boy With Luv) (feat. Halsey)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "작은 것들을 위한 시 (Boy With Luv) (feat. Halsey)",
-    trackDuration: "03:49",
-  },
-  {
-    id: "6QVXzFvWhzDFNMjSlMCH77",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "소우주 (Mikrokosmos)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "소우주 (Mikrokosmos)",
-    trackDuration: "03:44",
-  },
-  {
-    id: "106Xfvha3rKf5z5gCSUtFX",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Make It Right",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "Make It Right",
-    trackDuration: "03:46",
-  },
-  {
-    id: "6BppPBOUSoZmpTLuVqwfNt",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "HOME",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "HOME",
-    trackDuration: "03:54",
-  },
-  {
-    id: "5pDabSsxF2KphzQZMcPo1J",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Jamais Vu",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "Jamais Vu",
-    trackDuration: "03:47",
-  },
-  {
-    id: "1BodW0D2wzSDFozd1GlZOn",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Dionysus",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "Dionysus",
-    trackDuration: "04:09",
-  },
-  {
-    id: "4gxEY3Mh5FZZDAJAKPNrCS",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY",
-    trackDuration: "02:44",
-  },
-  {
-    id: "69MMbwpvp5I9QTIzJeinpe",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (English ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (English ver.)",
-    trackDuration: "02:44",
-  },
-  {
-    id: "3s31zhHgCzJKhXGXPiTs4F",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Vogue Remix) (feat. Dashaun Wesley)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Vogue Remix) (feat. Dashaun Wesley)",
-    trackDuration: "02:28",
-  },
-  {
-    id: "1PW3XIvHX9HLKjSfUs2mEV",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Bounce Up Remix)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Bounce Up Remix)",
-    trackDuration: "02:36",
-  },
-  {
-    id: "5qg6dX7tOVlT5XtySVRRhY",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Dance Remix)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Dance Remix)",
-    trackDuration: "02:47",
-  },
-  {
-    id: "4WePneCUYtptHiDHuLQzQw",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Sped Up ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Sped Up ver.)",
-    trackDuration: "02:02",
-  },
-  {
-    id: "6CLFYe1yKG6DlEqE6dTjt9",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Slowed + Reverb ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Slowed + Reverb ver.)",
-    trackDuration: "03:25",
-  },
-  {
-    id: "0ZnkkW6pf3S9e9IKBZNrm9",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Instrumental)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Instrumental)",
-    trackDuration: "02:44",
-  },
-  {
-    id: "2JGsTyLC4gLCWXVmvUn5Wi",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "The World Is My Oyster (2023 Ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "The World Is My Oyster (2023 Ver.)",
-    trackDuration: "01:46",
-  },
-  {
-    id: "4K8jDTlNhZWEdnzZVGRMtN",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "FEARLESS (2023 Ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "FEARLESS (2023 Ver.)",
-    trackDuration: "02:48",
-  },
-  {
-    id: "2ahp0wvyEzyvgWfOhStHWp",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Blue Flame (2023 Ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Blue Flame (2023 Ver.)",
-    trackDuration: "03:21",
-  },
-  {
-    id: "72RWX5lMa27RQG5DzbGaoj",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "The Hydra",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "The Hydra",
-    trackDuration: "01:44",
-  },
-  {
-    id: "0bMoNdAnxNR0OuQbGDovrr",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "ANTIFRAGILE",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "ANTIFRAGILE",
-    trackDuration: "03:04",
-  },
-  {
-    id: "7mYwDmbbp8UPLlnRjTJ54X",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Impurities",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Impurities",
-    trackDuration: "03:16",
-  },
-  {
-    id: "3NJ5Ksj7LNbvfNgEtl3o6Z",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Burn the Bridge",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Burn the Bridge",
-    trackDuration: "02:34",
-  },
-  {
-    id: "51vRumtqbkNW9wrKfESwfu",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "UNFORGIVEN (feat. Nile Rodgers)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "UNFORGIVEN (feat. Nile Rodgers)",
-    trackDuration: "03:02",
-  },
-  {
-    id: "6DSGb5CmwHX4pvclq8HUU1",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "No-Return (Into the unknown)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "No-Return (Into the unknown)",
-    trackDuration: "03:04",
-  },
-  {
-    id: "4QhnNyKDsAkXPwHkSnuc89",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Eve, Psyche & The Bluebeard’s wife",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Eve, Psyche & The Bluebeard’s wife",
-    trackDuration: "03:05",
-  },
-  {
-    id: "0sNfFxw3pJkVmRsgY781vM",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "FEARNOT (Between you, me and the lamppost)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "FEARNOT (Between you, me and the lamppost)",
-    trackDuration: "03:26",
-  },
-  {
-    id: "74cpuIw43kA8xPgbQEPdss",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Flash Forward",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Flash Forward",
-    trackDuration: "03:15",
-  },
-  {
-    id: "05RlBHEZg1RmL9DnPgv9Qq",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Fire in the belly",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Fire in the belly",
-    trackDuration: "03:18",
-  },
-  {
-    id: "2ThrRg4rj3syCaROoNZD3z",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT",
-    trackDuration: "02:23",
-  },
-  {
-    id: "3RH8MZU18p1Tp2lFxJylE9",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (KIM CHAEWON ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT (KIM CHAEWON ver.)",
-    trackDuration: "02:42",
-  },
-  {
-    id: "51dzPsthZo6vv3dpr8dmlc",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (SAKURA ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT (SAKURA ver.)",
-    trackDuration: "02:16",
-  },
-  {
-    id: "4VoZLrS5KS5A7P67ujxx8l",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (HUH YUNJIN ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT (HUH YUNJIN ver.)",
-    trackDuration: "03:05",
-  },
-  {
-    id: "1fwBUAXdD4j8YeJgBUrWhg",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (KAZUHA ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT (KAZUHA ver.)",
-    trackDuration: "02:09",
-  },
-  {
-    id: "5GTVROehshYBZP8lvrUVI1",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (HONG EUNCHAE ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT (HONG EUNCHAE ver.)",
-    trackDuration: "02:31",
-  },
-  {
-    id: "7DiNz8GX8Tw66ZVxJZNs9R",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (English ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737439e1a5b8ff259d5acae738",
-    trackName: "HOT (English ver.)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "5teKP1Xm5SnUsYDCjPKKNm",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737439e1a5b8ff259d5acae738",
-    trackName: "HOT",
-    trackDuration: "02:23",
-  },
-  {
-    id: "2SRWvcXOUaNVCjJpQpQZkv",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Sped Up ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737439e1a5b8ff259d5acae738",
-    trackName: "HOT (Sped Up ver.)",
-    trackDuration: "01:47",
-  },
-  {
-    id: "4ljCeTrFEmUNuZ0lgvkUQN",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Slowed + Reverb ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737439e1a5b8ff259d5acae738",
-    trackName: "HOT (Slowed + Reverb ver.)",
-    trackDuration: "03:29",
-  },
-  {
-    id: "3blImx4cXQGUsT3E0GciWl",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Instrumental)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737439e1a5b8ff259d5acae738",
-    trackName: "HOT (Instrumental)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "0dcfrljmlnUEypYAF4aPFi",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e829ec8ff3543142dd473cfc",
-    trackName: "HOT",
-    trackDuration: "02:23",
-  },
-  {
-    id: "33cc6g7mDVbXXCjqsG25OB",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (English ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e829ec8ff3543142dd473cfc",
-    trackName: "HOT (English ver.)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "2If5qKv7BUfVR36x0XYOh4",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Sped Up ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e829ec8ff3543142dd473cfc",
-    trackName: "HOT (Sped Up ver.)",
-    trackDuration: "01:47",
-  },
-  {
-    id: "6SkK9MV9YXb0h4BRTzZcNK",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Slowed + Reverb ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e829ec8ff3543142dd473cfc",
-    trackName: "HOT (Slowed + Reverb ver.)",
-    trackDuration: "03:29",
-  },
-  {
-    id: "7iH1crFi3c1dNsAkgYLhxC",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Instrumental)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e829ec8ff3543142dd473cfc",
-    trackName: "HOT (Instrumental)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "0hDo3EPwvhCSggmqkVvJPX",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "number one girl",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "number one girl",
-    trackDuration: "03:36",
-  },
-  {
-    id: "1j9Y2na5KDqntYChmIRUGf",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "3am",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "3am",
-    trackDuration: "02:34",
-  },
-  {
-    id: "7hOwyq4JU1Fkw2UZGIcvHZ",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "two years",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "two years",
-    trackDuration: "02:47",
-  },
-  {
-    id: "30HIJzJEUYcL9Qng15UeBo",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "toxic till the end",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "toxic till the end",
-    trackDuration: "02:36",
-  },
-  {
-    id: "4JV9Kb9qxNr5YiIbAXdvDT",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "drinks or coffee",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "drinks or coffee",
-    trackDuration: "02:13",
-  },
-  {
-    id: "0JLcfQTtEf3Whtj59OhS0f",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "APT.",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "APT.",
-    trackDuration: "02:49",
-  },
-  {
-    id: "5IZfqpeQOX2pSXTlsOGMbh",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "gameboy",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "gameboy",
-    trackDuration: "02:46",
-  },
-  {
-    id: "1PfLL0JosQTX6d2c2nes7g",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "stay a little longer",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "stay a little longer",
-    trackDuration: "04:06",
-  },
-  {
-    id: "4ZrIvXRkOIvSpszy8mJvPW",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "not the same",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "not the same",
-    trackDuration: "03:04",
-  },
-  {
-    id: "51RVssSB8iuq9llBacPbER",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "call it the end",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "call it the end",
-    trackDuration: "02:21",
-  },
-  {
-    id: "0kLzF2Cl3zvFOyzgE86ssW",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "too bad for us",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "too bad for us",
-    trackDuration: "03:56",
-  },
-  {
-    id: "05v68b039L6DcXHhbkL2wO",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "dance all night",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "dance all night",
-    trackDuration: "03:34",
-  },
-  {
-    id: "6BZdmmwNrZlE8QvNU15Jbv",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "number one girl",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "number one girl",
-    releaseDate: "2024-11-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c782fa0fb8845dd6fd594e08",
-    trackName: "number one girl",
-    trackDuration: "03:36",
-  },
-  {
-    id: "2vDkR3ctidSd17d2CygVzS",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "APT.",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "APT.",
-    releaseDate: "2024-10-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27359639b3440e708daa35987be",
-    trackName: "APT.",
-    trackDuration: "02:49",
-  },
-  {
-    id: "2xgACMNtJ5YktyvOC83SPO",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "On The Ground",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "R",
-    releaseDate: "2021-03-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fdd9fc8745ed9185dc95873",
-    trackName: "On The Ground",
-    trackDuration: "02:48",
-  },
-  {
-    id: "2ayIgfvWo3SfYP2pVOr4pC",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "Gone",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "R",
-    releaseDate: "2021-03-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fdd9fc8745ed9185dc95873",
-    trackName: "Gone",
-    trackDuration: "03:27",
-  },
-  {
-    id: "5FUtACXX7AniiESuPD8Ohw",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Home",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "Home",
-    trackDuration: "06:08",
-  },
-  {
-    id: "73lwp9JhdXb4a0aS6Cyses",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Shine your light",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "Shine your light",
-    trackDuration: "04:15",
-  },
-  {
-    id: "5fPtS47kDZFCZ5Txt6j4SX",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Wonderland",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "Wonderland",
-    trackDuration: "05:25",
-  },
-  {
-    id: "00dFEbKmQSwBTkHYV6xVTX",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Beautiful Tomorrow",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "Beautiful Tomorrow",
-    trackDuration: "04:54",
-  },
-  {
-    id: "26gaGxSnZ4CudxpUdHZBoF",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "The Dreamer (I am A Dreamer)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "The Dreamer (I am A Dreamer)",
-    trackDuration: "04:34",
-  },
-  {
-    id: "5wQgwLigxPtDwDMMFCu2tV",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Wild Flower",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "Wild Flower",
-    trackDuration: "05:14",
-  },
-  {
-    id: "1cLrKzoZsqdoazJAzNvBEJ",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "HAPPY TOGETHER",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "HAPPY TOGETHER",
-    trackDuration: "04:12",
-  },
-  {
-    id: "1ZJpYHYLZoxaJcBhBplwtb",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Li-La",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "Li-La",
-    trackDuration: "03:52",
-  },
-  {
-    id: "7pJcMkVanPZDqWrF7Rxml6",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Breath",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "Breath",
-    trackDuration: "04:44",
-  },
-  {
-    id: "6W0FmAYWXjnUi7ltauF0og",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "I'm your friend",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "I'm your friend",
-    trackDuration: "05:00",
-  },
-  {
-    id: "74hOHSIvlcsnDmc1OvKg32",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Dream",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "Dream",
-    trackDuration: "04:59",
-  },
-  {
-    id: "4dfyVGfkeCsByVAmkRr65q",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Breath - Instrumental",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "I am A Dreamer",
-    releaseDate: "2016-10-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3430c9daa4cf3572627c420",
-    trackName: "Breath - Instrumental",
-    trackDuration: "04:43",
-  },
-  {
-    id: "6w5NbQk443dcEo3yD4hOZa",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "나비의 겨울",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "나비의 겨울",
-    trackDuration: "04:22",
-  },
-  {
-    id: "6DZ1Wj7XgdCEOnojl8zcy6",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "동경",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "동경",
-    trackDuration: "05:25",
-  },
-  {
-    id: "5MAQCS79VtwwrklEqqoQg0",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "좋은 사람",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "좋은 사람",
-    trackDuration: "03:54",
-  },
-  {
-    id: "0Welqb9jUhoEduLZpOFmZ8",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "It`s Gonna Be Rolling",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "It`s Gonna Be Rolling",
-    trackDuration: "05:01",
-  },
-  {
-    id: "5Plr06mFMvwsammBdpecRl",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "바보",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "바보",
-    trackDuration: "04:41",
-  },
-  {
-    id: "1Ha2Cz0Hu7NgNP9EFjUo0Z",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "사랑보다 깊은 상처 (feat. 앤)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "사랑보다 깊은 상처 (feat. 앤)",
-    trackDuration: "04:41",
-  },
-  {
-    id: "3v8ScWzT6t9qGz8VUmk8Um",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "그 후",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "그 후",
-    trackDuration: "04:52",
-  },
-  {
-    id: "2ujSuMDjlwGbBLbTuSu6Y5",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "그것만이 내 세상 (with 권인하)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "그것만이 내 세상 (with 권인하)",
-    trackDuration: "06:00",
-  },
-  {
-    id: "3VuqFqafnbcupMMPJgQJZl",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Show Your Love",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "Show Your Love",
-    trackDuration: "04:40",
-  },
-  {
-    id: "48m4K0BXk5K7Re0Ljqhyu6",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Close My Eyes",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "Close My Eyes",
-    trackDuration: "04:39",
-  },
-  {
-    id: "20V4OS51QTO5Dmx8VY5xVY",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "해줄 수 없는 일",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "해줄 수 없는 일",
-    trackDuration: "04:19",
-  },
-  {
-    id: "236cSWjY9NuwRCd6haCRVg",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "You & Me",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "You & Me",
-    trackDuration: "04:37",
-  },
-  {
-    id: "1e8CM5P7KjXpiNZNo10Vxk",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "사랑 그 흔한 말",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "사랑 그 흔한 말",
-    trackDuration: "04:27",
-  },
-  {
-    id: "4LsdCq06XTYy5yc7J671Yb",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "먼 곳에서",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "먼 곳에서",
-    trackDuration: "03:47",
-  },
-  {
-    id: "5D9bR1peyBP2pfV0DSkZJl",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "스토킹",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "스토킹",
-    trackDuration: "04:01",
-  },
-  {
-    id: "6izJzs1AGabI0NZz1gUsJR",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "위안",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "THE GOLD",
-    releaseDate: "2016-06-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273eb6c9fbc13de1d20223dff0d",
-    trackName: "위안",
-    trackDuration: "04:02",
-  },
-  {
-    id: "6bDNjqza0hqoZ16XpK331T",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "It's Strange (Acoustic Ver.)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "It's Strange (Acoustic Ver.)",
-    trackDuration: "04:26",
-  },
-  {
-    id: "4eKvCOwmsa5HRtpF34BFp3",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Gift",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "Gift",
-    trackDuration: "03:28",
-  },
-  {
-    id: "4Q5XBV4sCvggtvFuVORCkF",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "After Love",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "After Love",
-    trackDuration: "03:50",
-  },
-  {
-    id: "6YUP0VOn2P8ShAiULxSykr",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Wishing For You",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "Wishing For You",
-    trackDuration: "04:08",
-  },
-  {
-    id: "6uBQ90PzdL0GfpW2evGEXd",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "It's Strange",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "It's Strange",
-    trackDuration: "03:49",
-  },
-  {
-    id: "4EEhhbFjJzgFuiQqJgvbR2",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Nameless Bird",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "Nameless Bird",
-    trackDuration: "03:54",
-  },
-  {
-    id: "0mYUUdELRyMK4jf4LTrvNl",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Deja-Vu",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "Deja-Vu",
-    trackDuration: "02:53",
-  },
-  {
-    id: "3zEgr0sLYIGT3WPhAjksCa",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Beautiful Day (Feat. SKULL)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "Beautiful Day (Feat. SKULL)",
-    trackDuration: "03:41",
-  },
-  {
-    id: "1R0lSA8A8nN88U0TVUev9p",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "I Promise You",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "I Promise You",
-    trackDuration: "04:23",
-  },
-  {
-    id: "3z9Oy9V7H2svQSNceTaUHw",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Tears Are About Shedding",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "Tears Are About Shedding",
-    trackDuration: "03:52",
-  },
-  {
-    id: "3o09hPONBfGOdH2lKq1lLC",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Only U",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "Only U",
-    trackDuration: "03:26",
-  },
-  {
-    id: "1VJI7olL2jgFIaefxSnEXp",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Love Barista (Feat. Seo In Guk)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "Love Barista (Feat. Seo In Guk)",
-    trackDuration: "04:26",
-  },
-  {
-    id: "5o6GTzoPXDGEMkF74w64eK",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Goodbye Love",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "Goodbye Love",
-    trackDuration: "03:56",
-  },
-  {
-    id: "6NAUMYtmSx2i9IWCcgbSrJ",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "I Love You",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "I Love You",
-    trackDuration: "04:02",
-  },
-  {
-    id: "4typI7T0Lsum7TDGqPFoow",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Happy Christmas",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift E.C.H.O",
-    releaseDate: "2012-03-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27304f70644da711f17cb871303",
-    trackName: "Happy Christmas",
-    trackDuration: "03:50",
-  },
-  {
-    id: "2yD6jt9CQQApZc9MAVHeJn",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Beautiful Day (Feat. SKULL)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift (Part.2)",
-    releaseDate: "2010-12-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2733212f9f2a891c4f28ab4b9fb",
-    trackName: "Beautiful Day (Feat. SKULL)",
-    trackDuration: "03:41",
-  },
-  {
-    id: "2rtvBPl6YXick3vbPBnDF4",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "I Promise You",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift (Part.2)",
-    releaseDate: "2010-12-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2733212f9f2a891c4f28ab4b9fb",
-    trackName: "I Promise You",
-    trackDuration: "04:23",
-  },
-  {
-    id: "2pZcdLQkRmH9T3oajmlxuO",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Tears are About Shedding",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift (Part.2)",
-    releaseDate: "2010-12-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2733212f9f2a891c4f28ab4b9fb",
-    trackName: "Tears are About Shedding",
-    trackDuration: "03:52",
-  },
-  {
-    id: "0YDUEgoZd0ES5ru0UOCWQW",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Only U",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift (Part.2)",
-    releaseDate: "2010-12-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2733212f9f2a891c4f28ab4b9fb",
-    trackName: "Only U",
-    trackDuration: "03:26",
-  },
-  {
-    id: "0C9WCzHmvl6GvIIn7Tq3pn",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Love Barista (Feat. Seo In Guk)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift (Part.2)",
-    releaseDate: "2010-12-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2733212f9f2a891c4f28ab4b9fb",
-    trackName: "Love Barista (Feat. Seo In Guk)",
-    trackDuration: "04:26",
-  },
-  {
-    id: "4h4xDpXA8Os4VG39uDxzSj",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Goodbye Love",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift (Part.2)",
-    releaseDate: "2010-12-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2733212f9f2a891c4f28ab4b9fb",
-    trackName: "Goodbye Love",
-    trackDuration: "03:56",
-  },
-  {
-    id: "2SEJ2NT4dzggwtmsmVUUYb",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "I Promise You (Inst.)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "Gift (Part.2)",
-    releaseDate: "2010-12-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2733212f9f2a891c4f28ab4b9fb",
-    trackName: "I Promise You (Inst.)",
-    trackDuration: "04:23",
-  },
-  {
-    id: "5594ru3efvd674gEeSaJYU",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "The Breeze Of Sea - Intro(Instrumental)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "The Breeze Of Sea - Intro(Instrumental)",
-    trackDuration: "01:11",
-  },
-  {
-    id: "0MjRPE2eH1ZQm9DC3BtZyq",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "추억은 사랑을 닮아",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "추억은 사랑을 닮아",
-    trackDuration: "05:29",
-  },
-  {
-    id: "2xM0QbC1oPaRfxFp7uVi7h",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "메아리",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "메아리",
-    trackDuration: "05:01",
-  },
-  {
-    id: "2j1lH8K6luee5lvCPNKQ1u",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Etude (feat. Jin Bora) - Interlude",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "Etude (feat. Jin Bora) - Interlude",
-    trackDuration: "00:34",
-  },
-  {
-    id: "4523QJggj8ZHat1ABu747i",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Lost",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "Lost",
-    trackDuration: "05:34",
-  },
-  {
-    id: "20E7RyoUockrRsSorCsESR",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "다시 사랑했으면",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "다시 사랑했으면",
-    trackDuration: "01:18",
-  },
-  {
-    id: "4D1ixkJ5oQwLangrMs8TyB",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "미워하자",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "미워하자",
-    trackDuration: "04:00",
-  },
-  {
-    id: "50LbU49cudbIw8SBdE9DDQ",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "그립고… 그리운…",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "그립고… 그리운…",
-    trackDuration: "04:56",
-  },
-  {
-    id: "4CrzO8fDPh3lNmhaiE4olL",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Like a Star (feat. Choi Arom)",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "Like a Star (feat. Choi Arom)",
-    trackDuration: "04:36",
-  },
-  {
-    id: "4ecccIn5ZRgSeES5D2wXs0",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Now & Forever",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "Now & Forever",
-    trackDuration: "04:34",
-  },
-  {
-    id: "28QyjEeOgirjfCjKSntPF4",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "사랑을 비우다",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "사랑을 비우다",
-    trackDuration: "04:38",
-  },
-  {
-    id: "6aH5nGord27nkzlp99vYiB",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Wind Child - Interlude",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "Wind Child - Interlude",
-    trackDuration: "00:40",
-  },
-  {
-    id: "6a8vt3DULkInboV43feS5I",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "1991年, 찬바람이 불던 밤…",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "1991年, 찬바람이 불던 밤…",
-    trackDuration: "04:07",
-  },
-  {
-    id: "7gyMqraZYOpfxiKesSMK04",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "The Lullaby",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "The Lullaby",
-    trackDuration: "01:35",
-  },
-  {
-    id: "2uUnODsWs7UZhXjmcKM9J6",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Don't Know Why",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "Don't Know Why",
-    trackDuration: "03:29",
-  },
-  {
-    id: "7dLtUiDlZBpd9C18BOqfJT",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "My Love",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "My Love",
-    trackDuration: "05:58",
-  },
-  {
-    id: "0Ul7obXHe7Ri1xRuQUZNwX",
-    name: "Park Hyo Shin",
-    genres: ["k-ballad"],
-    song: "Story Of The Sea… - Outro",
-    artists: ["Park Hyo Shin"],
-    popularity: 73,
-    followers: 312981,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb1e93f18daa7131d2e61b7728",
-    albumsName: "The Breeze Of Sea",
-    releaseDate: "2007-01-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27364a3d3330efb392beae949aa",
-    trackName: "Story Of The Sea… - Outro",
-    trackDuration: "00:30",
-  },
-  {
-    id: "2UE9XGbAzicJIyo4bB6sqM",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "MAESTRO",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "MAESTRO",
-    trackDuration: "03:18",
-  },
-  {
-    id: "45xiC13XQsLhV57FxQLlLV",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "LALALI",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "LALALI",
-    trackDuration: "02:51",
-  },
-  {
-    id: "2L6QRccSHAsdZDc9gz6Bfi",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Spell",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "Spell",
-    trackDuration: "03:17",
-  },
-  {
-    id: "1XvOEvWtfa879Wk1wKHZ1M",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Cheers to youth",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "Cheers to youth",
-    trackDuration: "03:11",
-  },
-  {
-    id: "469YeZRBzZw8AnNQvG5GRS",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "CALL CALL CALL! (Korean Ver.)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "CALL CALL CALL! (Korean Ver.)",
-    trackDuration: "03:20",
-  },
-  {
-    id: "2lYLfG1WddMzvyJvc7imyB",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Happy Ending (Korean Ver.)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "Happy Ending (Korean Ver.)",
-    trackDuration: "03:28",
-  },
-  {
-    id: "0AnMBa8yQZlD2B7B1myBuf",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Fallin' Flower (Korean Ver.)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "Fallin' Flower (Korean Ver.)",
-    trackDuration: "03:30",
-  },
-  {
-    id: "1r8KUc67Ur0rX5phChNg1B",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "24H (Korean Ver.)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "24H (Korean Ver.)",
-    trackDuration: "03:08",
-  },
-  {
-    id: "1cqUmROW9Pxm7bCNYcQg7i",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Not Alone (Korean Ver.)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "Not Alone (Korean Ver.)",
-    trackDuration: "03:18",
-  },
-  {
-    id: "0DirozYGvisibHzZhdgRSQ",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Power of Love (Korean Ver.)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "Power of Love (Korean Ver.)",
-    trackDuration: "03:49",
-  },
-  {
-    id: "4QJ3R0wwwtmll1eAxvV3PB",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "DREAM (Korean Ver.)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "DREAM (Korean Ver.)",
-    trackDuration: "03:06",
-  },
-  {
-    id: "2NSCKPxS53FFgIOgiMAFZy",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Ima -Even if the world ends tomorrow- (Korean Ver.)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "Ima -Even if the world ends tomorrow- (Korean Ver.)",
-    trackDuration: "03:11",
-  },
-  {
-    id: "7sEQgmTiEWwMzdnRA28OW1",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Adore U",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "Adore U",
-    trackDuration: "03:06",
-  },
-  {
-    id: "26OTyz9vMgYKvTvJONpNk4",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "MANSAE",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "MANSAE",
-    trackDuration: "03:06",
-  },
-  {
-    id: "2mFCN72V3rTq1BT4WWddIF",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Pretty U",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "Pretty U",
-    trackDuration: "03:27",
-  },
-  {
-    id: "3nAUdBQxle8l1EeOxW3m0R",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "VERY NICE",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "VERY NICE",
-    trackDuration: "03:12",
-  },
-  {
-    id: "4wwEpkAwaT65hVmcg9zQSi",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "BOOMBOOM",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "BOOMBOOM",
-    trackDuration: "03:26",
-  },
-  {
-    id: "1WEk8mX0loccWCAcTZqVH8",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Don't Wanna Cry",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "Don't Wanna Cry",
-    trackDuration: "03:23",
-  },
-  {
-    id: "0pIJiHChaM9jlrlPCAP4aI",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "CLAP",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "CLAP",
-    trackDuration: "02:47",
-  },
-  {
-    id: "2MveMeTbVlWtumO4VPOodG",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "THANKS",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN BEST ALBUM '17 IS RIGHT HERE'",
-    releaseDate: "2024-04-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2736c498180e56f57e7d7bcdb86",
-    trackName: "THANKS",
-    trackDuration: "03:33",
-  },
-  {
-    id: "3oTDi9MWC0JB39FcsLRon3",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "SOS (Prod. Marshmello)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 11th Mini Album 'SEVENTEENTH HEAVEN'",
-    releaseDate: "2023-10-23",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d07a54abba4f5060c2486e3c",
-    trackName: "SOS (Prod. Marshmello)",
-    trackDuration: "03:12",
-  },
-  {
-    id: "4MTNimMDRyFZv37Thcktwa",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "God of Music",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 11th Mini Album 'SEVENTEENTH HEAVEN'",
-    releaseDate: "2023-10-23",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d07a54abba4f5060c2486e3c",
-    trackName: "God of Music",
-    trackDuration: "03:25",
-  },
-  {
-    id: "6n5M2Al3QgTScpO4AZH9OI",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Diamond Days",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 11th Mini Album 'SEVENTEENTH HEAVEN'",
-    releaseDate: "2023-10-23",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d07a54abba4f5060c2486e3c",
-    trackName: "Diamond Days",
-    trackDuration: "03:25",
-  },
-  {
-    id: "40PKBUQRjtW2pUg4zv3y7r",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Back 2 Back",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 11th Mini Album 'SEVENTEENTH HEAVEN'",
-    releaseDate: "2023-10-23",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d07a54abba4f5060c2486e3c",
-    trackName: "Back 2 Back",
-    trackDuration: "03:10",
-  },
-  {
-    id: "1RMnVmHGSvxlexnenQEXSb",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Monster",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 11th Mini Album 'SEVENTEENTH HEAVEN'",
-    releaseDate: "2023-10-23",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d07a54abba4f5060c2486e3c",
-    trackName: "Monster",
-    trackDuration: "02:39",
-  },
-  {
-    id: "1qzvzPfqzpNQ01ZBOEkVlf",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Yawn",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 11th Mini Album 'SEVENTEENTH HEAVEN'",
-    releaseDate: "2023-10-23",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d07a54abba4f5060c2486e3c",
-    trackName: "Yawn",
-    trackDuration: "04:18",
-  },
-  {
-    id: "6Es0Sxn1yE7L0T1YxrYHKX",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Headliner",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 11th Mini Album 'SEVENTEENTH HEAVEN'",
-    releaseDate: "2023-10-23",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d07a54abba4f5060c2486e3c",
-    trackName: "Headliner",
-    trackDuration: "03:09",
-  },
-  {
-    id: "0Qaw6haFnOnzDxQvXnxmGG",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "God of Music (Inst.)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 11th Mini Album 'SEVENTEENTH HEAVEN'",
-    releaseDate: "2023-10-23",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d07a54abba4f5060c2486e3c",
-    trackName: "God of Music (Inst.)",
-    trackDuration: "03:25",
-  },
-  {
-    id: "2dThVzsCkB0L8tWFvQH53N",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "今 -明日 世界が終わっても-",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "今 -明日 世界が終わっても-",
-    trackDuration: "03:11",
-  },
-  {
-    id: "7blRMabWMREl9clNkAhvFS",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Sara Sara",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "Sara Sara",
-    trackDuration: "02:57",
-  },
-  {
-    id: "31d4AK9HwMELTaoTZKVz5v",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "CALL CALL CALL!",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "CALL CALL CALL!",
-    trackDuration: "03:19",
-  },
-  {
-    id: "6bk9pQwgyR4ihccicvOL9L",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Happy Ending",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "Happy Ending",
-    trackDuration: "03:29",
-  },
-  {
-    id: "6toOcGbnoQgsExJB9gIjMD",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "舞い落ちる花びら（Fallin' Flower）",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "舞い落ちる花びら（Fallin' Flower）",
-    trackDuration: "03:30",
-  },
-  {
-    id: "5jXlUt3NS0iu7pHYPqpK2O",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "24H",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "24H",
-    trackDuration: "03:08",
-  },
-  {
-    id: "5UMddRELVtxbeuJzGclmM3",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "ひとりじゃない",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "ひとりじゃない",
-    trackDuration: "03:18",
-  },
-  {
-    id: "2r3aqjJhVFc5JjQAaFKNdR",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "あいのちから",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "あいのちから",
-    trackDuration: "03:49",
-  },
-  {
-    id: "1DOgZjmj0WnG9lJx12bdI2",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "DREAM",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "DREAM",
-    trackDuration: "03:06",
-  },
-  {
-    id: "6wO7MuWE2dcqonEwfUO56V",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "HIGHLIGHT - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "HIGHLIGHT - Japanese ver.",
-    trackDuration: "03:45",
-  },
-  {
-    id: "600K1v7mGmeOD3oWJXN5EZ",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Lean On Me - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "Lean On Me - Japanese ver.",
-    trackDuration: "03:24",
-  },
-  {
-    id: "5V3U5OV8s71kqYrllbsFvv",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "20 - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "20 - Japanese ver.",
-    trackDuration: "03:22",
-  },
-  {
-    id: "698iYBQkgOCpBDL8W81U25",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "LOVE LETTER - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "LOVE LETTER - Japanese ver.",
-    trackDuration: "02:58",
-  },
-  {
-    id: "0C49m3uL232ZGOwrEZucxS",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Oh My! - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "Oh My! - Japanese ver.",
-    trackDuration: "03:14",
-  },
-  {
-    id: "3pgoGjjFNc6OkuDHVyVDoh",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Healing - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "Healing - Japanese ver.",
-    trackDuration: "03:24",
-  },
-  {
-    id: "5WaJKsI66o4dr25Oi2U9Mz",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Good to Me - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "Good to Me - Japanese ver.",
-    trackDuration: "03:09",
-  },
-  {
-    id: "7dtvk4sz96QMYtOJPHQ6qH",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Smile Flower - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "Smile Flower - Japanese ver.",
-    trackDuration: "03:52",
-  },
-  {
-    id: "6CSlnSL7YojFoHg6lH2NUm",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Pinwheel - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "Pinwheel - Japanese ver.",
-    trackDuration: "03:39",
-  },
-  {
-    id: "1DOmNSj2SZ5IzOBpJqEYvm",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "247 - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "247 - Japanese ver.",
-    trackDuration: "03:32",
-  },
-  {
-    id: "3hq32mYRzuuSFez0N7thp8",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Chilli - Japanese ver.",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "ALWAYS YOURS",
-    releaseDate: "2023-08-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b21afd1bae8bc9633b97db97",
-    trackName: "Chilli - Japanese ver.",
-    trackDuration: "03:04",
-  },
-  {
-    id: "6rurduYegrf5XSZrphuyF2",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Circles",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "Circles",
-    trackDuration: "03:59",
-  },
-  {
-    id: "3QwiidVHfeE9y5jl4n2MTC",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "_WORLD",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "_WORLD",
-    trackDuration: "02:58",
-  },
-  {
-    id: "1dO3UfTaJvue1GIVITNyAS",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Fallin' Flower (Korean Ver.)",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "Fallin' Flower (Korean Ver.)",
-    trackDuration: "03:30",
-  },
-  {
-    id: "1pdFdv8R6ezIAUUNkn785b",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "CHEERS",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "CHEERS",
-    trackDuration: "03:01",
-  },
-  {
-    id: "1p9C2kCRnLMnx9pgvs2w2Y",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Darl+ing",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "Darl+ing",
-    trackDuration: "02:56",
-  },
-  {
-    id: "5fATV9lsJ4BtPgOCnXvoYO",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "HOT",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "HOT",
-    trackDuration: "03:17",
-  },
-  {
-    id: "1tlMgvyfGoyz5Vhx10qJe1",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "DON QUIXOTE",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "DON QUIXOTE",
-    trackDuration: "02:52",
-  },
-  {
-    id: "5fk2F8WjTaZ3vZFNkoyEBs",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "March",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "March",
-    trackDuration: "03:16",
-  },
-  {
-    id: "4emd5RBRN4E5aYgHs8PACe",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Domino",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "Domino",
-    trackDuration: "03:34",
-  },
-  {
-    id: "3JT5J2inl13fk2kldFUziI",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Shadow",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "Shadow",
-    trackDuration: "03:32",
-  },
-  {
-    id: "2puzy1gz0nzmVouilaE1zX",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "'bout you",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "'bout you",
-    trackDuration: "02:42",
-  },
-  {
-    id: "7FwSnVsm28MET2IyIGRiNV",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "IF you leave me",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "IF you leave me",
-    trackDuration: "03:32",
-  },
-  {
-    id: "0v6rwlTHwyM312AXyZGL5o",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Ash",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album Repackage 'SECTOR 17'",
-    releaseDate: "2022-07-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c31e3f3a15f96cfc4c8f7b7a",
-    trackName: "Ash",
-    trackDuration: "03:21",
-  },
-  {
-    id: "2j1Es5qEl4pD8GEe2WsYgP",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Darl+ing",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album 'Face the Sun'",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273decd839dd4fef3faf64c5fd5",
-    trackName: "Darl+ing",
-    trackDuration: "02:56",
-  },
-  {
-    id: "6I2tqFhk8tq69iursYxuxd",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "HOT",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album 'Face the Sun'",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273decd839dd4fef3faf64c5fd5",
-    trackName: "HOT",
-    trackDuration: "03:17",
-  },
-  {
-    id: "7BiEgR5r0yMmFoWC9kOTGf",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "DON QUIXOTE",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album 'Face the Sun'",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273decd839dd4fef3faf64c5fd5",
-    trackName: "DON QUIXOTE",
-    trackDuration: "02:52",
-  },
-  {
-    id: "5Av3flFGhQPu960OvjeNhm",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "March",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album 'Face the Sun'",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273decd839dd4fef3faf64c5fd5",
-    trackName: "March",
-    trackDuration: "03:16",
-  },
-  {
-    id: "1sjObenL1HryPaQOiMDVZ9",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Domino",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album 'Face the Sun'",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273decd839dd4fef3faf64c5fd5",
-    trackName: "Domino",
-    trackDuration: "03:34",
-  },
-  {
-    id: "2rwJP8OEao5y3xexw52HfD",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Shadow",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album 'Face the Sun'",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273decd839dd4fef3faf64c5fd5",
-    trackName: "Shadow",
-    trackDuration: "03:32",
-  },
-  {
-    id: "5O7UzcP9xERulidcIULOEj",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "'bout you",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album 'Face the Sun'",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273decd839dd4fef3faf64c5fd5",
-    trackName: "'bout you",
-    trackDuration: "02:42",
-  },
-  {
-    id: "0ilwFWjTwXszzwaG3XlNWj",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "IF you leave me",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album 'Face the Sun'",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273decd839dd4fef3faf64c5fd5",
-    trackName: "IF you leave me",
-    trackDuration: "03:32",
-  },
-  {
-    id: "5kc5p2mwO2GFq93zw5ZFWV",
-    name: "SEVENTEEN",
-    genres: ["k-pop"],
-    song: "Ash",
-    artists: ["SEVENTEEN"],
-    popularity: 79,
-    followers: 12937636,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8912a840e637dacc0d5c7828",
-    albumsName: "SEVENTEEN 4th Album 'Face the Sun'",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273decd839dd4fef3faf64c5fd5",
-    trackName: "Ash",
-    trackDuration: "03:21",
-  },
-  {
-    id: "7b9F8G4wfQd5wJmwHVyV1v",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Blue Blood",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "Blue Blood",
-    trackDuration: "02:47",
-  },
-  {
-    id: "7KavHYqoVFNB3IUXfs5gvP",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "I AM",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "I AM",
-    trackDuration: "03:03",
-  },
-  {
-    id: "5kRMDu7nOelODru9ZmwbLl",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Kitsch",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "Kitsch",
-    trackDuration: "03:15",
-  },
-  {
-    id: "4BhGSAx2NTc7Ciw8AutWWM",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Lips",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "Lips",
-    trackDuration: "03:01",
-  },
-  {
-    id: "181TBQxn46cDUxY2ssemLg",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Heroine",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "Heroine",
-    trackDuration: "02:51",
-  },
-  {
-    id: "7xcVfRQTIwTQrDJN29llIx",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Mine",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "Mine",
-    trackDuration: "03:10",
-  },
-  {
-    id: "7uJGQn40P55sT78IAgxFnD",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Hypnosis",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "Hypnosis",
-    trackDuration: "02:26",
-  },
-  {
-    id: "1lxogiPpAYoQCbeesByaE5",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "NOT YOUR GIRL",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "NOT YOUR GIRL",
-    trackDuration: "03:22",
-  },
-  {
-    id: "3F9g4SKmZoF0QEaj7z4djn",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Next Page",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "Next Page",
-    trackDuration: "03:19",
-  },
-  {
-    id: "5EFoPlYE77qjYk1V9Tcau9",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Cherish",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "Cherish",
-    trackDuration: "03:14",
-  },
-  {
-    id: "5cX4nQtyCjXvfuAHQ3Pu50",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Shine With Me",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "I've IVE",
-    releaseDate: "2023-04-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734156626a16155286856ea868",
-    trackName: "Shine With Me",
-    trackDuration: "03:44",
-  },
-  {
-    id: "7AWO1qneZ6WXX3UZsg2TZK",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "REBEL HEART",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "IVE EMPATHY",
-    releaseDate: "2025-02-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735b72e3407a7217f522cea696",
-    trackName: "REBEL HEART",
-    trackDuration: "03:08",
-  },
-  {
-    id: "4whWfgbw5hn7zOXnLTwux8",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "FLU",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "IVE EMPATHY",
-    releaseDate: "2025-02-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735b72e3407a7217f522cea696",
-    trackName: "FLU",
-    trackDuration: "03:09",
-  },
-  {
-    id: "4RcSeV4CLmk6j0kMR0QuL4",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "You Wanna Cry",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "IVE EMPATHY",
-    releaseDate: "2025-02-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735b72e3407a7217f522cea696",
-    trackName: "You Wanna Cry",
-    trackDuration: "02:54",
-  },
-  {
-    id: "4bPoW5DQiSGCzqtMLfMuA4",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Thank U",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "IVE EMPATHY",
-    releaseDate: "2025-02-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735b72e3407a7217f522cea696",
-    trackName: "Thank U",
-    trackDuration: "03:11",
-  },
-  {
-    id: "6VBiGpCFThcOFlldRiCPr9",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "ATTITUDE",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "IVE EMPATHY",
-    releaseDate: "2025-02-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735b72e3407a7217f522cea696",
-    trackName: "ATTITUDE",
-    trackDuration: "03:14",
-  },
-  {
-    id: "3zCbIlgyavSldqhoL5tJHo",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "TKO",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "IVE EMPATHY",
-    releaseDate: "2025-02-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735b72e3407a7217f522cea696",
-    trackName: "TKO",
-    trackDuration: "03:06",
-  },
-  {
-    id: "2JoRBbFJyKytt4y3D0HxQu",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "REBEL HEART",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "REBEL HEART",
-    releaseDate: "2025-01-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273307e7e4ca1b2c02108aec9a0",
-    trackName: "REBEL HEART",
-    trackDuration: "03:08",
-  },
-  {
-    id: "4U9gGfjz3wVSKMPDD4Rp9v",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Supernova Love",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "Supernova Love",
-    releaseDate: "2024-11-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9e2a741cb80ebb155b9929f",
-    trackName: "Supernova Love",
-    trackDuration: "03:19",
-  },
-  {
-    id: "5Ikzs7iBNfhB72e4LMJASj",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Supernova Love (Extended Mix)",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "Supernova Love",
-    releaseDate: "2024-11-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9e2a741cb80ebb155b9929f",
-    trackName: "Supernova Love (Extended Mix)",
-    trackDuration: "04:23",
-  },
-  {
-    id: "5bFmrudRoxSGLVLH9ZEkKW",
-    name: "IVE",
-    genres: ["k-pop"],
-    song: "Will -Korean version-",
-    artists: ["IVE"],
-    popularity: 75,
-    followers: 5364129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb538dad5b42d963e338726c26",
-    albumsName: "Will -Korean version-",
-    releaseDate: "2024-10-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273002d9f3ed572ca5a1d3ce9ab",
-    trackName: "Will -Korean version-",
-    trackDuration: "03:11",
-  },
-  {
-    id: "5xrtzzzikpG3BLbo4q1Yul",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "LILAC",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "IU 5th Album 'LILAC'",
-    releaseDate: "2021-03-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff",
-    trackName: "LILAC",
-    trackDuration: "03:34",
-  },
-  {
-    id: "2j0MsDAMJ2ahsxP3z86ChI",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Flu",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "IU 5th Album 'LILAC'",
-    releaseDate: "2021-03-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff",
-    trackName: "Flu",
-    trackDuration: "03:08",
-  },
-  {
-    id: "7CZRguMolNqIobnXxpV735",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Coin",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "IU 5th Album 'LILAC'",
-    releaseDate: "2021-03-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff",
-    trackName: "Coin",
-    trackDuration: "03:13",
-  },
-  {
-    id: "2M7a2Us8CEU1HZHj70byGX",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Hi spring Bye",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "IU 5th Album 'LILAC'",
-    releaseDate: "2021-03-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff",
-    trackName: "Hi spring Bye",
-    trackDuration: "05:24",
-  },
-  {
-    id: "5nCwjUUsmBuNZKn9Xu10Os",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Celebrity",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "IU 5th Album 'LILAC'",
-    releaseDate: "2021-03-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff",
-    trackName: "Celebrity",
-    trackDuration: "03:15",
-  },
-  {
-    id: "64P4md3mdMM8Dog2aThmzj",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Troll (Feat. DEAN)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "IU 5th Album 'LILAC'",
-    releaseDate: "2021-03-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff",
-    trackName: "Troll (Feat. DEAN)",
-    trackDuration: "03:09",
-  },
-  {
-    id: "4YnVz2QRU6OnoJ8lt23QHM",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Empty Cup",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "IU 5th Album 'LILAC'",
-    releaseDate: "2021-03-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff",
-    trackName: "Empty Cup",
-    trackDuration: "02:19",
-  },
-  {
-    id: "46wDG6evLn2iPoQ0F8CUWk",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "My sea",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "IU 5th Album 'LILAC'",
-    releaseDate: "2021-03-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff",
-    trackName: "My sea",
-    trackDuration: "05:16",
-  },
-  {
-    id: "1IJxbEXfgiKuRx6oXMX87e",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Ah puh",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "IU 5th Album 'LILAC'",
-    releaseDate: "2021-03-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff",
-    trackName: "Ah puh",
-    trackDuration: "03:20",
-  },
-  {
-    id: "6rcwrRWKyjaFyUL8b8GlIJ",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Epilogue",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "IU 5th Album 'LILAC'",
-    releaseDate: "2021-03-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734ed058b71650a6ca2c04adff",
-    trackName: "Epilogue",
-    trackDuration: "03:49",
-  },
-  {
-    id: "4NPARrLIbtMl29ZJv8ESr2",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "dlwlrma",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Palette",
-    releaseDate: "2017-04-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c06f0e8b33ac2d246158253e",
-    trackName: "dlwlrma",
-    trackDuration: "02:56",
-  },
-  {
-    id: "3y7ByLZ05tluscOTRgEJ9Y",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Palette (feat. G-DRAGON)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Palette",
-    releaseDate: "2017-04-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c06f0e8b33ac2d246158253e",
-    trackName: "Palette (feat. G-DRAGON)",
-    trackDuration: "03:37",
-  },
-  {
-    id: "06EMBzxDm2hueehobAlMtm",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Ending Scene",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Palette",
-    releaseDate: "2017-04-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c06f0e8b33ac2d246158253e",
-    trackName: "Ending Scene",
-    trackDuration: "04:09",
-  },
-  {
-    id: "5MvxeZPiiLAuB5gI8k3ynk",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Can't Love You Anymore (With OHHYUK)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Palette",
-    releaseDate: "2017-04-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c06f0e8b33ac2d246158253e",
-    trackName: "Can't Love You Anymore (With OHHYUK)",
-    trackDuration: "03:15",
-  },
-  {
-    id: "3h7WIL3B6nP3171zl6HWj8",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Jam Jam",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Palette",
-    releaseDate: "2017-04-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c06f0e8b33ac2d246158253e",
-    trackName: "Jam Jam",
-    trackDuration: "03:38",
-  },
-  {
-    id: "1sUOFqmIU38dQCA13aVKBL",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Black Out",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Palette",
-    releaseDate: "2017-04-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c06f0e8b33ac2d246158253e",
-    trackName: "Black Out",
-    trackDuration: "03:47",
-  },
-  {
-    id: "2HlvvNgav045pxmrG0mk11",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Full Stop",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Palette",
-    releaseDate: "2017-04-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c06f0e8b33ac2d246158253e",
-    trackName: "Full Stop",
-    trackDuration: "03:56",
-  },
-  {
-    id: "3P3UA61WRQqwCXaoFOTENd",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Through the Night",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Palette",
-    releaseDate: "2017-04-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c06f0e8b33ac2d246158253e",
-    trackName: "Through the Night",
-    trackDuration: "04:13",
-  },
-  {
-    id: "3dDJ4DlBQ0VaRYjLZhLDTa",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Love Alone",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Palette",
-    releaseDate: "2017-04-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c06f0e8b33ac2d246158253e",
-    trackName: "Love Alone",
-    trackDuration: "04:41",
-  },
-  {
-    id: "1DP0uwV6tMlCEfR61Mh7ki",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Dear Name",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Palette",
-    releaseDate: "2017-04-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c06f0e8b33ac2d246158253e",
-    trackName: "Dear Name",
-    trackDuration: "04:49",
-  },
-  {
-    id: "0GsRx0gPft6RmijIwMsKmG",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Friday (feat.Jang Yi-jeong)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Friday (feat.Jang Yi-jeong)",
-    trackDuration: "03:37",
-  },
-  {
-    id: "2Tw2V8Ps4GuzZfcSwJufQ8",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Crayon",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Crayon",
-    trackDuration: "03:13",
-  },
-  {
-    id: "6qIJlfx7FTOrTI9GpyyDlp",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Love of B",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Love of B",
-    trackDuration: "03:11",
-  },
-  {
-    id: "3TptUUofhpj36m67TF1oPV",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Everybody has secrets (feat. GAIN)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Everybody has secrets (feat. GAIN)",
-    trackDuration: "03:49",
-  },
-  {
-    id: "1e6diPLFGEVPwbMbt73Dbv",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Between the lips (50cm)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Between the lips (50cm)",
-    trackDuration: "02:50",
-  },
-  {
-    id: "2zh6PFo4DiGQA6GHfhyGsV",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "The Red Shoes",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "The Red Shoes",
-    trackDuration: "04:14",
-  },
-  {
-    id: "5fClGwV57GC2efm64bJ5Mm",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Modern Times",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Modern Times",
-    trackDuration: "03:25",
-  },
-  {
-    id: "7aU1spmYtcpbsITNCoxZgv",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Bad Day",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Bad Day",
-    trackDuration: "03:52",
-  },
-  {
-    id: "30hPutnuwAqfnW3aYr2BtE",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Obliviate",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Obliviate",
-    trackDuration: "03:10",
-  },
-  {
-    id: "2IX0gGA7fwWcjfn2IKS4Nt",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Walk with me, girl (feat. Choi Baek-ho)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Walk with me, girl (feat. Choi Baek-ho)",
-    trackDuration: "05:00",
-  },
-  {
-    id: "2leIzJRNFAhoFL1h1gGt6j",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Havana",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Havana",
-    trackDuration: "04:09",
-  },
-  {
-    id: "5Dz93wmNgtDbNb5YyQxmsb",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "A Gloomy Clock (feat. Jong-hyun)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "A Gloomy Clock (feat. Jong-hyun)",
-    trackDuration: "02:48",
-  },
-  {
-    id: "5A8bHXi3b01rA8A24yIzI2",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Daydream (feat. Yang Hee-eun)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Daydream (feat. Yang Hee-eun)",
-    trackDuration: "03:40",
-  },
-  {
-    id: "13gJpKdOhieATKK3EaNDdz",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Wait",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "Wait",
-    trackDuration: "02:30",
-  },
-  {
-    id: "3KEVMEREcbQBAksOqlmyv8",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "(Bonus Track) Voice Mail (Korean Version)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times – Epilogue",
-    releaseDate: "2013-12-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27315b8cef21bf4482d56c15614",
-    trackName: "(Bonus Track) Voice Mail (Korean Version)",
-    trackDuration: "04:06",
-  },
-  {
-    id: "7b3p9nGAWa2fByucNemToA",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Love of B",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "Love of B",
-    trackDuration: "03:11",
-  },
-  {
-    id: "77G9qV8GyL4tX1KQCBWV7d",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Everybody has secrets (feat. GAIN)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "Everybody has secrets (feat. GAIN)",
-    trackDuration: "03:49",
-  },
-  {
-    id: "5K8D8VKWxLlS9irhfGlIEi",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Between the lips (50cm)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "Between the lips (50cm)",
-    trackDuration: "02:50",
-  },
-  {
-    id: "3atsk5EWI5fNxLMIJnfYfJ",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "The Red Shoes",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "The Red Shoes",
-    trackDuration: "04:14",
-  },
-  {
-    id: "38Dwg8OrUClCZl2wzUKrmi",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Modern Times",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "Modern Times",
-    trackDuration: "03:25",
-  },
-  {
-    id: "0EqSyrpWl672SesSbx598X",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Bad Day",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "Bad Day",
-    trackDuration: "03:52",
-  },
-  {
-    id: "2RENeWPEosqVewFaHSNnjT",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Obliviate",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "Obliviate",
-    trackDuration: "03:10",
-  },
-  {
-    id: "3uvIRiDntXqsXxy6UICVlS",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Walk with me, girl (feat. Choi Baek-ho)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "Walk with me, girl (feat. Choi Baek-ho)",
-    trackDuration: "05:00",
-  },
-  {
-    id: "5tW1WVLeSj61qexZmyb1il",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Havana",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "Havana",
-    trackDuration: "04:09",
-  },
-  {
-    id: "5mqINYGiOhoHXdc5nCeR4d",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "A Gloomy Clock (feat. Jong-hyun)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "A Gloomy Clock (feat. Jong-hyun)",
-    trackDuration: "02:48",
-  },
-  {
-    id: "5TjV9Mx486FBvFW9n4IR2m",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Daydream (feat. Yang Hee-eun)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "Daydream (feat. Yang Hee-eun)",
-    trackDuration: "03:40",
-  },
-  {
-    id: "1yARaM7hPx3hQub4wIBY15",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Wait",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "Wait",
-    trackDuration: "02:30",
-  },
-  {
-    id: "0MMUVb6JJzOtMyTx9qrAjy",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "(Bonus Track) Voice Mail (Korean Version)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Modern Times",
-    releaseDate: "2013-10-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734897a7925914a3a10ce68c31",
-    trackName: "(Bonus Track) Voice Mail (Korean Version)",
-    trackDuration: "04:06",
-  },
-  {
-    id: "38HJ2NhRdr68S1UAi9r3vc",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Secret",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "Secret",
-    trackDuration: "04:06",
-  },
-  {
-    id: "79PkC8ii2W7Grvvkqazgf3",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Sleeping Prince (feat. Yoon Sang)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "Sleeping Prince (feat. Yoon Sang)",
-    trackDuration: "03:36",
-  },
-  {
-    id: "3kgK9B823Y50ckCgBGDNTu",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Holding A Star In My Heart (feat. Kim Gwang-Jin)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "Holding A Star In My Heart (feat. Kim Gwang-Jin)",
-    trackDuration: "04:00",
-  },
-  {
-    id: "37S86pw74OH8j96ZmMnrpR",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "YOU&I",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "YOU&I",
-    trackDuration: "04:01",
-  },
-  {
-    id: "36PSn3k7YPTVWN5YdEpO4x",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Wallpaper Pattern",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "Wallpaper Pattern",
-    trackDuration: "03:42",
-  },
-  {
-    id: "7DC64C720P0UiWasMXpIiS",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Uncle (feat. Lee Juck)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "Uncle (feat. Lee Juck)",
-    trackDuration: "03:26",
-  },
-  {
-    id: "0XVcGTecjLl6p8Am7nx2Ch",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Wisdom Tooth",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "Wisdom Tooth",
-    trackDuration: "03:35",
-  },
-  {
-    id: "0VhAW8noO9tNKg5mwaDjIC",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Everything's Alright (feat. Kim Hyun-Cheol)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "Everything's Alright (feat. Kim Hyun-Cheol)",
-    trackDuration: "03:35",
-  },
-  {
-    id: "3Rceql5j6lhnygLVthRbcD",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Last Fantasy",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "Last Fantasy",
-    trackDuration: "06:09",
-  },
-  {
-    id: "6DumtENJgebiGQbUuY0wjU",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "Teacher (feat. Ra.D)",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "Teacher (feat. Ra.D)",
-    trackDuration: "04:03",
-  },
-  {
-    id: "5ysnDmK9qdG4oCNZYeVNSy",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "The Abandoned",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "The Abandoned",
-    trackDuration: "03:16",
-  },
-  {
-    id: "3K2qsjNSynFOx2XHTHGXT2",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "4AM",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "4AM",
-    trackDuration: "03:03",
-  },
-  {
-    id: "76xG9kPexjMDPEPUpojsms",
-    name: "IU",
-    genres: ["k-pop", "k-ballad"],
-    song: "L'amant",
-    artists: ["IU"],
-    popularity: 69,
-    followers: 9086424,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebbd0642ff425698afac5caffd",
-    albumsName: "Last Fantasy",
-    releaseDate: "2011-11-29",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf5f4138ebc9ba3fd6f0cde9",
-    trackName: "L'amant",
-    trackDuration: "05:52",
-  },
-  {
-    id: "0utByr69DCypmKr5hjLNrK",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Intro",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "Intro",
-    trackDuration: "00:58",
-  },
-  {
-    id: "2iKNuOB4pI4HgPsJk0BSsq",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Pandora's Box",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "Pandora's Box",
-    trackDuration: "02:36",
-  },
-  {
-    id: "36KFMe3Q3wLCXd9SUudx9M",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "MORE",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "MORE",
-    trackDuration: "03:00",
-  },
-  {
-    id: "426n8OsTAOwb3DWkpXE21H",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "STOP",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "STOP",
-    trackDuration: "02:02",
-  },
-  {
-    id: "0uTKGno7UM5vOgdjYHCnYC",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "= (Equal Sign)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "= (Equal Sign)",
-    trackDuration: "01:54",
-  },
-  {
-    id: "2VtuHoWIv4IbcIetUuP1tC",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Music Box : Reflection",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "Music Box : Reflection",
-    trackDuration: "01:10",
-  },
-  {
-    id: "4vC2BY833RNjG04vTIozVB",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "What if…",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "What if…",
-    trackDuration: "02:16",
-  },
-  {
-    id: "2WwmLOkTON4hjrMJz72ZfT",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Safety Zone",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "Safety Zone",
-    trackDuration: "02:45",
-  },
-  {
-    id: "1Vs20by3VD5F1MSschAF7A",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Future",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "Future",
-    trackDuration: "02:19",
-  },
-  {
-    id: "58cTKEMafSngmjD7aPFfII",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Arson",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "Arson",
-    trackDuration: "02:39",
-  },
-  {
-    id: "2JcJJjTFzpGo1G5nXqC6Qq",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Equal Sign (Lollapalooza ver.)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "Equal Sign (Lollapalooza ver.)",
-    trackDuration: "02:07",
-  },
-  {
-    id: "5m5te1JAMYvJmEa5XnGTWi",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "STOP (Lollapalooza ver.)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "STOP (Lollapalooza ver.)",
-    trackDuration: "02:15",
-  },
-  {
-    id: "4Q6S4uWD8dwpWiI3VkdBuV",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Future (Lollapalooza ver.)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "Future (Lollapalooza ver.)",
-    trackDuration: "04:18",
-  },
-  {
-    id: "5rJgabqFRVuC3yN7f7L5IC",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "MORE (Instrumental)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "MORE (Instrumental)",
-    trackDuration: "02:58",
-  },
-  {
-    id: "02FJa38VBPTnwinFBloq8P",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Arson (Instrumental)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box (HOPE Edition)",
-    releaseDate: "2023-08-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e58c1f0d918bea50ad7b2de6",
-    trackName: "Arson (Instrumental)",
-    trackDuration: "02:39",
-  },
-  {
-    id: "2iZVatlifgIuGqsNsh1M8K",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Intro",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box",
-    releaseDate: "2022-07-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739da7eefe617dc4b6f571122f",
-    trackName: "Intro",
-    trackDuration: "00:58",
-  },
-  {
-    id: "5OcucU4xdFb8nhoSS7Gj8f",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Pandora's Box",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box",
-    releaseDate: "2022-07-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739da7eefe617dc4b6f571122f",
-    trackName: "Pandora's Box",
-    trackDuration: "02:36",
-  },
-  {
-    id: "6CHlFvLhEOB3JwWcgDw0C2",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "MORE",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box",
-    releaseDate: "2022-07-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739da7eefe617dc4b6f571122f",
-    trackName: "MORE",
-    trackDuration: "03:00",
-  },
-  {
-    id: "6oh1ZPr1XSVoRq7F2zyDGv",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "STOP (세상에 나쁜 사람은 없다)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box",
-    releaseDate: "2022-07-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739da7eefe617dc4b6f571122f",
-    trackName: "STOP (세상에 나쁜 사람은 없다)",
-    trackDuration: "02:02",
-  },
-  {
-    id: "1aj2QjvasLKgRU9WBGHfS5",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "= (Equal Sign)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box",
-    releaseDate: "2022-07-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739da7eefe617dc4b6f571122f",
-    trackName: "= (Equal Sign)",
-    trackDuration: "01:54",
-  },
-  {
-    id: "5qjJUh2ArVOk5zuSJ41T5B",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Music Box : Reflection",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box",
-    releaseDate: "2022-07-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739da7eefe617dc4b6f571122f",
-    trackName: "Music Box : Reflection",
-    trackDuration: "01:10",
-  },
-  {
-    id: "5w83PmMj6gpa3CRElK4Sdm",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "What if…",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box",
-    releaseDate: "2022-07-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739da7eefe617dc4b6f571122f",
-    trackName: "What if…",
-    trackDuration: "02:16",
-  },
-  {
-    id: "22Yvqg6B0mDqWmT14QdRoM",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Safety Zone",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box",
-    releaseDate: "2022-07-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739da7eefe617dc4b6f571122f",
-    trackName: "Safety Zone",
-    trackDuration: "02:45",
-  },
-  {
-    id: "5DMjG8KWIgDpROLAunoVic",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Future",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box",
-    releaseDate: "2022-07-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739da7eefe617dc4b6f571122f",
-    trackName: "Future",
-    trackDuration: "02:19",
-  },
-  {
-    id: "54R0aKDvKRwciGanyJRS1Q",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "방화 (Arson)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Jack In The Box",
-    releaseDate: "2022-07-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739da7eefe617dc4b6f571122f",
-    trackName: "방화 (Arson)",
-    trackDuration: "02:39",
-  },
-  {
-    id: "5UMPPsXaGbR1qtzcnEtTpM",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Hope World",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Hope World",
-    releaseDate: "2018-03-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273683e016dc13b030a930d4d92",
-    trackName: "Hope World",
-    trackDuration: "03:24",
-  },
-  {
-    id: "78GQP9XBSqpEDlMoPAbUAJ",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "P.O.P (Piece Of Peace) Pt. 1",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Hope World",
-    releaseDate: "2018-03-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273683e016dc13b030a930d4d92",
-    trackName: "P.O.P (Piece Of Peace) Pt. 1",
-    trackDuration: "03:01",
-  },
-  {
-    id: "56sdcbPR74RxqmKVbQzJ8s",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Daydream (백일몽)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Hope World",
-    releaseDate: "2018-03-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273683e016dc13b030a930d4d92",
-    trackName: "Daydream (백일몽)",
-    trackDuration: "03:48",
-  },
-  {
-    id: "3eSCPt6StovDAIps2XhZ2Z",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Base Line",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Hope World",
-    releaseDate: "2018-03-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273683e016dc13b030a930d4d92",
-    trackName: "Base Line",
-    trackDuration: "01:29",
-  },
-  {
-    id: "270k38FpoKhnvZLv50NlTr",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "항상 (HANGSANG)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Hope World",
-    releaseDate: "2018-03-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273683e016dc13b030a930d4d92",
-    trackName: "항상 (HANGSANG)",
-    trackDuration: "03:49",
-  },
-  {
-    id: "2jk6oBuLiCZJTDWhlJEzIw",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Airplane",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Hope World",
-    releaseDate: "2018-03-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273683e016dc13b030a930d4d92",
-    trackName: "Airplane",
-    trackDuration: "03:17",
-  },
-  {
-    id: "20zr2Oef3PVeGRxjmSF5CC",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Blue Side (Outro)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Hope World",
-    releaseDate: "2018-03-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273683e016dc13b030a930d4d92",
-    trackName: "Blue Side (Outro)",
-    trackDuration: "01:30",
-  },
-  {
-    id: "5rN86x6tqs4odDwOsEwmyC",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Sweet Dreams (feat. Miguel) (FNZ Remix)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Sweet Dreams (feat. Miguel) (FNZ Remix)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737bba28ba4a1d4228cef0ee81",
-    trackName: "Sweet Dreams (feat. Miguel) (FNZ Remix)",
-    trackDuration: "03:06",
-  },
-  {
-    id: "3MEw4IDtZDhpEdaEWTUak0",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Sweet Dreams (feat. Miguel)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Sweet Dreams (zzZ Remixes)",
-    releaseDate: "2025-03-11",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2732d339b4e69a849c7d7d8035a",
-    trackName: "Sweet Dreams (feat. Miguel)",
-    trackDuration: "02:52",
-  },
-  {
-    id: "6c4wsC8hZnE6btTkRgqTW4",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Sweet Dreams (feat. Miguel) (Instrumental)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Sweet Dreams (zzZ Remixes)",
-    releaseDate: "2025-03-11",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2732d339b4e69a849c7d7d8035a",
-    trackName: "Sweet Dreams (feat. Miguel) (Instrumental)",
-    trackDuration: "02:47",
-  },
-  {
-    id: "1FWLvmgk5yfhxtx8wUeNVj",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Sweet Dreams (feat. Miguel) (Band Remix)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Sweet Dreams (zzZ Remixes)",
-    releaseDate: "2025-03-11",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2732d339b4e69a849c7d7d8035a",
-    trackName: "Sweet Dreams (feat. Miguel) (Band Remix)",
-    trackDuration: "03:16",
-  },
-  {
-    id: "6hUuDzQlDWxe9G7zlEqbMa",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Sweet Dreams (feat. Miguel) (Johnny GOLD Remix)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Sweet Dreams (zzZ Remixes)",
-    releaseDate: "2025-03-11",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2732d339b4e69a849c7d7d8035a",
-    trackName: "Sweet Dreams (feat. Miguel) (Johnny GOLD Remix)",
-    trackDuration: "03:16",
-  },
-  {
-    id: "7L8BByIqkjZFblBRTCfZie",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Sweet Dreams (feat. Miguel) (Sped Up)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Sweet Dreams (zzZ Remixes)",
-    releaseDate: "2025-03-11",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2732d339b4e69a849c7d7d8035a",
-    trackName: "Sweet Dreams (feat. Miguel) (Sped Up)",
-    trackDuration: "02:29",
-  },
-  {
-    id: "7rSl7gqDI4Cw7nB4IgUOfX",
-    name: "j-hope",
-    genres: ["k-pop", "k-rap"],
-    song: "Sweet Dreams (feat. Miguel) (Slowed Down)",
-    artists: ["j-hope"],
-    popularity: 80,
-    followers: 18253502,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb7fbd0592f63c1819b5827772",
-    albumsName: "Sweet Dreams (zzZ Remixes)",
-    releaseDate: "2025-03-11",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2732d339b4e69a849c7d7d8035a",
-    trackName: "Sweet Dreams (feat. Miguel) (Slowed Down)",
-    trackDuration: "03:25",
-  },
-  {
-    id: "24ebPi6UpTNw2vdzxGbO9n",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Flying Bobs",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Flying Bobs",
-    trackDuration: "04:03",
-  },
-  {
-    id: "1nweLvsXxP02tHMOBY140B",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Baptized In Fire",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Baptized In Fire",
-    trackDuration: "03:02",
-  },
-  {
-    id: "1YDFQz3UvYXhpySIW6BriH",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "My Little Lambs",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "My Little Lambs",
-    trackDuration: "03:37",
-  },
-  {
-    id: "4kqaXPFAaaohgxUCFTOe6r",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Sunday Girl",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Sunday Girl",
-    trackDuration: "03:09",
-  },
-  {
-    id: "0LqczlbXLcy8ddF6G4BnqO",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Friends In Bed",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Friends In Bed",
-    trackDuration: "02:31",
-  },
-  {
-    id: "6IOF912y8zCgs0b97no4lj",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Cicadas",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Cicadas",
-    trackDuration: "04:03",
-  },
-  {
-    id: "4rhU6LPPCcCC9IGOI26Tmw",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Garden State Dreamers",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Garden State Dreamers",
-    trackDuration: "03:40",
-  },
-  {
-    id: "1j24POnD27ldOjJzKgdmqQ",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Follow You",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Follow You",
-    trackDuration: "02:56",
-  },
-  {
-    id: "0inWlw9vqFZm4MuPc7PRNW",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Jersey Girl",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Jersey Girl",
-    trackDuration: "03:33",
-  },
-  {
-    id: "5Rmph5UlOaUUd41ze63mJ7",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Love You The Same",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Love You The Same",
-    trackDuration: "02:35",
-  },
-  {
-    id: "3tF7QjqwiaHpdSfZcnbnbV",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Powder Blue",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Powder Blue",
-    trackDuration: "03:36",
-  },
-  {
-    id: "1e5uSv6CM6LtX3XZvdV4PI",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Electra",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Electra",
-    trackDuration: "04:35",
-  },
-  {
-    id: "4wfMnEUQScYZdyRib4iON1",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Min",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Min",
-    trackDuration: "04:10",
-  },
-  {
-    id: "3p4NWZgSVkxldIqIQcYoz6",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Jeff And Alana",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Jeff And Alana",
-    trackDuration: "02:27",
-  },
-  {
-    id: "5BGxDtIEw8zxoP29Fid69a",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Ling Ling",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Ling Ling",
-    trackDuration: "03:49",
-  },
-  {
-    id: "5SONLRpMOLkhEsXb02AFDj",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "John Fry",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "John Fry",
-    trackDuration: "05:13",
-  },
-  {
-    id: "2cA3RicL24i1SgN7kSRbIN",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "99%",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "99%",
-    trackDuration: "03:23",
-  },
-  {
-    id: "7hbCAq2LgAezWtJbfXv6Bs",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Our Own Summer",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEEN TROUBLES",
-    releaseDate: "2022-09-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739c3a4e471c5e82a457dce2c0",
-    trackName: "Our Own Summer",
-    trackDuration: "05:08",
-  },
-  {
-    id: "3uptg5JagbnIc1Qd0xxVLN",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Wrong question",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Wrong question",
-    trackDuration: "03:15",
-  },
-  {
-    id: "7kwvYoM579Cxczl3o9fHmZ",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Lester Burnham",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Lester Burnham",
-    trackDuration: "02:34",
-  },
-  {
-    id: "5LM3ii4hqObBiL5wrcQT3r",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Island (queen of diamonds)",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Island (queen of diamonds)",
-    trackDuration: "04:47",
-  },
-  {
-    id: "5jJdwxPrzx2O8bviavFESu",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Sangsu station",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Sangsu station",
-    trackDuration: "03:07",
-  },
-  {
-    id: "0Y2xeQLnS6IGptl7NtOczZ",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Mad dog diary",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Mad dog diary",
-    trackDuration: "02:26",
-  },
-  {
-    id: "4aR6vDXYYwtsreXsjLGz0Z",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Bollywood",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Bollywood",
-    trackDuration: "03:53",
-  },
-  {
-    id: "3KtEUpVtArZtMcabnUHWij",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Holiday",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Holiday",
-    trackDuration: "04:31",
-  },
-  {
-    id: "7xxGo3sDY8UGKcVn92JrlI",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Put me on drugs",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Put me on drugs",
-    trackDuration: "03:36",
-  },
-  {
-    id: "3AWbrwNxKfdDZxQpcfNV1P",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Hawaiian black sand",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Hawaiian black sand",
-    trackDuration: "04:16",
-  },
-  {
-    id: "2REghqaivf7ILw27WFFSJi",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Thinner than water",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Thinner than water",
-    trackDuration: "04:55",
-  },
-  {
-    id: "7AL20ktwYSpyWgwttZCuwU",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "My shadow",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "My shadow",
-    trackDuration: "04:47",
-  },
-  {
-    id: "1KZB7zYegoY7sM2AKZday7",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Blood and thirst (king of hurts)",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "THIRSTY",
-    releaseDate: "2019-02-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2739bde0aee740dae55ef6f8ce5",
-    trackName: "Blood and thirst (king of hurts)",
-    trackDuration: "06:25",
-  },
-  {
-    id: "7JOHU4KrdgzywwFGl6Alla",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "That's Not Me",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEAM BABY",
-    releaseDate: "2017-05-30",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27310b3ebc65d2f65964cf461d8",
-    trackName: "That's Not Me",
-    trackDuration: "03:31",
-  },
-  {
-    id: "2U34HCuUcXcyqWPQtY7tUa",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Big Love",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEAM BABY",
-    releaseDate: "2017-05-30",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27310b3ebc65d2f65964cf461d8",
-    trackName: "Big Love",
-    trackDuration: "03:59",
-  },
-  {
-    id: "7JeHqv6WitH4sWn9Mq9EpX",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Diamond",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEAM BABY",
-    releaseDate: "2017-05-30",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27310b3ebc65d2f65964cf461d8",
-    trackName: "Diamond",
-    trackDuration: "04:56",
-  },
-  {
-    id: "1QoZ5G6pg7pZgEA7uFpgVh",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Love Is All",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEAM BABY",
-    releaseDate: "2017-05-30",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27310b3ebc65d2f65964cf461d8",
-    trackName: "Love Is All",
-    trackDuration: "02:44",
-  },
-  {
-    id: "2IGHKCRWhibDfgo0IfzfEB",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "In My City of Seoul",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEAM BABY",
-    releaseDate: "2017-05-30",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27310b3ebc65d2f65964cf461d8",
-    trackName: "In My City of Seoul",
-    trackDuration: "03:22",
-  },
-  {
-    id: "3P3guXf2RRhjPK0R2UlLZV",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Confetti and Balloons",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEAM BABY",
-    releaseDate: "2017-05-30",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27310b3ebc65d2f65964cf461d8",
-    trackName: "Confetti and Balloons",
-    trackDuration: "03:21",
-  },
-  {
-    id: "4bjNOhOMvqFPflwHIaS7Fw",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "1:05",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEAM BABY",
-    releaseDate: "2017-05-30",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27310b3ebc65d2f65964cf461d8",
-    trackName: "1:05",
-    trackDuration: "04:00",
-  },
-  {
-    id: "3SLlqKXr91haZQhhNYNuVk",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Who Do You Love",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEAM BABY",
-    releaseDate: "2017-05-30",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27310b3ebc65d2f65964cf461d8",
-    trackName: "Who Do You Love",
-    trackDuration: "04:31",
-  },
-  {
-    id: "0V3eVNmgkOzJ5wQztnCpAV",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Heya",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEAM BABY",
-    releaseDate: "2017-05-30",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27310b3ebc65d2f65964cf461d8",
-    trackName: "Heya",
-    trackDuration: "05:25",
-  },
-  {
-    id: "19Hg1UCZaCdpHB37L7x63X",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "EVERYTHING",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "TEAM BABY",
-    releaseDate: "2017-05-30",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27310b3ebc65d2f65964cf461d8",
-    trackName: "EVERYTHING",
-    trackDuration: "04:53",
-  },
-  {
-    id: "7KtVt5ZY1x4zXkXm7qx4QT",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Goodbye",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "Goodbye",
-    trackDuration: "03:04",
-  },
-  {
-    id: "2JmxGG31VmENOYm7JW2Gwg",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Freeloader",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "Freeloader",
-    trackDuration: "02:26",
-  },
-  {
-    id: "6630UyH72yGwAWhYYKkB5G",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Love Shine",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "Love Shine",
-    trackDuration: "04:20",
-  },
-  {
-    id: "5HaBQRjLZvEAcArrpBqvdJ",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Only Son",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "Only Son",
-    trackDuration: "03:51",
-  },
-  {
-    id: "3R3cXK6BHZ5JDAgPOAHPQw",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "International Love Song",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "International Love Song",
-    trackDuration: "04:19",
-  },
-  {
-    id: "0rkntIugoynf3oU0aAPzCO",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Weather",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "Weather",
-    trackDuration: "03:18",
-  },
-  {
-    id: "4fifLi6MQpQubEwutQ2mj6",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Breakfast",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "Breakfast",
-    trackDuration: "03:11",
-  },
-  {
-    id: "0nQaUlCxwiQ6SRwPSpXVby",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "The Music in Her",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "The Music in Her",
-    trackDuration: "03:34",
-  },
-  {
-    id: "3OOibIoFKsuR7V5j0dT8mW",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Young Love",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "Young Love",
-    trackDuration: "03:51",
-  },
-  {
-    id: "2UwMdWXJgqlCaBHnD9u7g2",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Ariel",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "Ariel",
-    trackDuration: "04:19",
-  },
-  {
-    id: "6zUw3vb0EbzKCotxZqe9bZ",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Chivalry",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "Chivalry",
-    trackDuration: "02:47",
-  },
-  {
-    id: "2eG9cXwTxDaXDG1GeLEc1j",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Parrot",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "Don't You Worry Baby (I'm Only Swimming)",
-    releaseDate: "2011-07-13",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bf432a5595343d1345014767",
-    trackName: "Parrot",
-    trackDuration: "05:08",
-  },
-  {
-    id: "3e9a1W6cGam1D9kBhi1BsD",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Want Your Love",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Want Your Love",
-    trackDuration: "03:04",
-  },
-  {
-    id: "6TdKOLXmUFeWnrFdc3jGPE",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Stand Still",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Stand Still",
-    trackDuration: "03:43",
-  },
-  {
-    id: "0gottliAdN7AKSd8M028RQ",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Puppy",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Puppy",
-    trackDuration: "03:28",
-  },
-  {
-    id: "5H00gGjCqxeQnuDHE1QHM0",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Sang-Ah",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Sang-Ah",
-    trackDuration: "03:35",
-  },
-  {
-    id: "745W6tNeXVKjskHoCsMJvV",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Antifreeze",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Antifreeze",
-    trackDuration: "04:03",
-  },
-  {
-    id: "0T87o35RkXG8zZ8GLIpgdN",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Tangled",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Tangled",
-    trackDuration: "04:46",
-  },
-  {
-    id: "4aKWvufAudqaR3MMa8K9h8",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Avant Garde Kim",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Avant Garde Kim",
-    trackDuration: "03:40",
-  },
-  {
-    id: "2Qtfj6q4nJpVLxBTW9xrnW",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Le Fou Muet",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Le Fou Muet",
-    trackDuration: "02:06",
-  },
-  {
-    id: "2oHp0p2NzWH3x6Sxa7qbPO",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Dientes",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Dientes",
-    trackDuration: "03:10",
-  },
-  {
-    id: "4EThz6DcZpIuQgYbOPijL8",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Kiss And Tell",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Kiss And Tell",
-    trackDuration: "04:38",
-  },
-  {
-    id: "4g9waAFMglcIHlRhPty3eL",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Stand Still ('07 Korean Ver.)",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Stand Still ('07 Korean Ver.)",
-    trackDuration: "03:43",
-  },
-  {
-    id: "0xuyxm1nzDy7H111cRwmW4",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "Fling; Fig From France",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "Fling; Fig From France",
-    trackDuration: "05:04",
-  },
-  {
-    id: "4yUetDKX8GZ6wTr0ls0A3E",
-    name: "The Black Skirts",
-    genres: ["k-rock"],
-    song: "I Like Watching You Go",
-    artists: ["The Black Skirts"],
-    popularity: 57,
-    followers: 483980,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb8609536d21beed6769d09d7f",
-    albumsName: "201 (Special Edition)",
-    releaseDate: "2010-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c8f015ee928bda54c29301fd",
-    trackName: "I Like Watching You Go",
-    trackDuration: "03:19",
-  },
-  {
     id: "12YODvwEH9NPutL8OhObfD",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Rebirth (Intro)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14455,10 +5347,8 @@ const albums = [
   },
   {
     id: "3vKBoDN6DGrxMRDBOe5bQa",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Interlude : Showtime",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14472,10 +5362,8 @@ const albums = [
   },
   {
     id: "0KsBlpW6csX9YBVckbTDZh",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Smeraldo Garden Marching Band (feat. Loco)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14489,10 +5377,8 @@ const albums = [
   },
   {
     id: "5XvFNFNsgvmwsWk1T7BfRj",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Slow Dance (feat. Sofia Carson)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14506,10 +5392,8 @@ const albums = [
   },
   {
     id: "59ldd5koyBqo1vFp6MusW1",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Be Mine",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14523,10 +5407,8 @@ const albums = [
   },
   {
     id: "5wPnPIZS8wr4lPNLz4qvHK",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14540,10 +5422,8 @@ const albums = [
   },
   {
     id: "2Zyto2vRT9MEj44Y4qbzcs",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Closer Than This",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14557,10 +5437,8 @@ const albums = [
   },
   {
     id: "1Px44tw80Q4rcCl8FxDGOi",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Instrumental)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14574,10 +5452,8 @@ const albums = [
   },
   {
     id: "10I5rhhFoWZDIN3kEc6Dbo",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Acoustic Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14591,10 +5467,8 @@ const albums = [
   },
   {
     id: "1MC8JLPV4fbvVBqvGSLoDf",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Rock Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14608,10 +5482,8 @@ const albums = [
   },
   {
     id: "1ZtkxrnxZB6r8nIiHwqaUn",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Rebirth (Intro)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14625,10 +5497,8 @@ const albums = [
   },
   {
     id: "12HctF6VyD118g7eXtWLBo",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Interlude : Showtime",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14642,10 +5512,8 @@ const albums = [
   },
   {
     id: "7yODD9DKQIllpZ5eioLZRY",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Smeraldo Garden Marching Band (feat. Loco)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14659,10 +5527,8 @@ const albums = [
   },
   {
     id: "5nyhz1bxLCiBBIAIcBgiEP",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Slow Dance (feat. Sofia Carson)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14676,10 +5542,8 @@ const albums = [
   },
   {
     id: "3VaKWbW68AyOkEl4AxhXA2",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Be Mine",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14693,10 +5557,8 @@ const albums = [
   },
   {
     id: "32lSgbCqRcIOyUSnfuUZEQ",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14710,10 +5572,8 @@ const albums = [
   },
   {
     id: "6OIVG9TFJnqOec4G5rD8pW",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Closer Than This",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14727,10 +5587,8 @@ const albums = [
   },
   {
     id: "1ySWoGgrduSzvtJ3PUzO41",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Shibuyakei Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14744,10 +5602,8 @@ const albums = [
   },
   {
     id: "7KZNgri6Jxw88FAfATw6i9",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Funky Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14761,10 +5617,8 @@ const albums = [
   },
   {
     id: "2isRbZIIU4PqPrECffn7QO",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Beautiful Mind Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14778,10 +5632,8 @@ const albums = [
   },
   {
     id: "7gMfVc4zfNIxuMyMGglOHa",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Rebirth (Intro)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14795,10 +5647,8 @@ const albums = [
   },
   {
     id: "45zLrK0668WQ5JFMyiYmCS",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Interlude : Showtime",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14812,10 +5662,8 @@ const albums = [
   },
   {
     id: "1agDCV4zQqaFwJQNsTgmL1",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Smeraldo Garden Marching Band (feat. Loco)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14829,10 +5677,8 @@ const albums = [
   },
   {
     id: "3d2bsbugow8JiNvuaRupFH",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Slow Dance (feat. Sofia Carson)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14846,10 +5692,8 @@ const albums = [
   },
   {
     id: "3LWVXp636uLT356Rj08Jaz",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Be Mine",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14863,10 +5707,8 @@ const albums = [
   },
   {
     id: "7tI8dRuH2Yc6RuoTjxo4dU",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14880,10 +5722,8 @@ const albums = [
   },
   {
     id: "6qafqn8bBMy7t5c5WqpyRk",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Closer Than This",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14897,10 +5737,8 @@ const albums = [
   },
   {
     id: "4DairgmwgyfmFHm0e7kRPL",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Be Mine (English Version)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14914,10 +5752,8 @@ const albums = [
   },
   {
     id: "1yqdD2ScjkqvaNBUzPQ4vR",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14931,10 +5767,8 @@ const albums = [
   },
   {
     id: "6t7t37Bex3DV4ADqAwUmwa",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Instrumental)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14948,10 +5782,8 @@ const albums = [
   },
   {
     id: "2YKecnWyzkGEDTyNaKBG2H",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Acoustic Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14965,10 +5797,8 @@ const albums = [
   },
   {
     id: "2x9lpe6UIHNqLf8fB8qpb7",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Rock Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14982,10 +5812,8 @@ const albums = [
   },
   {
     id: "1PNdJibg1adHD1pTpYBfGc",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Shibuyakei Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -14999,10 +5827,8 @@ const albums = [
   },
   {
     id: "6E9BsGMop0G1jrpQNzugXv",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Funky Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -15016,10 +5842,8 @@ const albums = [
   },
   {
     id: "1GDjQlek7EFZ3qTyySTSAF",
-    name: "Jimin",
+    artistName: "Jimin",
     genres: ["k-pop"],
-    song: "Who (Beautiful Mind Remix)",
-    artists: ["Jimin"],
     popularity: 84,
     followers: 9983076,
     artistsImageUrl:
@@ -15033,10 +5857,8 @@ const albums = [
   },
   {
     id: "6IST7HiO2OlytkRp866Xdd",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "HOME SWEET HOME (feat. TAEYANG & DAESUNG)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15050,10 +5872,8 @@ const albums = [
   },
   {
     id: "3hRg8A9PwC5YWrgLRJ4OFf",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "PO￦ER",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15067,10 +5887,8 @@ const albums = [
   },
   {
     id: "0Kk5TRkYuWXY89KamtFEFw",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "TOO BAD (feat. Anderson .Paak)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15084,10 +5902,8 @@ const albums = [
   },
   {
     id: "5p888hnYmPMQTMcVZXF8Dd",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "DRAMA",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15101,10 +5917,8 @@ const albums = [
   },
   {
     id: "1YfsKKIW19u5QMeWdiFvk1",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "IBELONGIIU",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15118,10 +5932,8 @@ const albums = [
   },
   {
     id: "1rHhowJ15GjsTqCGoTXm5e",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "TAKE ME",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15135,10 +5947,8 @@ const albums = [
   },
   {
     id: "4wq8RcVA4GdRx8w6GUrjio",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "보나마나 (BONAMANA)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15152,10 +5962,8 @@ const albums = [
   },
   {
     id: "5WNRDeYpON54LEZOoiI3Xf",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "GYRO-DROP",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15169,10 +5977,8 @@ const albums = [
   },
   {
     id: "1SYcF2fUYDYQsISyFehQYI",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "COUP D'ETAT",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15186,10 +5992,8 @@ const albums = [
   },
   {
     id: "62qrReIGZC8zzdmw9DXEuS",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "NILIRIA - Missy Elliott Version",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15203,10 +6007,8 @@ const albums = [
   },
   {
     id: "3iBJHz5krbr4zUM40zzwcJ",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "R.O.D.",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15220,10 +6022,8 @@ const albums = [
   },
   {
     id: "44f1TNdoQUgf3PUYraCTsH",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Black (Feat. JENNIE of BLACKPINK)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15237,10 +6037,8 @@ const albums = [
   },
   {
     id: "4uS12OS6QeNgiCHpaqwvlR",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "WHO YOU?",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15254,10 +6052,8 @@ const albums = [
   },
   {
     id: "3jeGRLccqBJ0CxkUVZQKxE",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "SHAKE THE WORLD",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15271,10 +6067,8 @@ const albums = [
   },
   {
     id: "3N9lH3C9oykSau0Q74bVsi",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "GO",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15288,10 +6082,8 @@ const albums = [
   },
   {
     id: "3mb0tvqsU8IPaAYvyf55az",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "CROOKED",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15305,10 +6097,8 @@ const albums = [
   },
   {
     id: "5CRuf5AnlXoapQfwi1sxbS",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "NILIRIA - G-Dragon Version",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15322,10 +6112,8 @@ const albums = [
   },
   {
     id: "6wCNJoZaOLnFzXoNFlR65V",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "RUNAWAY",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15339,10 +6127,8 @@ const albums = [
   },
   {
     id: "2tNdosMthOOTnH1KYdKl16",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "I LOVE IT",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15356,10 +6142,8 @@ const albums = [
   },
   {
     id: "7nySA2CVivNXZvjwJLe9dG",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "YOU DO (Outro)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15373,10 +6157,8 @@ const albums = [
   },
   {
     id: "3q0evJwZohI2FfXkfC5tSR",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "COUP D'ETAT",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15390,10 +6172,8 @@ const albums = [
   },
   {
     id: "1fZGJrxPq82zcHVoYMntZt",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "NILIRIA - Missy Elliott Version",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15407,10 +6187,8 @@ const albums = [
   },
   {
     id: "1TmvMsKakEUCtLgkGYEZp4",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "R.O.D.",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15424,10 +6202,8 @@ const albums = [
   },
   {
     id: "7BYGfn9F73atTWMdAHVdPk",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "BLACK",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15441,10 +6217,8 @@ const albums = [
   },
   {
     id: "7iT56ss42YdtYnNQEnxp9Z",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "WHO YOU?",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15458,10 +6232,8 @@ const albums = [
   },
   {
     id: "0yQVxHQ8MPI7jxkewravSD",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "SHAKE THE WORLD",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15475,10 +6247,8 @@ const albums = [
   },
   {
     id: "7gPF3Mu0DVWj75SXdZaYCY",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "GO",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15492,10 +6262,8 @@ const albums = [
   },
   {
     id: "4EwNWRBWdZ6bgvxRHlZ8OO",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "CROOKED",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15509,10 +6277,8 @@ const albums = [
   },
   {
     id: "3lLFAlgTMNJdXEl9bhkowL",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "NILIRIA - G-Dragon Version",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15526,10 +6292,8 @@ const albums = [
   },
   {
     id: "4yUZkcPv80Wi4TYgpJaZ9e",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "RUNAWAY",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15543,10 +6307,8 @@ const albums = [
   },
   {
     id: "1K1DpAZoH5jbpvxcAY07Sy",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "I LOVE IT",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15560,10 +6322,8 @@ const albums = [
   },
   {
     id: "2346AzTq5Qtru2VJv1Wreq",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "YOU DO (Outro)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15577,10 +6337,8 @@ const albums = [
   },
   {
     id: "5KIPe6uCM6rosCxeGcfPTA",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "GO - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15594,10 +6352,8 @@ const albums = [
   },
   {
     id: "2fbvGELVvBGeCt5PGEvxNf",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Heartbreaker - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15611,10 +6367,8 @@ const albums = [
   },
   {
     id: "52fUpY23U2AsSdVCOcfK5v",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "One of a Kind - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15628,10 +6382,8 @@ const albums = [
   },
   {
     id: "4CxEcSx0FIYmzwDGDbUHoO",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Butterfly - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15645,10 +6397,8 @@ const albums = [
   },
   {
     id: "6gSO9nwQqrgfMBXEmWCyQL",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Missing You - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15662,10 +6412,8 @@ const albums = [
   },
   {
     id: "62QLmXhOjh4iWC1CKy90xK",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "That XX - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15679,10 +6427,8 @@ const albums = [
   },
   {
     id: "6pxrme6UtEm7KaFI1RMdQl",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Without You - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15696,10 +6442,8 @@ const albums = [
   },
   {
     id: "7GVT1u4kAKlIAkVkPaSZ9p",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Today - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15713,10 +6457,8 @@ const albums = [
   },
   {
     id: "7nsdz4KlIj91cwCJ9m33Fx",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "A Boy - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15730,10 +6472,8 @@ const albums = [
   },
   {
     id: "1iNWC4Bu09R0o9DJXlKJGF",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "This Love - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15747,10 +6487,8 @@ const albums = [
   },
   {
     id: "0fAeXI8WxncT8IkMaNI75c",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "1 Year - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15764,10 +6502,8 @@ const albums = [
   },
   {
     id: "1TkjST5uC2Kx4A6Ktg7RXV",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Obsession - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15781,10 +6517,8 @@ const albums = [
   },
   {
     id: "6E9qJkWX0Kae59pZelC02V",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "She's Gone - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15798,10 +6532,8 @@ const albums = [
   },
   {
     id: "2J7RfDZhlJo4PPcF6S3SuO",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Crayon + Fantastic Baby - Live",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15815,10 +6547,8 @@ const albums = [
   },
   {
     id: "0jzNkPeK3W1g7G1MoqIfeZ",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Heartbreaker",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15832,10 +6562,8 @@ const albums = [
   },
   {
     id: "4eAbsf15Xi5ItqJiTOVHKQ",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "This Love",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15849,10 +6577,8 @@ const albums = [
   },
   {
     id: "3ar6JH26PgvWitEsBx2H4I",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Hello (Feat. DARA)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15866,10 +6592,8 @@ const albums = [
   },
   {
     id: "19o6PAA7YhNuKlJ6McmvP6",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Gossip Man (Feat. Kim Gun Mo)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15883,10 +6607,8 @@ const albums = [
   },
   {
     id: "02b9u4HtbgWDEDWmmkv061",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Korean Dream + Storm + Hip Hop Gentlemen + G-DRAGON",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15900,10 +6622,8 @@ const albums = [
   },
   {
     id: "1LERA11k6mBQVtPON9xrxX",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "A Boy",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15917,10 +6637,8 @@ const albums = [
   },
   {
     id: "7eUU0sWJq3k0GPca9Ak8cP",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "The Leaders (Feat. Teddy, CL)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15934,10 +6652,8 @@ const albums = [
   },
   {
     id: "7p6ZmgzWeZPIqoqMr1GgEQ",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Breathe",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15951,10 +6667,8 @@ const albums = [
   },
   {
     id: "0cwyRZpI8CmHF3Inx78Hgo",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Butterfly (Feat. Jin Jung)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15968,10 +6682,8 @@ const albums = [
   },
   {
     id: "5QIp9cwiXJdCI8Bz2k8i8c",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "But I Love U",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -15985,10 +6697,8 @@ const albums = [
   },
   {
     id: "4zAGN8kU33hfTrhQRHhYdU",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "She's Gone (Feat. KUSH)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -16002,10 +6712,8 @@ const albums = [
   },
   {
     id: "1JaGOGGmxiMUlQ2SGwheLk",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Only Look At Me",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -16019,10 +6727,8 @@ const albums = [
   },
   {
     id: "3lShYM0Ts3HfEDFpfkGO5z",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Korean Dream (Feat. TAEYANG)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -16036,10 +6742,8 @@ const albums = [
   },
   {
     id: "4McJBwPCVaey67P7Vva81s",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "1 Year",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -16053,10 +6757,8 @@ const albums = [
   },
   {
     id: "3bNTPfEavB3i1RD4g8AaDn",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Lies",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -16070,10 +6772,8 @@ const albums = [
   },
   {
     id: "0bEca0Fd6dmW9PmEDGeEi7",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Heartbreaker (Encore)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -16087,10 +6787,8 @@ const albums = [
   },
   {
     id: "5HH0VAoIyxEL5X4ZES6TEx",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Heartbreaker (Feat. Flo Rida)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -16104,10 +6802,8 @@ const albums = [
   },
   {
     id: "163261XJJ4vA69ZXKW6WeP",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "This love (G.H remix)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -16121,10 +6817,8 @@ const albums = [
   },
   {
     id: "6pcsEv1oLDQa3SggnaASsg",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "A Boy (CHOICE 37 Remix)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -16138,10 +6832,8 @@ const albums = [
   },
   {
     id: "0z3tku2tK4E9hAj7PmLRzd",
-    name: "G-DRAGON",
+    artistName: "G-DRAGON",
     genres: ["k-pop", "k-rap"],
-    song: "Breathe (hitchhiker Remix)",
-    artists: ["G-DRAGON"],
     popularity: 76,
     followers: 3397435,
     artistsImageUrl:
@@ -16155,10 +6847,8 @@ const albums = [
   },
   {
     id: "0BA3uoKlu9CsHgXIeAiXmJ",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Chroma Drift",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16172,10 +6862,8 @@ const albums = [
   },
   {
     id: "2sDcIrosoXqiGv1D5OQUvF",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Dash",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16189,10 +6877,8 @@ const albums = [
   },
   {
     id: "6JbyOUBLnkMadKcPQoQeTR",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "RIZZ",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16206,10 +6892,8 @@ const albums = [
   },
   {
     id: "3ICrCBhFiLaX0qP7KErHLe",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Island",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16223,10 +6907,8 @@ const albums = [
   },
   {
     id: "4gQJFhPYEVLuxyriyUubzD",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "12:32 (A to T)",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16240,10 +6922,8 @@ const albums = [
   },
   {
     id: "1riEr6o3obQxrQRFmD9Sed",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "We don't stop",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16257,10 +6937,8 @@ const albums = [
   },
   {
     id: "4jdlmdxikDrQc4YNhkRccv",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "We don't stop - Inst.",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16274,10 +6952,8 @@ const albums = [
   },
   {
     id: "0CN7xUFQbPRzffogC4FgBR",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "What If",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16291,10 +6967,8 @@ const albums = [
   },
   {
     id: "3KSkAziu70R5dvs0gmaNLv",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "What If - Instrumental",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16308,10 +6982,8 @@ const albums = [
   },
   {
     id: "34DtDWmIUacoop6Md298vE",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Pump Up The Volume!",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16325,10 +6997,8 @@ const albums = [
   },
   {
     id: "1NubJcJa12xLssOkQfWZDZ",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Watch Me Woo!",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16342,10 +7012,8 @@ const albums = [
   },
   {
     id: "1T6xi2QrnmwaebXGvWAjLg",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "WAY 4 LUV",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16359,10 +7027,8 @@ const albums = [
   },
   {
     id: "4mMtn8zhy4IaOwzNCgSbCT",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Virtual Idol",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16376,10 +7042,8 @@ const albums = [
   },
   {
     id: "1UyrFk2u0Asqmys76trMLi",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "From",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16393,10 +7057,8 @@ const albums = [
   },
   {
     id: "2ODZujtUNxCQDfKCxCeRxZ",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Our Movie",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16410,10 +7072,8 @@ const albums = [
   },
   {
     id: "30FH8tNdUgHqZbB6ENgOwY",
-    name: "PLAVE",
+    artistName: "PLAVE",
     genres: ["k-pop"],
-    song: "Merry PLLIstmas",
-    artists: ["PLAVE"],
     popularity: 66,
     followers: 282798,
     artistsImageUrl:
@@ -16427,10 +7087,8 @@ const albums = [
   },
   {
     id: "6xGr4tVzpTX99p9Cf0hRRL",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16444,10 +7102,8 @@ const albums = [
   },
   {
     id: "06Qo2fYR2KS1F7bL338iVT",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Closer to You (feat. Major Lazer)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16461,10 +7117,8 @@ const albums = [
   },
   {
     id: "2HRgqmZQC0MC7GeNuDIXHN",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Seven (feat. Latto) (Explicit Ver.)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16478,10 +7132,8 @@ const albums = [
   },
   {
     id: "2KslE17cAJNHTsI2MI0jb2",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Standing Next to You",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16495,10 +7147,8 @@ const albums = [
   },
   {
     id: "2gkVEnpahpE3bQuvGuCpAV",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Yes or No",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16512,10 +7162,8 @@ const albums = [
   },
   {
     id: "0k0GtcnyQLMiXrdEDbLXmJ",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Please Don't Change (feat. DJ Snake)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16529,10 +7177,8 @@ const albums = [
   },
   {
     id: "5ONOlTiqymhzwcFjqcIT6E",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Hate You",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16546,10 +7192,8 @@ const albums = [
   },
   {
     id: "5KfJvZ0PZzRdwFRaTUDAA7",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Somebody",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16563,10 +7207,8 @@ const albums = [
   },
   {
     id: "3bNNvJA7hsGw0wSpGkfOBm",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Too Sad to Dance",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16580,10 +7222,8 @@ const albums = [
   },
   {
     id: "7AbqgE05nFl9qY4FRUiq2p",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Shot Glass of Tears",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16597,10 +7237,8 @@ const albums = [
   },
   {
     id: "7Hcj0duTWiCSYDtJaztNIt",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Seven (feat. Latto) (Clean Ver.)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16614,10 +7252,8 @@ const albums = [
   },
   {
     id: "01qFKNWq73UfEslI0GvumE",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16631,10 +7267,8 @@ const albums = [
   },
   {
     id: "6Xa9B3iE7bo3GkyUOVAhB9",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow) (Instrumental)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16648,10 +7282,8 @@ const albums = [
   },
   {
     id: "5BKiMkWucQVb7wrFi29VtX",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (Alternate Ver.)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16665,10 +7297,8 @@ const albums = [
   },
   {
     id: "7fQKDpB4i0hiQacjVCXVU2",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow) (A. G. Cook Remix)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16682,10 +7312,8 @@ const albums = [
   },
   {
     id: "0TaaG2kxjzSjVbmmiiSZEa",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow) (Clean Ver.)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16699,10 +7327,8 @@ const albums = [
   },
   {
     id: "1ewYtP6BZlak8qokzZe4Bx",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow) (Sped Up)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16716,10 +7342,8 @@ const albums = [
   },
   {
     id: "0dzT72K2RElXDMuMOyuKOI",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (feat. Jack Harlow) (Slowed Down)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16733,10 +7357,8 @@ const albums = [
   },
   {
     id: "2nRMW95dnOILirpjbksLTs",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Never Let Go",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16750,10 +7372,8 @@ const albums = [
   },
   {
     id: "0VPFT123HKoQ2J6ipeDcI1",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "Standing Next to You (USHER Remix)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16767,10 +7387,8 @@ const albums = [
   },
   {
     id: "2mHw0KoEyDw8Yaw3yPoke6",
-    name: "Jung Kook",
+    artistName: "Jung Kook",
     genres: ["k-pop"],
-    song: "3D (Justin Timberlake Remix)",
-    artists: ["Jung Kook"],
     popularity: 82,
     followers: 17281324,
     artistsImageUrl:
@@ -16784,10 +7402,8 @@ const albums = [
   },
   {
     id: "42e6dogVzAPSudzaBqRUIV",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HANDS UP - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16802,10 +7418,8 @@ const albums = [
   },
   {
     id: "4DOvi3I7GtgVErqXnjAs3o",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "SOBER - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16819,10 +7433,8 @@ const albums = [
   },
   {
     id: "3RVgqjACPWt7LC7TgcCD7w",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WE LIKE 2 PARTY - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16837,10 +7449,8 @@ const albums = [
   },
   {
     id: "5Ym7yyiFy5Z2GW8zYH45ms",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "FXXK IT - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16855,10 +7465,8 @@ const albums = [
   },
   {
     id: "7kBSj85ufJ1VpvSqLAr75X",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOSER - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16872,10 +7480,8 @@ const albums = [
   },
   {
     id: "6HldMPK1mbjgI0Y5t370j9",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BAD BOY - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16890,10 +7496,8 @@ const albums = [
   },
   {
     id: "3emIcxw9NWVwKEdaXvXxF7",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WAKE ME UP - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16908,10 +7512,8 @@ const albums = [
   },
   {
     id: "3pP5rsaeJMIovsClmJmh3i",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "DARLING - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16926,10 +7528,8 @@ const albums = [
   },
   {
     id: "2GrmNtTCulwxR9lk8NQBAD",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "SUPER STAR - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16944,10 +7544,8 @@ const albums = [
   },
   {
     id: "2C0LOJPcnVcSKCX3N0DqEn",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Untitled, 2014 - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16962,10 +7560,8 @@ const albums = [
   },
   {
     id: "6Q00t2IdzTzcWgaevt2AQ7",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "D-Day - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16979,10 +7575,8 @@ const albums = [
   },
   {
     id: "5nCje7k5ZjgJ2XISx7cUZd",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "A・ZE・CHO ! - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -16997,10 +7591,8 @@ const albums = [
   },
   {
     id: "7uJ9p6GuOS5F5GnY94Kq5v",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "COME TO MY - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17015,10 +7607,8 @@ const albums = [
   },
   {
     id: "2Gu2yJtqxaJsq0fEozyChQ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "I KNOW - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17032,10 +7622,8 @@ const albums = [
   },
   {
     id: "2QtzsCMEuxZ5TAfOGVJpLY",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Look at me, Gwisun - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17050,10 +7638,8 @@ const albums = [
   },
   {
     id: "5wmUNZ7P5GUjZ0JBWKBDZs",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "GOOD BOY - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17068,10 +7654,8 @@ const albums = [
   },
   {
     id: "7ijpfBQv7sW0EHwbzRgI1a",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "IF YOU - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17085,10 +7669,8 @@ const albums = [
   },
   {
     id: "5LkYB8BCNIDf6ZWwrRNacI",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HaruHaru - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17103,10 +7685,8 @@ const albums = [
   },
   {
     id: "31jPf3RQi35D9NaOIgwX4P",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "FANTASTIC BABY - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17121,10 +7701,8 @@ const albums = [
   },
   {
     id: "55iMEsMm9td9daH0mHPoBG",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BANG BANG BANG - BIGBANG JAPAN DOME TOUR 2017 -LAST DANCE- : THE FINAL",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17139,10 +7717,8 @@ const albums = [
   },
   {
     id: "45mMN0OSFF5Nv7hBmeOUQx",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HEAVEN - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17156,10 +7732,8 @@ const albums = [
   },
   {
     id: "1zq8heBhjwmCnqx4RSZhb7",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WE LIKE 2 PARTY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17173,10 +7747,8 @@ const albums = [
   },
   {
     id: "0tYT6RdFKcSgBiaMfs3mdR",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HANDS UP - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17190,10 +7762,8 @@ const albums = [
   },
   {
     id: "6w17ZLpTonbMfRRDdrofVj",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BAD BOY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17207,10 +7777,8 @@ const albums = [
   },
   {
     id: "1QdpaBkjNApYmwYlDuWHik",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOSER - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17224,10 +7792,8 @@ const albums = [
   },
   {
     id: "6iCrpFpnNJO7FY8Iu7z7Hf",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "FXXK IT - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17241,10 +7807,8 @@ const albums = [
   },
   {
     id: "4uov3g2rlZdNY9GORNsh4b",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LET’S TALK ABOUT LOVE - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17258,10 +7822,8 @@ const albums = [
   },
   {
     id: "4pJRJMMTymF7IeRYHrHThC",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "STRONG BABY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17275,10 +7837,8 @@ const albums = [
   },
   {
     id: "225g4x1sW9Zm3lULmJrVKa",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WINGS - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17292,10 +7852,8 @@ const albums = [
   },
   {
     id: "4SHIhIglN6lQzBWzjfPRE8",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOOK AT ME GWISOON - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17309,10 +7867,8 @@ const albums = [
   },
   {
     id: "6kv5MN91E2yByJ1XWD76vQ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HEARTBREAKER - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17326,10 +7882,8 @@ const albums = [
   },
   {
     id: "5OmzFuUbe7djQLT2uG6I3r",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "CRAYON - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17343,10 +7897,8 @@ const albums = [
   },
   {
     id: "1YD8M14uJW3DXrCs4FeO8o",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HIGH HIGH - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17360,10 +7912,8 @@ const albums = [
   },
   {
     id: "4Kz8OC4sm2uCaCrEp9mLZ1",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "GOOD BOY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17377,10 +7927,8 @@ const albums = [
   },
   {
     id: "0fIiCm9Pf19dcIrmZ7stf8",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "PRETENDED - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17394,10 +7942,8 @@ const albums = [
   },
   {
     id: "10CDw5PAK3WmqkNQYJ1kuN",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "DOOM DADA - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17411,10 +7957,8 @@ const albums = [
   },
   {
     id: "6nrgWCby7MpEpbcRJxRRZ9",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "EYES, NOSE, LIPS - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17428,10 +7972,8 @@ const albums = [
   },
   {
     id: "00zcv0aqdWQep2DrVWNPjO",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "ONLY LOOK AT ME - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17445,10 +7987,8 @@ const albums = [
   },
   {
     id: "7zqLN6qt1ZNlEFLgB3LBWx",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "RINGA LINGA - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17462,10 +8002,8 @@ const albums = [
   },
   {
     id: "00hHDWHG3MiE2OOUmve79F",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "IF YOU - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17479,10 +8017,8 @@ const albums = [
   },
   {
     id: "33e3jzlgpXBQgTQ6radEv8",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HEAVEN - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17496,10 +8032,8 @@ const albums = [
   },
   {
     id: "4h0kPyfScsOoKlNRJ1l5Ty",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WE LIKE 2 PARTY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17513,10 +8047,8 @@ const albums = [
   },
   {
     id: "0wjAWaUxM3moRA6jvtsxPJ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HANDS UP - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17530,10 +8062,8 @@ const albums = [
   },
   {
     id: "27PYGYRXxejUF4cYulQmtS",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BAD BOY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17547,10 +8077,8 @@ const albums = [
   },
   {
     id: "3r6dAVVWsmqCDFvgSBiHEz",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOSER - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17564,10 +8092,8 @@ const albums = [
   },
   {
     id: "0qdJctmCqOqUL3kanmkmRi",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "FEELING - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17581,10 +8107,8 @@ const albums = [
   },
   {
     id: "3NggKc4eylweTkujZEgHJ8",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LET'S TALK ABOUT LOVE - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17598,10 +8122,8 @@ const albums = [
   },
   {
     id: "69uYZk1xUWUGAGaTG3dfNm",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "STRONG BABY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17615,10 +8137,8 @@ const albums = [
   },
   {
     id: "3LhyrhaUISsp2adwBdRLVX",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WINGS - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17632,10 +8152,8 @@ const albums = [
   },
   {
     id: "70ZcnxosNyBkxqNnaVdVcB",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOOK AT ME GWISOON - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17649,10 +8167,8 @@ const albums = [
   },
   {
     id: "6asqAqKRwHKQh2ANgDiJXe",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "CROOKED - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17666,10 +8182,8 @@ const albums = [
   },
   {
     id: "3PRaRBkHgzmxer5HIh0vGF",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HEARTBREAKER - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17683,10 +8197,8 @@ const albums = [
   },
   {
     id: "6BTfPlTa9AvOM3H3szjaRL",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "CRAYON - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17700,10 +8212,8 @@ const albums = [
   },
   {
     id: "0dflZ9lezOwO0AZVgYQSQL",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "HIGH HIGH - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17717,10 +8227,8 @@ const albums = [
   },
   {
     id: "18oGfIsfOaNHMrq8dyyk3e",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "GOOD BOY - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17734,10 +8242,8 @@ const albums = [
   },
   {
     id: "31eR03TwO2IRMYsCgKy6C3",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "PRETENDED - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17751,10 +8257,8 @@ const albums = [
   },
   {
     id: "1euM6MeQnbHHz1IgMyixo5",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "DOOM DADA - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17768,10 +8272,8 @@ const albums = [
   },
   {
     id: "7w45jf4z9fNIJYE59BtjiC",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "EYES, NOSE, LIPS - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17785,10 +8287,8 @@ const albums = [
   },
   {
     id: "5npsyXX3PBPXv48zF8o6bh",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "ONLY LOOK AT ME - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17802,10 +8302,8 @@ const albums = [
   },
   {
     id: "0Vhmd3nrLXS9cVMiFaXg1T",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "RINGA LINGA - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17819,10 +8317,8 @@ const albums = [
   },
   {
     id: "3lYvepDz6yYj29z7e4r5z0",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "FXXK IT",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17836,10 +8332,8 @@ const albums = [
   },
   {
     id: "7ijWcf4FsoxoyPK4B9WGp6",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LAST DANCE",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17853,10 +8347,8 @@ const albums = [
   },
   {
     id: "0FRVxxD5ZaLVnlwI9nxkqP",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "GIRLFRIEND",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17870,10 +8362,8 @@ const albums = [
   },
   {
     id: "6UgkB0xM45TR3Zjqm3GQ6T",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LET'S NOT FALL IN LOVE",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17887,10 +8377,8 @@ const albums = [
   },
   {
     id: "2vzn8usBcuNL93DnTjEK0z",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "LOSER",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17904,10 +8392,8 @@ const albums = [
   },
   {
     id: "3miMeSGd7rzJEtuhQnzm0f",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BAE BAE",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17921,10 +8407,8 @@ const albums = [
   },
   {
     id: "3dI59jLoFMjMAyUAyRZnkE",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "BANG BANG BANG",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17938,10 +8422,8 @@ const albums = [
   },
   {
     id: "3gUSmSBeeYsSMWECJcQW8w",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "SOBER",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17955,10 +8437,8 @@ const albums = [
   },
   {
     id: "4kaY4LbdbomICC25gYGGtn",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "IF YOU",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17972,10 +8452,8 @@ const albums = [
   },
   {
     id: "6ePbs5ln6NGmMMuA6DrSaQ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "ZUTTER (GD&T.O.P)",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -17989,10 +8467,8 @@ const albums = [
   },
   {
     id: "07gp2fnoTbVCsRJYazycI4",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "WE LIKE 2 PARTY",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18006,10 +8482,8 @@ const albums = [
   },
   {
     id: "3kseM0JJ9CgrCKAv1uoQmu",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Bang Bang Bang - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18023,10 +8497,8 @@ const albums = [
   },
   {
     id: "36uTWoCYuYtO1Qp9u7a7hF",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Tonight - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18040,10 +8512,8 @@ const albums = [
   },
   {
     id: "7LfrP6RxGo9dMZYKVwewgC",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Stupid Liar - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18057,10 +8527,8 @@ const albums = [
   },
   {
     id: "7ADw9GQ6A97ytTLwUAciFa",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Haru Haru - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18074,10 +8542,8 @@ const albums = [
   },
   {
     id: "5RcJp2r9ZHREM56nV2lTp5",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Loser - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18091,10 +8557,8 @@ const albums = [
   },
   {
     id: "3yfcH0kOXWgc95wdL62tPw",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Blue - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18108,10 +8572,8 @@ const albums = [
   },
   {
     id: "0PRny2NKo7iBdU47zTOoSJ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Bad Boy - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18125,10 +8587,8 @@ const albums = [
   },
   {
     id: "0iAgdDYh8Y9CETXoz1psiV",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "If You - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18142,10 +8602,8 @@ const albums = [
   },
   {
     id: "5Cnt2UgBxTIO65mlD5ELeQ",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Strong Baby - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18159,10 +8617,8 @@ const albums = [
   },
   {
     id: "2mYTfHz0wolZrAlF2bEX6M",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Wings - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18176,10 +8632,8 @@ const albums = [
   },
   {
     id: "0753tiqVdX34CvtoMgVYZF",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Doom Dada - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18193,10 +8647,8 @@ const albums = [
   },
   {
     id: "21po0SccfQs9FBEojjhmNN",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Eyes, Nose, Lips - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18210,10 +8662,8 @@ const albums = [
   },
   {
     id: "7efFRFZXZEwXCYrvFvNnOy",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Zutter - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18227,10 +8677,8 @@ const albums = [
   },
   {
     id: "3SgqaUT4PjwO84nO6OIhyI",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Good Boy - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18244,10 +8692,8 @@ const albums = [
   },
   {
     id: "6rxMYaoZlTWqWRyCDMHo0s",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Crooked - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18261,10 +8707,8 @@ const albums = [
   },
   {
     id: "5gNATY0PKGl0iCJ1cj7RCY",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Sober - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18278,10 +8722,8 @@ const albums = [
   },
   {
     id: "4Oq7zp72QZLwNbLlwvcSAz",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Bae Bae - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18295,10 +8737,8 @@ const albums = [
   },
   {
     id: "7wkdrGxG3jWLCpMhifoAGD",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Fantastic Baby - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18312,10 +8752,8 @@ const albums = [
   },
   {
     id: "3vG5OctNjOeRjZwxzAXTNv",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "We Like 2 Party (Encore) - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18329,10 +8767,8 @@ const albums = [
   },
   {
     id: "18I6Sg8Avsf5LIAzyYiNYH",
-    name: "BIGBANG",
+    artistName: "BIGBANG",
     genres: ["k-pop"],
-    song: "Lies (Encore) - Live",
-    artists: ["BIGBANG"],
     popularity: 75,
     followers: 5634207,
     artistsImageUrl:
@@ -18346,10 +8782,8 @@ const albums = [
   },
   {
     id: "2RENZFrMGuOtr162uKsjOn",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Intro : JANE with FKJ",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18363,10 +8797,8 @@ const albums = [
   },
   {
     id: "0DC62SYIRKMFgx2f7OyvwD",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "like JENNIE",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18380,10 +8812,8 @@ const albums = [
   },
   {
     id: "4YoN6sOtjWgbtB2jKgLPHL",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "start a war",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18397,10 +8827,8 @@ const albums = [
   },
   {
     id: "2eOXb8aSpBUQLSk1sTBPEK",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Handlebars (feat. Dua Lipa)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18414,10 +8842,8 @@ const albums = [
   },
   {
     id: "0wQASbxN6UbZXZhKXvuczj",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "with the IE (way up)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18431,10 +8857,8 @@ const albums = [
   },
   {
     id: "3fN2swfuBHUljCyPlA8wBN",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "ExtraL (feat. Doechii)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18448,10 +8872,8 @@ const albums = [
   },
   {
     id: "0oYhOxvxd95jtTWXHkYsPh",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Mantra",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18465,10 +8887,8 @@ const albums = [
   },
   {
     id: "2DW9UqvL7vcG3qCGFUmvXp",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Love Hangover (feat. Dominic Fike)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18482,10 +8902,8 @@ const albums = [
   },
   {
     id: "76tWxLk4KWOw1Qd8dC5SdI",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "ZEN",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18499,10 +8917,8 @@ const albums = [
   },
   {
     id: "3KldgsZmR6nCItrTrP8zbl",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Damn Right (feat. Childish Gambino & Kali Uchis)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18516,10 +8932,8 @@ const albums = [
   },
   {
     id: "6wbLxHGBCpTWIpLZ5L0Zuv",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "F.T.S.",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18533,10 +8947,8 @@ const albums = [
   },
   {
     id: "4p3oOaC3Fo38tEXp3SR5DN",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Filter",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18550,10 +8962,8 @@ const albums = [
   },
   {
     id: "3IPh4v7HFJ8Egba3lYNDrQ",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Seoul City",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18567,10 +8977,8 @@ const albums = [
   },
   {
     id: "0rNCeIkEvz61X0oP48z6cC",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Starlight",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18584,10 +8992,8 @@ const albums = [
   },
   {
     id: "5rP5Mwcx5IYavwVTCmdVIK",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "twin",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18601,10 +9007,8 @@ const albums = [
   },
   {
     id: "2cR7c0dxkHnPcnWMLUlRVo",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Intro : JANE with FKJ",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18618,10 +9022,8 @@ const albums = [
   },
   {
     id: "4kh7FBVzeyRC0rMWRFDmMC",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Handlebars (feat. Dua Lipa)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18635,10 +9037,8 @@ const albums = [
   },
   {
     id: "4cfiNs7Yvr9UTLvbYWal1o",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "Damn Right (feat. Childish Gambino & Kali Uchis)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18652,10 +9052,8 @@ const albums = [
   },
   {
     id: "4g0F7gpT3iVHqKjXF87eX1",
-    name: "JENNIE",
+    artistName: "JENNIE",
     genres: ["k-pop"],
-    song: "ExtraL (feat. Doechii)",
-    artists: ["JENNIE"],
     popularity: 88,
     followers: 9414151,
     artistsImageUrl:
@@ -18669,10 +9067,8 @@ const albums = [
   },
   {
     id: "6gofCueySlBTKWFkOntP2F",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "No More Hiding",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18686,10 +9082,8 @@ const albums = [
   },
   {
     id: "5Wl7p7TylkA7Kec3HV0i5b",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "What Do I Do",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18703,10 +9097,8 @@ const albums = [
   },
   {
     id: "3rXZ1j7QTXphBCavJDBZXz",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "30 For 30 (with Kendrick Lamar)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18720,10 +9112,8 @@ const albums = [
   },
   {
     id: "2kwtmk3MEM1rJ2ROBlDPJm",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Diamond Boy (DTM)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18737,10 +9127,8 @@ const albums = [
   },
   {
     id: "6uhsCywVYs0A9wWf0IE81N",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "BMF",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18754,10 +9142,8 @@ const albums = [
   },
   {
     id: "1TmxBpnOfi6Qo76EubG57l",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Scorsese Baby Daddy",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18771,10 +9157,8 @@ const albums = [
   },
   {
     id: "0ubNlPTaQkfNWkFO9Q9MOt",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Love Me 4 Me",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18788,10 +9172,8 @@ const albums = [
   },
   {
     id: "5MJzPVpmuQenwmnW4tvqxN",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Chill Baby",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18805,10 +9187,8 @@ const albums = [
   },
   {
     id: "0wa75FDB0wR2Y4JDe1Fw2m",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "My Turn",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18822,10 +9202,8 @@ const albums = [
   },
   {
     id: "0lYhn8BHyws0nEVMu7xejq",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Crybaby",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18839,10 +9217,8 @@ const albums = [
   },
   {
     id: "31tVhNpdfsOhZKDhNXul7k",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Kitchen",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18856,10 +9232,8 @@ const albums = [
   },
   {
     id: "7BidXxXMEtU3eUM2026i2p",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Get Behind Me (Interlude)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18873,10 +9247,8 @@ const albums = [
   },
   {
     id: "2xCb1jIzhLMm8DYcAVK6UY",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Drive",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18890,10 +9262,8 @@ const albums = [
   },
   {
     id: "6YDeZ8E4Sq63omeicaKbgS",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Another Life",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18907,10 +9277,8 @@ const albums = [
   },
   {
     id: "63VqnjTVYJiwVoUm0OCdy6",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Saturn",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18924,10 +9292,8 @@ const albums = [
   },
   {
     id: "5Hi7mKvhNYvk4PIURtuY42",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Joni (feat. Don Toliver)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18941,10 +9307,8 @@ const albums = [
   },
   {
     id: "0sbjvSYXqzLiMPID9FPYjL",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Take You Down",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18958,10 +9322,8 @@ const albums = [
   },
   {
     id: "0uQHm4CLatNbvDFHt1Ystl",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Open Arms (just SZA)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18975,10 +9337,8 @@ const albums = [
   },
   {
     id: "0IrFjSpWJzYsZ9UeZxqdgt",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "PSA",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -18992,10 +9352,8 @@ const albums = [
   },
   {
     id: "06e2HGTj1BDaYXpoZfjZXe",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "SOS",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19009,10 +9367,8 @@ const albums = [
   },
   {
     id: "5xMw6qCcpd2gBXPGTegC4W",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "SOS",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19026,10 +9382,8 @@ const albums = [
   },
   {
     id: "3OHfY25tqY28d16oZczHc8",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Kill Bill",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19043,10 +9397,8 @@ const albums = [
   },
   {
     id: "6eT2V7nKXyMf47TwPbtgAD",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Seek & Destroy",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19060,10 +9412,8 @@ const albums = [
   },
   {
     id: "2GAhgAjOhEmItWLfgisyOn",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Low",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19077,10 +9427,8 @@ const albums = [
   },
   {
     id: "1eIXYZWEfJO3Na2LCCnIJE",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Love Language",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19094,10 +9442,8 @@ const albums = [
   },
   {
     id: "2CSRrnOEELmhpq8iaAi9cd",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Blind",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19111,10 +9457,8 @@ const albums = [
   },
   {
     id: "1TweDM3JC49LNeelLVg3yX",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Used (feat. Don Toliver)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19128,10 +9472,8 @@ const albums = [
   },
   {
     id: "4iZ4pt7kvcaH6Yo8UoZ4s2",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Snooze",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19145,10 +9487,8 @@ const albums = [
   },
   {
     id: "4fnNBPN9W6AoOYSQS3FJxT",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Notice Me",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19162,10 +9502,8 @@ const albums = [
   },
   {
     id: "2Sjx8DWZO5zaTyTAmgo2gY",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Gone Girl",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19179,10 +9517,8 @@ const albums = [
   },
   {
     id: "4jTs7ny5eSRnKTzxdrFv5I",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Smoking on my Ex Pack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19196,10 +9532,8 @@ const albums = [
   },
   {
     id: "4h5x3XHLVYFJaItKuO2rhy",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Ghost in the Machine (feat. Phoebe Bridgers)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19213,10 +9547,8 @@ const albums = [
   },
   {
     id: "2e2AXpIiJpet5b4qg85Gh6",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "F2F",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19230,10 +9562,8 @@ const albums = [
   },
   {
     id: "5Y35SjAfXjjG0sFQ3KOxmm",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Nobody Gets Me",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19247,10 +9577,8 @@ const albums = [
   },
   {
     id: "4hTej08FutmriOs7S1hWWy",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Conceited",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19264,10 +9592,8 @@ const albums = [
   },
   {
     id: "6RQ5IwG7uADz9LDWliJGjU",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Special",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19281,10 +9607,8 @@ const albums = [
   },
   {
     id: "4rAg5bbrdZX00mXXhLvYXj",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Too Late",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19298,10 +9622,8 @@ const albums = [
   },
   {
     id: "74NI58MQexwZjNu1Gu6GjT",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Far",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19315,10 +9637,8 @@ const albums = [
   },
   {
     id: "2wSTnntOPRi7aQneobFtU4",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Shirt",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19332,10 +9652,8 @@ const albums = [
   },
   {
     id: "0xaFw2zDYf1rIJWl2dXiSF",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Open Arms (feat. Travis Scott)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19349,10 +9667,8 @@ const albums = [
   },
   {
     id: "3lw0PaZdGkvCwTaiatHbnU",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Supermodel",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19366,10 +9682,8 @@ const albums = [
   },
   {
     id: "7HhtNlYNI32WY6n0ISX0U1",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Love Galore (feat. Travis Scott)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19383,10 +9697,8 @@ const albums = [
   },
   {
     id: "0JijvZALkvx7uonQdvXXpH",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Doves In The Wind (feat. Kendrick Lamar)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19400,10 +9712,8 @@ const albums = [
   },
   {
     id: "5L7sgpCZgrcqpgh1xM7r6V",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Drew Barrymore",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19417,10 +9727,8 @@ const albums = [
   },
   {
     id: "5MffAkbuTPBqRdPuPzaEb5",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Prom",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19434,10 +9742,8 @@ const albums = [
   },
   {
     id: "61fROeJfnI3OtNQYMpN1gT",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "The Weekend",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19451,10 +9757,8 @@ const albums = [
   },
   {
     id: "4U4bI86Jynl9et1eXyEpz6",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Go Gina",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19468,10 +9772,8 @@ const albums = [
   },
   {
     id: "6yyxqE2ZdAVuD2qEL76POx",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Garden (Say It Like Dat)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19485,10 +9787,8 @@ const albums = [
   },
   {
     id: "5dIkvSrG129dvaQ3xb0M9R",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Broken Clocks",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19502,10 +9802,8 @@ const albums = [
   },
   {
     id: "4rbl561Pds0a8d9h0RLaLF",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Anything",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19519,10 +9817,8 @@ const albums = [
   },
   {
     id: "0YPPnLR3TS4ZIAKCQOLZhK",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Wavy (Interlude) (feat. James Fauntleroy)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19536,10 +9832,8 @@ const albums = [
   },
   {
     id: "1Y7tMWKvFZLCpoX0SINyhP",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Normal Girl",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19553,10 +9847,8 @@ const albums = [
   },
   {
     id: "4icqsSm2gIMEMUAcaReA3u",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Pretty Little Birds (feat. Isaiah Rashad)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19570,10 +9862,8 @@ const albums = [
   },
   {
     id: "0WC7CIZHwPXoFQEbJ721vT",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "20 Something",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19587,10 +9877,8 @@ const albums = [
   },
   {
     id: "3fcX3E9l1gVnfKeWaEzHHv",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Love Galore (Alt Version)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19604,10 +9892,8 @@ const albums = [
   },
   {
     id: "3vZGtceCbJVh5aDT4XhE0p",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "2AM",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19621,10 +9907,8 @@ const albums = [
   },
   {
     id: "4pHy0gmjfpD0Fgond5c4Ta",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Miles",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19638,10 +9922,8 @@ const albums = [
   },
   {
     id: "4UJuFZ4btsiGqMyFHBRPbo",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Percolator",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19655,10 +9937,8 @@ const albums = [
   },
   {
     id: "7newfXclX39UwWTw2gDswM",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Tread Carefully",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19672,10 +9952,8 @@ const albums = [
   },
   {
     id: "2xZ0zfuDTv5LxLhEgD82PG",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Awkward",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19689,10 +9967,8 @@ const albums = [
   },
   {
     id: "0Grpt3Up0Kaj7PljmT7inL",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Waving Through A Window - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19707,10 +9983,8 @@ const albums = [
   },
   {
     id: "4F0FjRSJxEhEg2O2X7xAik",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "For Forever - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19725,10 +9999,8 @@ const albums = [
   },
   {
     id: "7Fuj7RyGJYSJ7HgO5E2tJv",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Sincerely Me - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19743,10 +10015,8 @@ const albums = [
   },
   {
     id: "2hp0ZBtEDA2Wn3C1fvJSf9",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Requiem - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19761,10 +10031,8 @@ const albums = [
   },
   {
     id: "7bKq8MLzpWlaO1RXPkEm95",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "If I Could Tell Her - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19779,10 +10047,8 @@ const albums = [
   },
   {
     id: "1ouS2oUJOnxH9TaQxpNpUO",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "The Anonymous Ones - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19797,10 +10063,8 @@ const albums = [
   },
   {
     id: "3AYMFpcQeHCjnTAb8XKeVu",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "You Will Be Found - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19815,10 +10079,8 @@ const albums = [
   },
   {
     id: "34IKm7af3AY1m36bnlNH5k",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Only Us - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19833,10 +10095,8 @@ const albums = [
   },
   {
     id: "6oKvPUNfMLB8tPCZxQztGR",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Words Fail - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19851,10 +10111,8 @@ const albums = [
   },
   {
     id: "1MdFRRORSskeNMHJsYv9cu",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "So Big / So Small - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19869,10 +10127,8 @@ const albums = [
   },
   {
     id: "5V0BIjKnVh2acWHuf5evww",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "A Little Closer - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19887,10 +10143,8 @@ const albums = [
   },
   {
     id: "6i14jVQ6cq2BxYWlYYgzyD",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "You Will Be Found (Sam Smith & Summer Walker Version) - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19905,10 +10159,8 @@ const albums = [
   },
   {
     id: "1UiIBbs0Pl8rAtz294SZoR",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "The Anonymous Ones (SZA Version) - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19923,10 +10175,8 @@ const albums = [
   },
   {
     id: "4SaukjSrlHLaSwZ5K6OHhe",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Only Us (Carrie Underwood & Dan + Shay Version) - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19941,10 +10191,8 @@ const albums = [
   },
   {
     id: "3tcquFqOHmSIDmhW4rH2Pn",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "A Little Closer (FINNEAS Version) - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19959,10 +10207,8 @@ const albums = [
   },
   {
     id: "1oTJvM9gyW1uY7Bb0tOZyk",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Waving Through A Window (Tori Kelly Version) - From The “Dear Evan Hansen” Original Motion Picture Soundtrack",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19977,10 +10223,8 @@ const albums = [
   },
   {
     id: "5qN4HFkapdAOV94XPryVof",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Black Panther",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -19994,10 +10238,8 @@ const albums = [
   },
   {
     id: "3GCdLUSnKSMJhs4Tj6CV3s",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "All The Stars (with SZA)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20011,10 +10253,8 @@ const albums = [
   },
   {
     id: "4LmAnpjlhWTahvRkYR8xJa",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "X (with 2 Chainz & Saudi)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20028,10 +10268,8 @@ const albums = [
   },
   {
     id: "5jyyPsIGM2yqkZN9R3TmvN",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "The Ways (with Swae Lee)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20045,10 +10283,8 @@ const albums = [
   },
   {
     id: "7bUcBztfGqO7cSI2gMZeCI",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Opps (with Yugen Blakrok)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20062,10 +10298,8 @@ const albums = [
   },
   {
     id: "0DJBgBiYeSn6n1AXAkFVE8",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "I Am",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20079,10 +10313,8 @@ const albums = [
   },
   {
     id: "2tPcTFiQF9MbVUyjZ3zDhA",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Paramedic!",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20096,10 +10328,8 @@ const albums = [
   },
   {
     id: "4KXwFI9pgJLpUIAc9oSL8j",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Bloody Waters (with Anderson .Paak & James Blake)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20113,10 +10343,8 @@ const albums = [
   },
   {
     id: "1eLSF6HfrRA0AsNmTkUlKx",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "King's Dead (with Kendrick Lamar, Future & James Blake)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20130,10 +10358,8 @@ const albums = [
   },
   {
     id: "4FpfU1O7WCLBnmwu5XAFk4",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Redemption Interlude",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20147,10 +10373,8 @@ const albums = [
   },
   {
     id: "76iVOVsliCHlWqKuDnCfhE",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Redemption (with Babes Wodumo)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20164,10 +10388,8 @@ const albums = [
   },
   {
     id: "35cOyocq8Gb6UcT0NWeTwn",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Seasons (with Sjava & Reason)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20181,10 +10403,8 @@ const albums = [
   },
   {
     id: "5cXg9IQS34FzLVdHhp7hu7",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Big Shot (with Travis Scott)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20198,10 +10418,8 @@ const albums = [
   },
   {
     id: "77UjLW8j5UAGAGVGhR5oUK",
-    name: "SZA",
+    artistName: "SZA",
     genres: ["r&b"],
-    song: "Pray For Me (with Kendrick Lamar)",
-    artists: ["SZA"],
     popularity: 95,
     followers: 28231702,
     artistsImageUrl:
@@ -20215,10 +10433,8 @@ const albums = [
   },
   {
     id: "6JVXVLqCPaodBSEwRFUN8w",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Ditto (250 Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20232,10 +10448,8 @@ const albums = [
   },
   {
     id: "4yjDMKCAeLovlo9ih0AgXW",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "OMG (FRNK Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20249,10 +10463,8 @@ const albums = [
   },
   {
     id: "2nW48vXnZZ5EYka46v7GOk",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Attention (250 Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20266,10 +10478,8 @@ const albums = [
   },
   {
     id: "6CUKsv928uT4561qJovhhG",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Hype Boy (250 Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20283,10 +10493,8 @@ const albums = [
   },
   {
     id: "5bwpbZBOY0mrmRhZ94c0kW",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Cookie (FRNK Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20300,10 +10508,8 @@ const albums = [
   },
   {
     id: "2gWWYL6iXZKkOqCE3TQHBM",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Hurt (250 Remix)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20317,10 +10523,8 @@ const albums = [
   },
   {
     id: "3dCCHYqCAMdm1GCuklUaZG",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Ditto (250 Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20334,10 +10538,8 @@ const albums = [
   },
   {
     id: "2oLVT9Lo0SavCNpGw4WfPp",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "OMG (FRNK Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20351,10 +10553,8 @@ const albums = [
   },
   {
     id: "4MhgDz4lSj2HtlUcpe3yrd",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Attention (250 Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20368,10 +10568,8 @@ const albums = [
   },
   {
     id: "6tU4EeTSSawN9sbfAjWPX4",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Hype Boy (250 Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20385,10 +10583,8 @@ const albums = [
   },
   {
     id: "2akxtSALPUX8orriSWyDi4",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Cookie (FRNK Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20402,10 +10598,8 @@ const albums = [
   },
   {
     id: "1q9V1vsIEehAm2hDT6l53g",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Hurt (250 Remix) (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20419,10 +10613,8 @@ const albums = [
   },
   {
     id: "5ocSQW5sIUIOFojwXEz9Ki",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Supernatural",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20436,10 +10628,8 @@ const albums = [
   },
   {
     id: "58Q3FZFs1YXPpliWQB5kXB",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Right Now",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20453,10 +10643,8 @@ const albums = [
   },
   {
     id: "4823f9W4xmR3n1BebPyNaR",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Supernatural (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20470,10 +10658,8 @@ const albums = [
   },
   {
     id: "6jgUrLEivd4DaiYb1izJLF",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Right Now (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20487,10 +10673,8 @@ const albums = [
   },
   {
     id: "38tXZcL1gZRfbqfOG0VMTH",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "How Sweet",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20504,10 +10688,8 @@ const albums = [
   },
   {
     id: "19D8LNpWwIPpi6hs9BG7dq",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Bubble Gum",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20521,10 +10703,8 @@ const albums = [
   },
   {
     id: "54tBIDmNdxGp04gPNWCCbi",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "How Sweet (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20538,10 +10718,8 @@ const albums = [
   },
   {
     id: "54uNtM77iZ5gawWBQGnEar",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Bubble Gum (Instrumental)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20555,10 +10733,8 @@ const albums = [
   },
   {
     id: "11YovYUVkZdLyOFncbecWL",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Our Night is more beautiful than your Day",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20572,10 +10748,8 @@ const albums = [
   },
   {
     id: "6sJ6EoG4vyUC1tW718ww7f",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "Our Night is more beautiful than your Day (Inst.)",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20589,10 +10763,8 @@ const albums = [
   },
   {
     id: "210JJAa9nJOgNa0YNrsT5g",
-    name: "NewJeans",
+    artistName: "NewJeans",
     genres: ["k-pop"],
-    song: "GODS",
-    artists: ["NewJeans"],
     popularity: 79,
     followers: 10467117,
     artistsImageUrl:
@@ -20606,10 +10778,8 @@ const albums = [
   },
   {
     id: "5673WA8EEUSPx1ir26lhGW",
-    name: "The Weeknd",
-    genres: [],
-    song: "Wake Me Up (feat. Justice)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20623,10 +10793,8 @@ const albums = [
   },
   {
     id: "3AWDeHLc88XogCaCnZQLVI",
-    name: "The Weeknd",
-    genres: [],
-    song: "Cry For Me",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20640,10 +10808,8 @@ const albums = [
   },
   {
     id: "64JIAZ0bS7WoARYfWQGCoz",
-    name: "The Weeknd",
-    genres: [],
-    song: "I Can't Fucking Sing",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20657,10 +10823,8 @@ const albums = [
   },
   {
     id: "7DY756WOLyOz2Xnhw4EFiC",
-    name: "The Weeknd",
-    genres: [],
-    song: "São Paulo (feat. Anitta)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20674,10 +10838,8 @@ const albums = [
   },
   {
     id: "6jDGDtQPC46pFqxph3qdbD",
-    name: "The Weeknd",
-    genres: [],
-    song: "Until We're Skin & Bones",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20691,10 +10853,8 @@ const albums = [
   },
   {
     id: "5rzI6Jnlhx8DgVgsOLorfW",
-    name: "The Weeknd",
-    genres: [],
-    song: "Baptized In Fear",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20708,10 +10868,8 @@ const albums = [
   },
   {
     id: "0sTBOp1hdayTjw6UOyPyi6",
-    name: "The Weeknd",
-    genres: [],
-    song: "Open Hearts",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20725,10 +10883,8 @@ const albums = [
   },
   {
     id: "4Msr8L0gHGDsLSBlk7pSPU",
-    name: "The Weeknd",
-    genres: [],
-    song: "Opening Night",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20742,10 +10898,8 @@ const albums = [
   },
   {
     id: "2gyHr9WqZeMtzJOpWGuGo6",
-    name: "The Weeknd",
-    genres: [],
-    song: "Reflections Laughing (feat. Travis Scott, Florence + The Machine)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20760,10 +10914,8 @@ const albums = [
   },
   {
     id: "637oNhilCI9UlkWkUW4Grt",
-    name: "The Weeknd",
-    genres: [],
-    song: "Enjoy The Show (feat. Future)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20777,10 +10929,8 @@ const albums = [
   },
   {
     id: "0FolPJnYMo71Z7qasTuoJT",
-    name: "The Weeknd",
-    genres: [],
-    song: "Given Up On Me",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20794,10 +10944,8 @@ const albums = [
   },
   {
     id: "0bcZ7xN9IcjSNxLerzR2yl",
-    name: "The Weeknd",
-    genres: [],
-    song: "I Can't Wait To Get There",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20811,10 +10959,8 @@ const albums = [
   },
   {
     id: "0FIDCNYYjNvPVimz5icugS",
-    name: "The Weeknd",
-    genres: [],
-    song: "Timeless (feat Playboi Carti)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20828,10 +10974,8 @@ const albums = [
   },
   {
     id: "2v0AG62ZHtD3I4YmTb3WYM",
-    name: "The Weeknd",
-    genres: [],
-    song: "Niagara Falls",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20845,10 +10989,8 @@ const albums = [
   },
   {
     id: "7rVmzyFA7f4rNGl9onF21E",
-    name: "The Weeknd",
-    genres: [],
-    song: "Take Me Back To LA",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20862,10 +11004,8 @@ const albums = [
   },
   {
     id: "4sWQbsLLH2NEbO79DSZCL9",
-    name: "The Weeknd",
-    genres: [],
-    song: "Big Sleep (feat. Giorgio Moroder)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20879,10 +11019,8 @@ const albums = [
   },
   {
     id: "0K3w6WNawZlv6Izmsrye8o",
-    name: "The Weeknd",
-    genres: [],
-    song: "Give Me Mercy",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20896,10 +11034,8 @@ const albums = [
   },
   {
     id: "6i5fDaCzwxRrZtuvvcqoIf",
-    name: "The Weeknd",
-    genres: [],
-    song: "Drive",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20913,10 +11049,8 @@ const albums = [
   },
   {
     id: "5ZDKPFRZC6QlJpf8bCIXTs",
-    name: "The Weeknd",
-    genres: [],
-    song: "The Abyss (feat. Lana Del Rey)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20930,10 +11064,8 @@ const albums = [
   },
   {
     id: "717s9KFmHhyy5t3xkStS56",
-    name: "The Weeknd",
-    genres: [],
-    song: "Red Terror",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20947,10 +11079,8 @@ const albums = [
   },
   {
     id: "76yLBykniz0SSNv0jj17M2",
-    name: "The Weeknd",
-    genres: [],
-    song: "Starboy (feat. Daft Punk)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20964,10 +11094,8 @@ const albums = [
   },
   {
     id: "6fSvz9yrQY407xmr7cdjuA",
-    name: "The Weeknd",
-    genres: [],
-    song: "Party Monster",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20981,10 +11109,8 @@ const albums = [
   },
   {
     id: "4k47x4UkxG215nFLMFna8A",
-    name: "The Weeknd",
-    genres: [],
-    song: "False Alarm",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -20998,10 +11124,8 @@ const albums = [
   },
   {
     id: "4zHa39io9pjsiAE6LwM2NH",
-    name: "The Weeknd",
-    genres: [],
-    song: "Reminder",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21015,10 +11139,8 @@ const albums = [
   },
   {
     id: "3mynPhglTz2Ggh8SxA34kR",
-    name: "The Weeknd",
-    genres: [],
-    song: "Rockin’",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21032,10 +11154,8 @@ const albums = [
   },
   {
     id: "36K5mnqwfxGS0rvxz7FPyq",
-    name: "The Weeknd",
-    genres: [],
-    song: "Secrets",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21049,10 +11169,8 @@ const albums = [
   },
   {
     id: "2QRvliBEcGIEgTrjVfxmXo",
-    name: "The Weeknd",
-    genres: [],
-    song: "True Colors",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21066,10 +11184,8 @@ const albums = [
   },
   {
     id: "3CktmDvZGj21m3pNFj5Lr3",
-    name: "The Weeknd",
-    genres: [],
-    song: "Stargirl Interlude (feat. Lana Del Rey)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21083,10 +11199,8 @@ const albums = [
   },
   {
     id: "3r5lHFACTti0w2REN5tcrn",
-    name: "The Weeknd",
-    genres: [],
-    song: "Sidewalks (feat. Kendrick Lamar)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21100,10 +11214,8 @@ const albums = [
   },
   {
     id: "4QYEtbfsqusrXN5A49LG53",
-    name: "The Weeknd",
-    genres: [],
-    song: "Six Feet Under",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21117,10 +11229,8 @@ const albums = [
   },
   {
     id: "5ejT19NfiINj4cFmjRHwAC",
-    name: "The Weeknd",
-    genres: [],
-    song: "Love To Lay",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21134,10 +11244,8 @@ const albums = [
   },
   {
     id: "5HFQB9ENLGBHTci7xPmLk6",
-    name: "The Weeknd",
-    genres: [],
-    song: "A Lonely Night",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21151,10 +11259,8 @@ const albums = [
   },
   {
     id: "2DsrtZoRxeHdCSGRlQVQtj",
-    name: "The Weeknd",
-    genres: [],
-    song: "Attention",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21168,10 +11274,8 @@ const albums = [
   },
   {
     id: "09mBPwUMt1TXNtneqvmZZ5",
-    name: "The Weeknd",
-    genres: [],
-    song: "Ordinary Life",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21185,10 +11289,8 @@ const albums = [
   },
   {
     id: "3iPmwJh56xbDF7Xduimf0d",
-    name: "The Weeknd",
-    genres: [],
-    song: "Nothing Without You",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21202,10 +11304,8 @@ const albums = [
   },
   {
     id: "3Xz0rSC29WbaobyJQfeYsp",
-    name: "The Weeknd",
-    genres: [],
-    song: "All I Know (feat. Future)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21219,10 +11319,8 @@ const albums = [
   },
   {
     id: "0awWj9Wzj375IL5etqa1Dk",
-    name: "The Weeknd",
-    genres: [],
-    song: "Die For You",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21236,10 +11334,8 @@ const albums = [
   },
   {
     id: "0yi180gAOIJhcRo7wY4Htl",
-    name: "The Weeknd",
-    genres: [],
-    song: "I Feel It Coming (feat. Daft Punk)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21253,10 +11349,8 @@ const albums = [
   },
   {
     id: "4W4fNrZYkobj539TOWsLO2",
-    name: "The Weeknd",
-    genres: [],
-    song: "Die For You (with Ariana Grande) - Remix",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21270,10 +11364,8 @@ const albums = [
   },
   {
     id: "3DCc4HPrVukBeaDGe3Cosk",
-    name: "The Weeknd",
-    genres: [],
-    song: "Starboy (feat. Daft Punk) - Kygo Remix",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21287,10 +11379,8 @@ const albums = [
   },
   {
     id: "7HX1VOiPj1oMlgZ3OQ92B6",
-    name: "The Weeknd",
-    genres: [],
-    song: "Intro - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21304,10 +11394,8 @@ const albums = [
   },
   {
     id: "2evYKtXNAdn60ANNEdjH7V",
-    name: "The Weeknd",
-    genres: [],
-    song: "Alone Again - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21321,10 +11409,8 @@ const albums = [
   },
   {
     id: "2h3ZotklPN6aD7OuHz7bFZ",
-    name: "The Weeknd",
-    genres: [],
-    song: "Gasoline - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21338,10 +11424,8 @@ const albums = [
   },
   {
     id: "7skxtd9x0d05fjz4D7w3t2",
-    name: "The Weeknd",
-    genres: [],
-    song: "Sacrifice - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21355,10 +11439,8 @@ const albums = [
   },
   {
     id: "72SxWvaYsDgix2N3sjCjT1",
-    name: "The Weeknd",
-    genres: [],
-    song: "How Do I Make You Love Me? - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21372,10 +11454,8 @@ const albums = [
   },
   {
     id: "47vfGRaXEGzcM2vI7JC2OO",
-    name: "The Weeknd",
-    genres: [],
-    song: "Can't Feel My Face - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21389,10 +11469,8 @@ const albums = [
   },
   {
     id: "02YlAvsmptN8LisZqrWBIb",
-    name: "The Weeknd",
-    genres: [],
-    song: "Take My Breath - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21406,10 +11484,8 @@ const albums = [
   },
   {
     id: "45ypYpAdgoneWcBT0Wba3p",
-    name: "The Weeknd",
-    genres: [],
-    song: "Hurricane - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21423,10 +11499,8 @@ const albums = [
   },
   {
     id: "6N8W7Dbcsg9tRDxn0wjFkR",
-    name: "The Weeknd",
-    genres: [],
-    song: "The Hills - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21440,10 +11514,8 @@ const albums = [
   },
   {
     id: "3kdEGx81MR9ftxRbF3Zf84",
-    name: "The Weeknd",
-    genres: [],
-    song: "Often - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21457,10 +11529,8 @@ const albums = [
   },
   {
     id: "03H6iCycyxfB2mZzIOEeKJ",
-    name: "The Weeknd",
-    genres: [],
-    song: "Crew Love - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21474,10 +11544,8 @@ const albums = [
   },
   {
     id: "4ZYGm4xWPhsZVijqtpWn4C",
-    name: "The Weeknd",
-    genres: [],
-    song: "Starboy - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21491,10 +11559,8 @@ const albums = [
   },
   {
     id: "0WrIAsGJOei2FGeakvpTDU",
-    name: "The Weeknd",
-    genres: [],
-    song: "Heartless - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21508,10 +11574,8 @@ const albums = [
   },
   {
     id: "431r2Qg4I2qFIKdSFCJN4s",
-    name: "The Weeknd",
-    genres: [],
-    song: "Low Life - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21525,10 +11589,8 @@ const albums = [
   },
   {
     id: "6tB01QHgH9YuVA8TomAzni",
-    name: "The Weeknd",
-    genres: [],
-    song: "Or Nah - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21542,10 +11604,8 @@ const albums = [
   },
   {
     id: "2YI8oiiImLkZvVgP33xrjD",
-    name: "The Weeknd",
-    genres: [],
-    song: "Kiss Land - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21559,10 +11619,8 @@ const albums = [
   },
   {
     id: "6knNhL3mIaackJvtjmUrfN",
-    name: "The Weeknd",
-    genres: [],
-    song: "Party Monster - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21576,10 +11634,8 @@ const albums = [
   },
   {
     id: "5RlqhZfTao31aQUO2QjpkG",
-    name: "The Weeknd",
-    genres: [],
-    song: "Faith - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21593,10 +11649,8 @@ const albums = [
   },
   {
     id: "7HK0ZDEsW0lGKKIVYvni2z",
-    name: "The Weeknd",
-    genres: [],
-    song: "After Hours - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21610,10 +11664,8 @@ const albums = [
   },
   {
     id: "6XZ8C5etRn0kiS1wwuW0SO",
-    name: "The Weeknd",
-    genres: [],
-    song: "Out of Time - Live",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21627,10 +11679,8 @@ const albums = [
   },
   {
     id: "3gj1hwjku4JaoamjJVqIIl",
-    name: "The Weeknd",
-    genres: [],
-    song: "Dawn FM",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21644,10 +11694,8 @@ const albums = [
   },
   {
     id: "6Uj2XaahtYXK2WeD7GGwBY",
-    name: "The Weeknd",
-    genres: [],
-    song: "Gasoline",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21661,10 +11709,8 @@ const albums = [
   },
   {
     id: "3kOtREqmcGaEA2KhqffFnw",
-    name: "The Weeknd",
-    genres: [],
-    song: "How Do I Make You Love Me?",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21678,10 +11724,8 @@ const albums = [
   },
   {
     id: "3WXyY2PxX88kpBtB0GH61w",
-    name: "The Weeknd",
-    genres: [],
-    song: "Take My Breath",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21695,10 +11739,8 @@ const albums = [
   },
   {
     id: "0xa4hvXeYHRRNhA7wBfUar",
-    name: "The Weeknd",
-    genres: [],
-    song: "Sacrifice",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21712,10 +11754,8 @@ const albums = [
   },
   {
     id: "23iLEDPEJpcfYOw1tVhd2o",
-    name: "The Weeknd",
-    genres: [],
-    song: "A Tale By Quincy",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21729,10 +11769,8 @@ const albums = [
   },
   {
     id: "25C86uEjQ0fjj3bvsxIusO",
-    name: "The Weeknd",
-    genres: [],
-    song: "Out of Time",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21746,10 +11784,8 @@ const albums = [
   },
   {
     id: "0khQeEwEv6GndVypzpGOG5",
-    name: "The Weeknd",
-    genres: [],
-    song: "Here We Go… Again (feat. Tyler, the Creator)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21763,10 +11799,8 @@ const albums = [
   },
   {
     id: "4cm7Ap6IWH6m8JyB9IXT3x",
-    name: "The Weeknd",
-    genres: [],
-    song: "Best Friends",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21780,10 +11814,8 @@ const albums = [
   },
   {
     id: "37zcCimcUGurQoLEAuN8nR",
-    name: "The Weeknd",
-    genres: [],
-    song: "Is There Someone Else?",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21797,10 +11829,8 @@ const albums = [
   },
   {
     id: "2022B8GxEstpvibwgbJ15s",
-    name: "The Weeknd",
-    genres: [],
-    song: "Starry Eyes",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21814,10 +11844,8 @@ const albums = [
   },
   {
     id: "7q9Sr5kCkha0L49GAQctHl",
-    name: "The Weeknd",
-    genres: [],
-    song: "Every Angel is Terrifying",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21831,10 +11859,8 @@ const albums = [
   },
   {
     id: "3TVnaEVbUBFmWYk9IOIwRo",
-    name: "The Weeknd",
-    genres: [],
-    song: "Don’t Break My Heart",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21848,10 +11874,8 @@ const albums = [
   },
   {
     id: "7p2wRa4m9KVXEXUlkJLhUi",
-    name: "The Weeknd",
-    genres: [],
-    song: "I Heard You're Married (feat. Lil Wayne)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21865,10 +11889,8 @@ const albums = [
   },
   {
     id: "02w1rM6spvEcbFxd63xCl2",
-    name: "The Weeknd",
-    genres: [],
-    song: "Less Than Zero",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21882,10 +11904,8 @@ const albums = [
   },
   {
     id: "0DvtQkuaV0VrSHgb5pwRke",
-    name: "The Weeknd",
-    genres: [],
-    song: "Phantom Regret by Jim",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21899,10 +11919,8 @@ const albums = [
   },
   {
     id: "1S9DHKpS73KFVN7nnIql3f",
-    name: "The Weeknd",
-    genres: [],
-    song: "Moth To A Flame (with The Weeknd)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21916,10 +11934,8 @@ const albums = [
   },
   {
     id: "1Jz0fAhw41suiAVekjAoLi",
-    name: "The Weeknd",
-    genres: [],
-    song: "Dawn FM - OPN Remix",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21933,10 +11949,8 @@ const albums = [
   },
   {
     id: "2urqWNGpjl07PLAafoa5nT",
-    name: "The Weeknd",
-    genres: [],
-    song: "How Do I Make You Love Me? - Sebastian Ingrosso & Salvatore Ganacci Remix",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21951,10 +11965,8 @@ const albums = [
   },
   {
     id: "0QE33jkiMTzCI8momkDmQY",
-    name: "The Weeknd",
-    genres: [],
-    song: "Sacrifice (Remix) (feat. Swedish House Mafia)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21968,10 +11980,8 @@ const albums = [
   },
   {
     id: "6krYS8KtmNAYyb5uTZiYW4",
-    name: "The Weeknd",
-    genres: [],
-    song: "Dawn FM",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -21985,10 +11995,8 @@ const albums = [
   },
   {
     id: "3KyKxJ4P3pVCgaZwaq2rUC",
-    name: "The Weeknd",
-    genres: [],
-    song: "Gasoline",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22002,10 +12010,8 @@ const albums = [
   },
   {
     id: "2Ghp894n1laIf2w98VeAOJ",
-    name: "The Weeknd",
-    genres: [],
-    song: "How Do I Make You Love Me?",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22019,10 +12025,8 @@ const albums = [
   },
   {
     id: "2vgUijXOTRMnWXDtvgMp2b",
-    name: "The Weeknd",
-    genres: [],
-    song: "Take My Breath",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22036,10 +12040,8 @@ const albums = [
   },
   {
     id: "1nH2PkJL1XoUq8oE6tBZoU",
-    name: "The Weeknd",
-    genres: [],
-    song: "Sacrifice",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22053,10 +12055,8 @@ const albums = [
   },
   {
     id: "759ndr57jb0URg4j9YSWml",
-    name: "The Weeknd",
-    genres: [],
-    song: "A Tale By Quincy",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22070,10 +12070,8 @@ const albums = [
   },
   {
     id: "2SLwbpExuoBDZBpjfefCtV",
-    name: "The Weeknd",
-    genres: [],
-    song: "Out of Time",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22087,10 +12085,8 @@ const albums = [
   },
   {
     id: "1NhjYYcYTRywc0di98xHxf",
-    name: "The Weeknd",
-    genres: [],
-    song: "Here We Go… Again (feat. Tyler, the Creator)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22104,10 +12100,8 @@ const albums = [
   },
   {
     id: "1E5Xu8dur0fAjSP1VpVhAZ",
-    name: "The Weeknd",
-    genres: [],
-    song: "Best Friends",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22121,10 +12115,8 @@ const albums = [
   },
   {
     id: "0mL82sxCRjrs3br407IdJh",
-    name: "The Weeknd",
-    genres: [],
-    song: "Is There Someone Else?",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22138,10 +12130,8 @@ const albums = [
   },
   {
     id: "6zzdyvVWjGrQBraSvuqJPY",
-    name: "The Weeknd",
-    genres: [],
-    song: "Starry Eyes",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22155,10 +12145,8 @@ const albums = [
   },
   {
     id: "3vJcz8exedHCjQ9ed95NqU",
-    name: "The Weeknd",
-    genres: [],
-    song: "Every Angel is Terrifying",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22172,10 +12160,8 @@ const albums = [
   },
   {
     id: "6a4GH1gljLL7VvmO9u5O92",
-    name: "The Weeknd",
-    genres: [],
-    song: "Don’t Break My Heart",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22189,10 +12175,8 @@ const albums = [
   },
   {
     id: "5XbA7TAqsD0fj0dGBrbb0D",
-    name: "The Weeknd",
-    genres: [],
-    song: "I Heard You’re Married (feat. Lil Wayne)",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22206,10 +12190,8 @@ const albums = [
   },
   {
     id: "2D4dV2KXDTszzJ3p3cFqhA",
-    name: "The Weeknd",
-    genres: [],
-    song: "Less Than Zero",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22223,10 +12205,8 @@ const albums = [
   },
   {
     id: "1NlK2NtpuUazpziLhnJwEV",
-    name: "The Weeknd",
-    genres: [],
-    song: "Phantom Regret by Jim",
-    artists: ["The Weeknd"],
+    artistName: "The Weeknd",
+    genres: ["pop"],
     popularity: 97,
     followers: 101829245,
     artistsImageUrl:
@@ -22240,10 +12220,8 @@ const albums = [
   },
   {
     id: "4K09vJ27xCOreumtSuU6Ao",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Silk Sonic Intro",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22257,10 +12235,8 @@ const albums = [
   },
   {
     id: "4pryE6cN2gFL1FVF5fYINl",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Leave The Door Open",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22274,10 +12250,8 @@ const albums = [
   },
   {
     id: "7suB6D6uKX5DfPukdGaz0W",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Fly As Me",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22291,10 +12265,8 @@ const albums = [
   },
   {
     id: "6jGAh1bFnXt1Muj9zeHveZ",
-    name: "Bruno Mars",
-    genres: [],
-    song: "After Last Night (with Thundercat & Bootsy Collins)",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22308,10 +12280,8 @@ const albums = [
   },
   {
     id: "1oERlssLrpssCAY6Yqqs6c",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Smokin Out The Window",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22325,10 +12295,8 @@ const albums = [
   },
   {
     id: "5lka5RUbLVQGO94mKAPMRO",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Put On A Smile",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22342,10 +12310,8 @@ const albums = [
   },
   {
     id: "2K6vUau7bnZUamjbRSOOvJ",
-    name: "Bruno Mars",
-    genres: [],
-    song: "777",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22359,10 +12325,8 @@ const albums = [
   },
   {
     id: "3WTWh2WDk4j8GUCGj4xfOd",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Skate",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22376,10 +12340,8 @@ const albums = [
   },
   {
     id: "2ALh2jqA7KldpHMUHvRomw",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Love's Train",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22393,10 +12355,8 @@ const albums = [
   },
   {
     id: "2NqyjfDXy0XfXCSPXMsKzi",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Blast Off",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22410,10 +12370,8 @@ const albums = [
   },
   {
     id: "6b8Be6ljOzmkOmFslEb23P",
-    name: "Bruno Mars",
-    genres: [],
-    song: "24K Magic",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22427,10 +12385,8 @@ const albums = [
   },
   {
     id: "0mBKv9DkYfQHjdMcw2jdyI",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Chunky",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22444,10 +12400,8 @@ const albums = [
   },
   {
     id: "1I6pKIyaBp4OebTGLJpCCC",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Perm",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22461,10 +12415,8 @@ const albums = [
   },
   {
     id: "0KKkJNfGyhkQ5aFogxQAPU",
-    name: "Bruno Mars",
-    genres: [],
-    song: "That's What I Like",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22478,10 +12430,8 @@ const albums = [
   },
   {
     id: "0kN8xEmgMW9mh7UmDYHlJP",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Versace on the Floor",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22495,10 +12445,8 @@ const albums = [
   },
   {
     id: "2mrZYZGmPFV3QOyYPZ1zsn",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Straight up & Down",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22512,10 +12460,8 @@ const albums = [
   },
   {
     id: "6ObpR8ek44tvWefQRcSo8K",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Calling All My Lovelies",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22529,10 +12475,8 @@ const albums = [
   },
   {
     id: "5XMkENs3GfeRza8MfVAhjK",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Finesse",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22546,10 +12490,8 @@ const albums = [
   },
   {
     id: "0B0tYbVp7pDQAqKDhgMeaL",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Too Good to Say Goodbye",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22563,10 +12505,8 @@ const albums = [
   },
   {
     id: "3G5iN5QBqMeXx3uZPy8tgB",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Young Girls",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22580,10 +12520,8 @@ const albums = [
   },
   {
     id: "3w3y8KPTfNeOKPiqUTakBh",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Locked out of Heaven",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22597,10 +12535,8 @@ const albums = [
   },
   {
     id: "2ih2U8ttFzCjnQ5njF3SrR",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Gorilla",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22614,10 +12550,8 @@ const albums = [
   },
   {
     id: "55h7vJchibLdUkxdlX3fK7",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Treasure",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22631,10 +12565,8 @@ const albums = [
   },
   {
     id: "30raivfq7rSt5nKltiHfzG",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Moonshine",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22648,10 +12580,8 @@ const albums = [
   },
   {
     id: "0nJW01T7XtvILxQgC5J7Wh",
-    name: "Bruno Mars",
-    genres: [],
-    song: "When I Was Your Man",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22665,10 +12595,8 @@ const albums = [
   },
   {
     id: "0inMKhbKWOTDA9UBUAKoU6",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Natalie",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22682,10 +12610,8 @@ const albums = [
   },
   {
     id: "2tCPIp83mRXvVTytTAf1W4",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Show Me",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22699,10 +12625,8 @@ const albums = [
   },
   {
     id: "6FPQabaldvKE5cjqRfY9Os",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Money Make Her Smile",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22716,10 +12640,8 @@ const albums = [
   },
   {
     id: "7lXOqE38eCr979gp27O5wr",
-    name: "Bruno Mars",
-    genres: [],
-    song: "If I Knew",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22733,10 +12655,8 @@ const albums = [
   },
   {
     id: "4lLtanYk6tkMvooU0tWzG8",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Grenade",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22750,10 +12670,8 @@ const albums = [
   },
   {
     id: "47Slg6LuqLaX0VodpSCvPt",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Just the Way You Are",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22767,10 +12685,8 @@ const albums = [
   },
   {
     id: "4LjkHlY5qDz0hhFJJH5M7a",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Our First Time",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22784,10 +12700,8 @@ const albums = [
   },
   {
     id: "7hCNBVRhHzcsRAv0TQnOzq",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Runaway Baby",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22801,10 +12715,8 @@ const albums = [
   },
   {
     id: "386RUes7n1uM1yfzgeUuwp",
-    name: "Bruno Mars",
-    genres: [],
-    song: "The Lazy Song",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22818,10 +12730,8 @@ const albums = [
   },
   {
     id: "6SKwQghsR8AISlxhcwyA9R",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Marry You",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22835,10 +12745,8 @@ const albums = [
   },
   {
     id: "1wVuPmvt6AWvTL5W2GJnzZ",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Talking to the Moon",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22852,10 +12760,8 @@ const albums = [
   },
   {
     id: "1ewMCmw7qCb5a9ttqiyemu",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Liquor Store Blues (feat. Damian Marley)",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22869,10 +12775,8 @@ const albums = [
   },
   {
     id: "3B5UbSndRz907IZhhmUfLi",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Count on Me",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22886,10 +12790,8 @@ const albums = [
   },
   {
     id: "78Z199FfQHt4VpnJzlYaIe",
-    name: "Bruno Mars",
-    genres: [],
-    song: "The Other Side (feat. CeeLo Green and B.o.B)",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22903,10 +12805,8 @@ const albums = [
   },
   {
     id: "3P4v70V3Zt804r2c9dZivK",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Somewhere in Brooklyn",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22920,10 +12820,8 @@ const albums = [
   },
   {
     id: "6YKT5HoPwjTwhHiCNQsBMK",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Talking to the Moon - Acoustic Piano",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22937,10 +12835,8 @@ const albums = [
   },
   {
     id: "2FauI2onZLXgsr9dz6HWKn",
-    name: "Bruno Mars",
-    genres: [],
-    song: "Fat Juicy & Wet",
-    artists: ["Bruno Mars"],
+    artistName: "Bruno Mars",
+    genres: ["pop"],
     popularity: 95,
     followers: 69450978,
     artistsImageUrl:
@@ -22952,8633 +12848,6 @@ const albums = [
     trackName: "Fat Juicy & Wet",
     trackDuration: "02:21",
   },
-  {
-    id: "45DB3yqxYGAnKN3YmLWbAX",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Running Wild",
-    trackDuration: "02:31",
-  },
-  {
-    id: "2SR0alFA2oWYXSoePGTj0V",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "I’ll Be There",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "I’ll Be There",
-    trackDuration: "03:01",
-  },
-  {
-    id: "6L4VgCOiyt8MzYfH4llkQg",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Another Level",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Another Level",
-    trackDuration: "02:42",
-  },
-  {
-    id: "5jxuw4S5IDEY6CjjAHvRAt",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Falling",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Falling",
-    trackDuration: "02:58",
-  },
-  {
-    id: "0gzXQHsv4zYHQ1pvlyYZZa",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Heart on the Window (with WENDY)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Heart on the Window (with WENDY)",
-    trackDuration: "02:57",
-  },
-  {
-    id: "79ldP0lRJABss2gUdH346e",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "I will come to you",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "I will come to you",
-    trackDuration: "02:36",
-  },
-  {
-    id: "2ub590isVV1Xy5u8JgBFuV",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Ballad Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Running Wild (Ballad Remix)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "6X6b1RQFCkzhUCpHQlbOiW",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Holiday Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Running Wild (Holiday Remix)",
-    trackDuration: "02:33",
-  },
-  {
-    id: "3WcWE3cvBJpRoJSbrxrVkY",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Afropop Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Running Wild (Afropop Remix)",
-    trackDuration: "02:29",
-  },
-  {
-    id: "5xwyQy35cGlBuheV8fvutf",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (UK Garage Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :D (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730aa3d58774384527afb5df53",
-    trackName: "Running Wild (UK Garage Remix)",
-    trackDuration: "02:42",
-  },
-  {
-    id: "50zAEIE4B1QqhPjRMK2Xmh",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Running Wild",
-    trackDuration: "02:31",
-  },
-  {
-    id: "5zOv7QzCMrSkPJKQr1Tcif",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "I’ll Be There",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "I’ll Be There",
-    trackDuration: "03:01",
-  },
-  {
-    id: "1YmY0HUm05BUpcHibc1bhB",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Another Level",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Another Level",
-    trackDuration: "02:42",
-  },
-  {
-    id: "5oSUmLelhXItguqPQ0Qn2b",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Falling",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Falling",
-    trackDuration: "02:58",
-  },
-  {
-    id: "4qUmNOnS81p8wrMdBHRbS3",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Heart on the Window (with WENDY)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Heart on the Window (with WENDY)",
-    trackDuration: "02:57",
-  },
-  {
-    id: "5s7flUAYsDmcUWtHsMCihv",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "I will come to you",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "I will come to you",
-    trackDuration: "02:36",
-  },
-  {
-    id: "6mbbLSTKMMG50xML4OzlVS",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Extended Ver.)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Running Wild (Extended Ver.)",
-    trackDuration: "03:34",
-  },
-  {
-    id: "2L56YCM5eA8xWsUcGgo4zV",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Band Ver.)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Happy - :') (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302dd46d1f82ce19b5927b269",
-    trackName: "Running Wild (Band Ver.)",
-    trackDuration: "02:43",
-  },
-  {
-    id: "4z0vfU3JiAsl99ZHL29hMm",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Close to You",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "When the Stars Gossip OST Part.3",
-    releaseDate: "2025-01-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b850cdaf11ac8dd77591d423",
-    trackName: "Close to You",
-    trackDuration: "03:48",
-  },
-  {
-    id: "6J48hy1freVjme4h7DFaDt",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Close to You (Inst.)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "When the Stars Gossip OST Part.3",
-    releaseDate: "2025-01-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b850cdaf11ac8dd77591d423",
-    trackName: "Close to You (Inst.)",
-    trackDuration: "03:48",
-  },
-  {
-    id: "7HaUkQ34NYlOXFFspHeoG6",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Falling (feat. Taka)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Falling (feat. Taka)",
-    releaseDate: "2024-11-25",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d3830c84379ff6c02c4a50ba",
-    trackName: "Falling (feat. Taka)",
-    trackDuration: "02:58",
-  },
-  {
-    id: "1EEvAuVSb57ryIlNKuMWyr",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild",
-    trackDuration: "02:31",
-  },
-  {
-    id: "3WBkiZRpmyDBXIHi0o4xjK",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Instrumental)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Instrumental)",
-    trackDuration: "02:31",
-  },
-  {
-    id: "6dCqghpYHuD1LqBloAzgDv",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Extended Ver.)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Extended Ver.)",
-    trackDuration: "03:34",
-  },
-  {
-    id: "6mJRx8ghgw9QwJk0v5DfVj",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Band Ver.)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Band Ver.)",
-    trackDuration: "02:43",
-  },
-  {
-    id: "1XZeIqnzH8LKB1SmUL7tpy",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Ballad Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Ballad Remix)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "1faf3hb79uGzk5a7O5H144",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Holiday Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Holiday Remix)",
-    trackDuration: "02:33",
-  },
-  {
-    id: "7uHAhFnUOfJXlDzfyvRJQD",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (Afropop Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (Afropop Remix)",
-    trackDuration: "02:29",
-  },
-  {
-    id: "0K0lpwTATjvexmWWVURaZP",
-    name: "Jin",
-    genres: ["k-pop"],
-    song: "Running Wild (UK Garage Remix)",
-    artists: ["Jin"],
-    popularity: 78,
-    followers: 8832129,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6d4ee2bb960bc4d9c0a4ce45",
-    albumsName: "Running Wild (Remixes)",
-    releaseDate: "2024-11-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730c89d58077469386be032492",
-    trackName: "Running Wild (UK Garage Remix)",
-    trackDuration: "02:42",
-  },
-  {
-    id: "2VdSktBqFfkW7y6q5Ik4Z4",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Supernova",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Armageddon - The 1st Album",
-    releaseDate: "2024-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fc598038040859794c600e2",
-    trackName: "Supernova",
-    trackDuration: "02:58",
-  },
-  {
-    id: "5eWcGfUCrVFMoYskyfkEPE",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Armageddon",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Armageddon - The 1st Album",
-    releaseDate: "2024-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fc598038040859794c600e2",
-    trackName: "Armageddon",
-    trackDuration: "03:16",
-  },
-  {
-    id: "27LqJ29VMqwKQQC2CE9FHr",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Set The Tone",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Armageddon - The 1st Album",
-    releaseDate: "2024-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fc598038040859794c600e2",
-    trackName: "Set The Tone",
-    trackDuration: "03:22",
-  },
-  {
-    id: "4AZ4Y1QAOLBwnWaX9cguoF",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Mine",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Armageddon - The 1st Album",
-    releaseDate: "2024-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fc598038040859794c600e2",
-    trackName: "Mine",
-    trackDuration: "03:13",
-  },
-  {
-    id: "4iSiRU5nGU7EP5TbkEEcsj",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Licorice",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Armageddon - The 1st Album",
-    releaseDate: "2024-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fc598038040859794c600e2",
-    trackName: "Licorice",
-    trackDuration: "02:38",
-  },
-  {
-    id: "67yDGKXKIkyBhwbey8AmEU",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "BAHAMA",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Armageddon - The 1st Album",
-    releaseDate: "2024-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fc598038040859794c600e2",
-    trackName: "BAHAMA",
-    trackDuration: "03:10",
-  },
-  {
-    id: "0u24lLekIGJ0CifIrHdD8N",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Long Chat (#♥)",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Armageddon - The 1st Album",
-    releaseDate: "2024-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fc598038040859794c600e2",
-    trackName: "Long Chat (#♥)",
-    trackDuration: "03:15",
-  },
-  {
-    id: "4oBpXs4KppprE6ql0Dmr2O",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Prologue",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Armageddon - The 1st Album",
-    releaseDate: "2024-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fc598038040859794c600e2",
-    trackName: "Prologue",
-    trackDuration: "03:14",
-  },
-  {
-    id: "1x1oCGsFUDViOvcISuoKW0",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Live My Life",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Armageddon - The 1st Album",
-    releaseDate: "2024-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fc598038040859794c600e2",
-    trackName: "Live My Life",
-    trackDuration: "02:39",
-  },
-  {
-    id: "4T5AbXz68PpZyKewHO5Tqw",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Melody",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Armageddon - The 1st Album",
-    releaseDate: "2024-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fc598038040859794c600e2",
-    trackName: "Melody",
-    trackDuration: "03:07",
-  },
-  {
-    id: "5XWlyfo0kZ8LF7VSyfS4Ew",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Drama",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Drama - The 4th Mini Album",
-    releaseDate: "2023-11-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c54e39f2ae0dd10731f93c08",
-    trackName: "Drama",
-    trackDuration: "03:34",
-  },
-  {
-    id: "3EI3OLBeM89B0o0UsIGCOx",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Trick or Trick",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Drama - The 4th Mini Album",
-    releaseDate: "2023-11-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c54e39f2ae0dd10731f93c08",
-    trackName: "Trick or Trick",
-    trackDuration: "02:55",
-  },
-  {
-    id: "2uJEnyojuGg31VVlLTQFpp",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Don't Blink",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Drama - The 4th Mini Album",
-    releaseDate: "2023-11-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c54e39f2ae0dd10731f93c08",
-    trackName: "Don't Blink",
-    trackDuration: "02:49",
-  },
-  {
-    id: "1mdtLny0zugh89vokWGG80",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Hot Air Balloon",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Drama - The 4th Mini Album",
-    releaseDate: "2023-11-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c54e39f2ae0dd10731f93c08",
-    trackName: "Hot Air Balloon",
-    trackDuration: "03:18",
-  },
-  {
-    id: "3OQWohbPUsvbXaH1AiRazX",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "YOLO",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Drama - The 4th Mini Album",
-    releaseDate: "2023-11-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c54e39f2ae0dd10731f93c08",
-    trackName: "YOLO",
-    trackDuration: "03:09",
-  },
-  {
-    id: "52qof5uEYA0TV0EpR7jNxs",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "You",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Drama - The 4th Mini Album",
-    releaseDate: "2023-11-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c54e39f2ae0dd10731f93c08",
-    trackName: "You",
-    trackDuration: "03:23",
-  },
-  {
-    id: "330IIz7d75eqAsKq1xhzXR",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Better Things",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Drama - The 4th Mini Album",
-    releaseDate: "2023-11-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c54e39f2ae0dd10731f93c08",
-    trackName: "Better Things",
-    trackDuration: "03:23",
-  },
-  {
-    id: "07fqC2Puj13frv9iYtlcri",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Girls",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Girls - The 2nd Mini Album",
-    releaseDate: "2022-07-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273ea957604eae136d0681ceaff",
-    trackName: "Girls",
-    trackDuration: "04:00",
-  },
-  {
-    id: "2cGf0hmhkACTwRj58XNGlP",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "도깨비불 (Illusion)",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Girls - The 2nd Mini Album",
-    releaseDate: "2022-07-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273ea957604eae136d0681ceaff",
-    trackName: "도깨비불 (Illusion)",
-    trackDuration: "03:15",
-  },
-  {
-    id: "3QXov5M0VLI3ROldfiSwj0",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Lingo",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Girls - The 2nd Mini Album",
-    releaseDate: "2022-07-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273ea957604eae136d0681ceaff",
-    trackName: "Lingo",
-    trackDuration: "02:36",
-  },
-  {
-    id: "0WiadRUdgEIjgmYFAmTttb",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Life's Too Short",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Girls - The 2nd Mini Album",
-    releaseDate: "2022-07-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273ea957604eae136d0681ceaff",
-    trackName: "Life's Too Short",
-    trackDuration: "02:58",
-  },
-  {
-    id: "4jzrYUhlzXROpV5M944Yvu",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "ICU (쉬어가도 돼)",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Girls - The 2nd Mini Album",
-    releaseDate: "2022-07-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273ea957604eae136d0681ceaff",
-    trackName: "ICU (쉬어가도 돼)",
-    trackDuration: "03:41",
-  },
-  {
-    id: "1AqyAbANWcx0B4f0WpYeM2",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Life's Too Short (English Version)",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Girls - The 2nd Mini Album",
-    releaseDate: "2022-07-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273ea957604eae136d0681ceaff",
-    trackName: "Life's Too Short (English Version)",
-    trackDuration: "02:58",
-  },
-  {
-    id: "7v1X2PGU3uZXu7tzFTTsSh",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Black Mamba",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Girls - The 2nd Mini Album",
-    releaseDate: "2022-07-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273ea957604eae136d0681ceaff",
-    trackName: "Black Mamba",
-    trackDuration: "02:54",
-  },
-  {
-    id: "4UVgc46bNblcuD6nj0RsXF",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Forever (약속)",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Girls - The 2nd Mini Album",
-    releaseDate: "2022-07-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273ea957604eae136d0681ceaff",
-    trackName: "Forever (약속)",
-    trackDuration: "04:58",
-  },
-  {
-    id: "7aLwuGyYNWKnxOSWXQK88V",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Dreams Come True",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Girls - The 2nd Mini Album",
-    releaseDate: "2022-07-08",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273ea957604eae136d0681ceaff",
-    trackName: "Dreams Come True",
-    trackDuration: "03:24",
-  },
-  {
-    id: "6uPnrBgweGOcwjFL4ItAvV",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Whiplash",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Whiplash - The 5th Mini Album",
-    releaseDate: "2024-10-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e467a8e8d7b0aa92d354aa75",
-    trackName: "Whiplash",
-    trackDuration: "03:03",
-  },
-  {
-    id: "7dYEUpcXJLDcI22m0dgmnH",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Kill It",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Whiplash - The 5th Mini Album",
-    releaseDate: "2024-10-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e467a8e8d7b0aa92d354aa75",
-    trackName: "Kill It",
-    trackDuration: "03:19",
-  },
-  {
-    id: "1aRyIsgzfUdSGAGz8zgFR2",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Flights, Not Feelings",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Whiplash - The 5th Mini Album",
-    releaseDate: "2024-10-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e467a8e8d7b0aa92d354aa75",
-    trackName: "Flights, Not Feelings",
-    trackDuration: "03:01",
-  },
-  {
-    id: "2Kf6WQmc6TU4bYIu3Szsz2",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Pink Hoodie",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Whiplash - The 5th Mini Album",
-    releaseDate: "2024-10-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e467a8e8d7b0aa92d354aa75",
-    trackName: "Pink Hoodie",
-    trackDuration: "02:26",
-  },
-  {
-    id: "4u9cOL7R5OjAmlWkeEFXzf",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Flowers",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Whiplash - The 5th Mini Album",
-    releaseDate: "2024-10-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e467a8e8d7b0aa92d354aa75",
-    trackName: "Flowers",
-    trackDuration: "03:10",
-  },
-  {
-    id: "3Oi1pDSYLVkz3i8jOXaQdt",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Just Another Girl",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "Whiplash - The 5th Mini Album",
-    releaseDate: "2024-10-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e467a8e8d7b0aa92d354aa75",
-    trackName: "Just Another Girl",
-    trackDuration: "03:04",
-  },
-  {
-    id: "5sjnkOfTLCLNfkkchI2re2",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "UP - KARINA Solo",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "SYNK : PARALLEL LINE - Special Digital Single",
-    releaseDate: "2024-10-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273253096eda3b7826c11c7fab8",
-    trackName: "UP - KARINA Solo",
-    trackDuration: "02:46",
-  },
-  {
-    id: "6pIuPm3u7QgUFAX1V0D9wY",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Dopamine - GISELLE Solo",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "SYNK : PARALLEL LINE - Special Digital Single",
-    releaseDate: "2024-10-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273253096eda3b7826c11c7fab8",
-    trackName: "Dopamine - GISELLE Solo",
-    trackDuration: "03:14",
-  },
-  {
-    id: "44qlcokPO2RjD8791ohJFR",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Bored! - NINGNING Solo",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "SYNK : PARALLEL LINE - Special Digital Single",
-    releaseDate: "2024-10-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273253096eda3b7826c11c7fab8",
-    trackName: "Bored! - NINGNING Solo",
-    trackDuration: "02:51",
-  },
-  {
-    id: "2xoA126GEgFhrYzRaTH7E4",
-    name: "aespa",
-    genres: ["k-pop"],
-    song: "Spark - WINTER Solo",
-    artists: ["aespa"],
-    popularity: 79,
-    followers: 8203000,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebf7a1090ad3a35a34fc0ecb57",
-    albumsName: "SYNK : PARALLEL LINE - Special Digital Single",
-    releaseDate: "2024-10-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273253096eda3b7826c11c7fab8",
-    trackName: "Spark - WINTER Solo",
-    trackDuration: "03:21",
-  },
-  {
-    id: "0OaHZgVm77zLQNR3kwFf6n",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Dangerous",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "19.99",
-    releaseDate: "2024-09-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27381909c1add057c602193daab",
-    trackName: "Dangerous",
-    trackDuration: "02:23",
-  },
-  {
-    id: "1t4a4bAObtfBiiNo0a0vle",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Gonna Be A Rock",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "19.99",
-    releaseDate: "2024-09-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27381909c1add057c602193daab",
-    trackName: "Gonna Be A Rock",
-    trackDuration: "03:17",
-  },
-  {
-    id: "52NdZoytptz6k8oMtDWtzX",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "SKIT",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "19.99",
-    releaseDate: "2024-09-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27381909c1add057c602193daab",
-    trackName: "SKIT",
-    trackDuration: "01:06",
-  },
-  {
-    id: "6pqyZNnLKyJKtrlf42FQoq",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Nice Guy",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "19.99",
-    releaseDate: "2024-09-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27381909c1add057c602193daab",
-    trackName: "Nice Guy",
-    trackDuration: "02:44",
-  },
-  {
-    id: "0Pd79ZmfbrE6690cuN9fHC",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "20",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "19.99",
-    releaseDate: "2024-09-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27381909c1add057c602193daab",
-    trackName: "20",
-    trackDuration: "02:48",
-  },
-  {
-    id: "1Oa2zQLfI44pN76mZgAoqT",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Call Me",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "19.99",
-    releaseDate: "2024-09-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27381909c1add057c602193daab",
-    trackName: "Call Me",
-    trackDuration: "02:58",
-  },
-  {
-    id: "7n3rgZ7GWmoVwhDrrF41Rn",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Nice Guy (English Ver.)",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "19.99",
-    releaseDate: "2024-09-09",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27381909c1add057c602193daab",
-    trackName: "Nice Guy (English Ver.)",
-    trackDuration: "02:44",
-  },
-  {
-    id: "54wqX30KnwGZdLmi8r0Wgo",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "OUR",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "HOW?",
-    releaseDate: "2024-04-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273991e46e8843796184d9606d7",
-    trackName: "OUR",
-    trackDuration: "02:36",
-  },
-  {
-    id: "1w1kvWFdm3u0GgkG9VSFGH",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Amnesia",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "HOW?",
-    releaseDate: "2024-04-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273991e46e8843796184d9606d7",
-    trackName: "Amnesia",
-    trackDuration: "02:50",
-  },
-  {
-    id: "7x9s9KVpMOrQ2z2fzOGo8z",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "So let's go see the stars",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "HOW?",
-    releaseDate: "2024-04-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273991e46e8843796184d9606d7",
-    trackName: "So let's go see the stars",
-    trackDuration: "03:22",
-  },
-  {
-    id: "0Tq7v8YAmwdnAYBwyR1pZ4",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Earth, Wind & Fire",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "HOW?",
-    releaseDate: "2024-04-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273991e46e8843796184d9606d7",
-    trackName: "Earth, Wind & Fire",
-    trackDuration: "02:59",
-  },
-  {
-    id: "7rXUWfUAaOmPNHS7cwfTL2",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "l i f e i s c o o l",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "HOW?",
-    releaseDate: "2024-04-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273991e46e8843796184d9606d7",
-    trackName: "l i f e i s c o o l",
-    trackDuration: "03:18",
-  },
-  {
-    id: "4gHBVNtx6Kh5F97GoIg0fq",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Dear. My Darling",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "HOW?",
-    releaseDate: "2024-04-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273991e46e8843796184d9606d7",
-    trackName: "Dear. My Darling",
-    trackDuration: "01:40",
-  },
-  {
-    id: "7sEkQPK4bxBum9CoAp5Onl",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Earth, Wind & Fire (English Ver.)",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "HOW?",
-    releaseDate: "2024-04-15",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273991e46e8843796184d9606d7",
-    trackName: "Earth, Wind & Fire (English Ver.)",
-    trackDuration: "02:59",
-  },
-  {
-    id: "1cgtNgk0bkBjKaHmhes7f0",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Never Loved This Way Before",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName:
-      "Never Loved This Way Before (Odd Girl Out X BOYNEXTDOOR) [Original Soundtrack]",
-    releaseDate: "2025-03-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d853fd935616b3f2d674caa5",
-    trackName: "Never Loved This Way Before",
-    trackDuration: "04:25",
-  },
-  {
-    id: "47vaCu7VXBxOZrtt7MVlH3",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "Never Loved This Way Before - Inst.",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName:
-      "Never Loved This Way Before (Odd Girl Out X BOYNEXTDOOR) [Original Soundtrack]",
-    releaseDate: "2025-03-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d853fd935616b3f2d674caa5",
-    trackName: "Never Loved This Way Before - Inst.",
-    trackDuration: "04:25",
-  },
-  {
-    id: "7DPrrI5VUfCI0TslImBQDc",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "It's Beginning To Look A Lot Like Christmas",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "It's Beginning To Look A Lot Like Christmas",
-    releaseDate: "2025-02-03",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2733f3bc66394a60aa9d95b3f62",
-    trackName: "It's Beginning To Look A Lot Like Christmas",
-    trackDuration: "02:13",
-  },
-  {
-    id: "61MgNE2WKJh27wRgw1zuFI",
-    name: "BOYNEXTDOOR",
-    genres: ["k-pop"],
-    song: "IF I SAY, I LOVE YOU - Japanese Version",
-    artists: ["BOYNEXTDOOR"],
-    popularity: 70,
-    followers: 1307975,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb6f93b50f97e89fd908f527d9",
-    albumsName: "IF I SAY, I LOVE YOU (Japanese Version)",
-    releaseDate: "2025-01-31",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27344744239930f871bf30c1eba",
-    trackName: "IF I SAY, I LOVE YOU - Japanese Version",
-    trackDuration: "02:41",
-  },
-  {
-    id: "6dODwocEuGzHAavXqTbwHv",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Fortnight (feat. Post Malone)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "Fortnight (feat. Post Malone)",
-    trackDuration: "03:48",
-  },
-  {
-    id: "4PdLaGZubp4lghChqp8erB",
-    name: "Taylor Swift",
-    genres: [],
-    song: "The Tortured Poets Department",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "The Tortured Poets Department",
-    trackDuration: "04:53",
-  },
-  {
-    id: "7uGYWMwRy24dm7RUDDhUlD",
-    name: "Taylor Swift",
-    genres: [],
-    song: "My Boy Only Breaks His Favorite Toys",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "My Boy Only Breaks His Favorite Toys",
-    trackDuration: "03:23",
-  },
-  {
-    id: "1kbEbBdEgQdQeLXCJh28pJ",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Down Bad",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "Down Bad",
-    trackDuration: "04:21",
-  },
-  {
-    id: "7wAkQFShJ27V8362MqevQr",
-    name: "Taylor Swift",
-    genres: [],
-    song: "So Long, London",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "So Long, London",
-    trackDuration: "04:22",
-  },
-  {
-    id: "4QMgEffJQuKtjCNvqfRZ0m",
-    name: "Taylor Swift",
-    genres: [],
-    song: "But Daddy I Love Him",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "But Daddy I Love Him",
-    trackDuration: "05:40",
-  },
-  {
-    id: "7IWcDWOfiooH5hRs9XOVYz",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Fresh Out The Slammer",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "Fresh Out The Slammer",
-    trackDuration: "03:30",
-  },
-  {
-    id: "5ExOm0dh4NyRyAdSAO9hyM",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Florida!!! (feat. Florence + The Machine)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "Florida!!! (feat. Florence + The Machine)",
-    trackDuration: "03:35",
-  },
-  {
-    id: "799KrpEbhZp0MHeiA8YK9P",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Guilty as Sin?",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "Guilty as Sin?",
-    trackDuration: "04:14",
-  },
-  {
-    id: "2d8UxVNhJinc8uat9PoM9y",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Who’s Afraid of Little Old Me?",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "Who’s Afraid of Little Old Me?",
-    trackDuration: "05:34",
-  },
-  {
-    id: "5chnRTB9qMK3W1M41SnU9s",
-    name: "Taylor Swift",
-    genres: [],
-    song: "I Can Fix Him (No Really I Can)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "I Can Fix Him (No Really I Can)",
-    trackDuration: "02:36",
-  },
-  {
-    id: "3YkNIrAvbKNrrwwEd7NVLl",
-    name: "Taylor Swift",
-    genres: [],
-    song: "loml",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "loml",
-    trackDuration: "04:37",
-  },
-  {
-    id: "2fPvQfGQEZOKtJ9qXeL4x8",
-    name: "Taylor Swift",
-    genres: [],
-    song: "I Can Do It With a Broken Heart",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "I Can Do It With a Broken Heart",
-    trackDuration: "03:38",
-  },
-  {
-    id: "1xtw1krCR6Dw2KwkXw5z63",
-    name: "Taylor Swift",
-    genres: [],
-    song: "The Smallest Man Who Ever Lived",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "The Smallest Man Who Ever Lived",
-    trackDuration: "04:05",
-  },
-  {
-    id: "1tuNqJOtRQVHvONR8Lg3MZ",
-    name: "Taylor Swift",
-    genres: [],
-    song: "The Alchemy",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "The Alchemy",
-    trackDuration: "03:16",
-  },
-  {
-    id: "4d9PtIEVij9jW5OaLinH66",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Clara Bow",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "Clara Bow",
-    trackDuration: "03:36",
-  },
-  {
-    id: "62E2nR0od0M5HYxuYLaDz7",
-    name: "Taylor Swift",
-    genres: [],
-    song: "The Black Dog",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "The Black Dog",
-    trackDuration: "03:58",
-  },
-  {
-    id: "1kcwpPDQnqEqmezzXdJTCP",
-    name: "Taylor Swift",
-    genres: [],
-    song: "imgonnagetyouback",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "imgonnagetyouback",
-    trackDuration: "03:42",
-  },
-  {
-    id: "4EF6IyONolQy0bIQXm2EmX",
-    name: "Taylor Swift",
-    genres: [],
-    song: "The Albatross",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "The Albatross",
-    trackDuration: "03:03",
-  },
-  {
-    id: "1rmEsOezwf2lmIZTMAO5Ag",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Chloe or Sam or Sophia or Marcus",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY",
-    releaseDate: "2024-04-19",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa",
-    trackName: "Chloe or Sam or Sophia or Marcus",
-    trackDuration: "03:33",
-  },
-  {
-    id: "2OzhQlSqBEmt7hmkYxfT6m",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Fortnight (feat. Post Malone)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "Fortnight (feat. Post Malone)",
-    trackDuration: "03:48",
-  },
-  {
-    id: "3NMrVbIVWT3fPXBj0rNDKG",
-    name: "Taylor Swift",
-    genres: [],
-    song: "The Tortured Poets Department",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "The Tortured Poets Department",
-    trackDuration: "04:53",
-  },
-  {
-    id: "2XXwLdtuAcE0HSCu61ijAb",
-    name: "Taylor Swift",
-    genres: [],
-    song: "My Boy Only Breaks His Favorite Toys",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "My Boy Only Breaks His Favorite Toys",
-    trackDuration: "03:23",
-  },
-  {
-    id: "2F3N9tdombb64aW6VtZOdo",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Down Bad",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "Down Bad",
-    trackDuration: "04:21",
-  },
-  {
-    id: "3Vevii7qKqrmW8CcyzBHDl",
-    name: "Taylor Swift",
-    genres: [],
-    song: "So Long, London",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "So Long, London",
-    trackDuration: "04:22",
-  },
-  {
-    id: "5og4Qzt92jJzVDkOtSEilb",
-    name: "Taylor Swift",
-    genres: [],
-    song: "But Daddy I Love Him",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "But Daddy I Love Him",
-    trackDuration: "05:40",
-  },
-  {
-    id: "3fO566xJgwxIa3qGCGBvIC",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Fresh Out The Slammer",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "Fresh Out The Slammer",
-    trackDuration: "03:30",
-  },
-  {
-    id: "3ZVFcD8Wlw9T9klGqmJf9F",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Florida!!! (feat. Florence + The Machine)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "Florida!!! (feat. Florence + The Machine)",
-    trackDuration: "03:35",
-  },
-  {
-    id: "0W0iAC1VGlB82PI6elxFYf",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Guilty as Sin?",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "Guilty as Sin?",
-    trackDuration: "04:14",
-  },
-  {
-    id: "36t6frENUtCYKuZus6aYDO",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Who’s Afraid of Little Old Me?",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "Who’s Afraid of Little Old Me?",
-    trackDuration: "05:34",
-  },
-  {
-    id: "2h3MDMf8sd9s4XIzpTBIjX",
-    name: "Taylor Swift",
-    genres: [],
-    song: "I Can Fix Him (No Really I Can)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "I Can Fix Him (No Really I Can)",
-    trackDuration: "02:36",
-  },
-  {
-    id: "6RSG1dKPV5gEvILwJb4QtS",
-    name: "Taylor Swift",
-    genres: [],
-    song: "loml",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "loml",
-    trackDuration: "04:37",
-  },
-  {
-    id: "4q5YezDOIPcoLr8R81x9qy",
-    name: "Taylor Swift",
-    genres: [],
-    song: "I Can Do It With a Broken Heart",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "I Can Do It With a Broken Heart",
-    trackDuration: "03:38",
-  },
-  {
-    id: "2v1ivOOsgn64g5OywuH55L",
-    name: "Taylor Swift",
-    genres: [],
-    song: "The Smallest Man Who Ever Lived",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "The Smallest Man Who Ever Lived",
-    trackDuration: "04:05",
-  },
-  {
-    id: "1dhMTsEZz6ZEquGvmzVoHn",
-    name: "Taylor Swift",
-    genres: [],
-    song: "The Alchemy",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "The Alchemy",
-    trackDuration: "03:16",
-  },
-  {
-    id: "1UlhrRvYzbHEyugEDspXUB",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Clara Bow",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "THE TORTURED POETS DEPARTMENT",
-    releaseDate: "2024-04-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2735076e4160d018e378f488c33",
-    trackName: "Clara Bow",
-    trackDuration: "03:36",
-  },
-  {
-    id: "4WUepByoeqcedHoYhSNHRt",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Welcome To New York (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Welcome To New York (Taylor's Version)",
-    trackDuration: "03:32",
-  },
-  {
-    id: "0108kcWLnn2HlH2kedi1gn",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Blank Space (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Blank Space (Taylor's Version)",
-    trackDuration: "03:51",
-  },
-  {
-    id: "3Vpk1hfMAQme8VJ0SNRSkd",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Style (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Style (Taylor's Version)",
-    trackDuration: "03:51",
-  },
-  {
-    id: "1OcSfkeCg9hRC2sFKB4IMJ",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Out Of The Woods (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Out Of The Woods (Taylor's Version)",
-    trackDuration: "03:55",
-  },
-  {
-    id: "2k0ZEeAqzvYMcx9Qt5aClQ",
-    name: "Taylor Swift",
-    genres: [],
-    song: "All You Had To Do Was Stay (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "All You Had To Do Was Stay (Taylor's Version)",
-    trackDuration: "03:13",
-  },
-  {
-    id: "50yNTF0Od55qnHLxYsA5Pw",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Shake It Off (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Shake It Off (Taylor's Version)",
-    trackDuration: "03:39",
-  },
-  {
-    id: "3FxJDucHWdw6caWTKO5b23",
-    name: "Taylor Swift",
-    genres: [],
-    song: "I Wish You Would (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "I Wish You Would (Taylor's Version)",
-    trackDuration: "03:27",
-  },
-  {
-    id: "7oZONwFiFIErZcXAtTu7FY",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Bad Blood (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Bad Blood (Taylor's Version)",
-    trackDuration: "03:31",
-  },
-  {
-    id: "27exgla7YBw9DUNNcTIpjy",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Wildest Dreams (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Wildest Dreams (Taylor's Version)",
-    trackDuration: "03:40",
-  },
-  {
-    id: "733OhaXQIHY7BKtY3vnSkn",
-    name: "Taylor Swift",
-    genres: [],
-    song: "How You Get The Girl (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "How You Get The Girl (Taylor's Version)",
-    trackDuration: "04:07",
-  },
-  {
-    id: "4WBEj8TeGtRPNJdOmT3WJW",
-    name: "Taylor Swift",
-    genres: [],
-    song: "This Love (Taylor’s Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "This Love (Taylor’s Version)",
-    trackDuration: "04:10",
-  },
-  {
-    id: "1ULabO0PEsdJekqVH6G10G",
-    name: "Taylor Swift",
-    genres: [],
-    song: "I Know Places (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "I Know Places (Taylor's Version)",
-    trackDuration: "03:15",
-  },
-  {
-    id: "0lKUBmEyQfzsQHozyeXzES",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Clean (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Clean (Taylor's Version)",
-    trackDuration: "04:31",
-  },
-  {
-    id: "6HRsJu8vcnzYDN4t0570FY",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Wonderland (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Wonderland (Taylor's Version)",
-    trackDuration: "04:05",
-  },
-  {
-    id: "0TyGh27YQ5LknmiDhCzJiT",
-    name: "Taylor Swift",
-    genres: [],
-    song: "You Are In Love (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "You Are In Love (Taylor's Version)",
-    trackDuration: "04:27",
-  },
-  {
-    id: "5M787RexsAiVYjQusM98CV",
-    name: "Taylor Swift",
-    genres: [],
-    song: "New Romantics (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "New Romantics (Taylor's Version)",
-    trackDuration: "03:50",
-  },
-  {
-    id: "0CD7DzeCsuPJygddqlUVYa",
-    name: "Taylor Swift",
-    genres: [],
-    song: '"Slut!" (Taylor\'s Version) (From The Vault)',
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: '"Slut!" (Taylor\'s Version) (From The Vault)',
-    trackDuration: "03:00",
-  },
-  {
-    id: "3CCRVu4F91Qp2mnGjmWBrf",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Say Don't Go (Taylor's Version) (From The Vault)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Say Don't Go (Taylor's Version) (From The Vault)",
-    trackDuration: "04:39",
-  },
-  {
-    id: "5QUIK7ZtziW8kGWo8RqopF",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Now That We Don't Talk (Taylor's Version) (From The Vault)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Now That We Don't Talk (Taylor's Version) (From The Vault)",
-    trackDuration: "02:26",
-  },
-  {
-    id: "6M9ppdfFjR1AbpUl3Y8DcV",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Suburban Legends (Taylor's Version) (From The Vault)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version) [Deluxe]",
-    releaseDate: "2023-10-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273dc2bacae1dca83d26e2b1949",
-    trackName: "Suburban Legends (Taylor's Version) (From The Vault)",
-    trackDuration: "02:51",
-  },
-  {
-    id: "1hR8BSuEqPCCZfv93zzzz9",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Welcome To New York (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Welcome To New York (Taylor's Version)",
-    trackDuration: "03:32",
-  },
-  {
-    id: "45wMBGri1PORPjM9PwFfrS",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Blank Space (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Blank Space (Taylor's Version)",
-    trackDuration: "03:51",
-  },
-  {
-    id: "1hjRhYpWyqDpPahmSlUTlc",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Style (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Style (Taylor's Version)",
-    trackDuration: "03:51",
-  },
-  {
-    id: "045ZeOHPIzhxxsm8bq5kyE",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Out Of The Woods (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Out Of The Woods (Taylor's Version)",
-    trackDuration: "03:55",
-  },
-  {
-    id: "6GXgd1BPD9bUpqw5AntGV5",
-    name: "Taylor Swift",
-    genres: [],
-    song: "All You Had To Do Was Stay (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "All You Had To Do Was Stay (Taylor's Version)",
-    trackDuration: "03:13",
-  },
-  {
-    id: "3pv7Q5v2dpdefwdWIvE7yH",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Shake It Off (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Shake It Off (Taylor's Version)",
-    trackDuration: "03:39",
-  },
-  {
-    id: "43y1WpBdnEy5TR9aZoSQL9",
-    name: "Taylor Swift",
-    genres: [],
-    song: "I Wish You Would (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "I Wish You Would (Taylor's Version)",
-    trackDuration: "03:27",
-  },
-  {
-    id: "64FzgoLZ3oXu2SriZblHic",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Bad Blood (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Bad Blood (Taylor's Version)",
-    trackDuration: "03:31",
-  },
-  {
-    id: "1K39ty6o1sHwwlZwO6a7wK",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Wildest Dreams (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Wildest Dreams (Taylor's Version)",
-    trackDuration: "03:40",
-  },
-  {
-    id: "75W3SngKzTuoQ94uLf3y82",
-    name: "Taylor Swift",
-    genres: [],
-    song: "How You Get The Girl (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "How You Get The Girl (Taylor's Version)",
-    trackDuration: "04:07",
-  },
-  {
-    id: "5QVVjX0ZItqlVpEuVCM9Yg",
-    name: "Taylor Swift",
-    genres: [],
-    song: "This Love (Taylor’s Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "This Love (Taylor’s Version)",
-    trackDuration: "04:10",
-  },
-  {
-    id: "2f0GI2ZLUtbGqFx8t2Gk6A",
-    name: "Taylor Swift",
-    genres: [],
-    song: "I Know Places (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "I Know Places (Taylor's Version)",
-    trackDuration: "03:15",
-  },
-  {
-    id: "2ByBBvpR9b7IynvRmnG7kG",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Clean (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Clean (Taylor's Version)",
-    trackDuration: "04:31",
-  },
-  {
-    id: "2ve0kuaWUCt4Zx8x4bf1MR",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Wonderland (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Wonderland (Taylor's Version)",
-    trackDuration: "04:05",
-  },
-  {
-    id: "4UwqOWDpdeIDVQDuKT6iza",
-    name: "Taylor Swift",
-    genres: [],
-    song: "You Are In Love (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "You Are In Love (Taylor's Version)",
-    trackDuration: "04:27",
-  },
-  {
-    id: "2vPMoMDXxu9uX1igWZmXSG",
-    name: "Taylor Swift",
-    genres: [],
-    song: "New Romantics (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "New Romantics (Taylor's Version)",
-    trackDuration: "03:50",
-  },
-  {
-    id: "71BqAINEnezjQfxE4VuJfq",
-    name: "Taylor Swift",
-    genres: [],
-    song: '"Slut!" (Taylor\'s Version) (From The Vault)',
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: '"Slut!" (Taylor\'s Version) (From The Vault)',
-    trackDuration: "03:00",
-  },
-  {
-    id: "4NioO5R9sHEZh4cGzMHyNt",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Say Don't Go (Taylor's Version) (From The Vault)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Say Don't Go (Taylor's Version) (From The Vault)",
-    trackDuration: "04:39",
-  },
-  {
-    id: "5KD6AEm19QnMbfWpfoOHMl",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Now That We Don't Talk (Taylor's Version) (From The Vault)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Now That We Don't Talk (Taylor's Version) (From The Vault)",
-    trackDuration: "02:26",
-  },
-  {
-    id: "6T0sEnqjmHISIKwFETeeiP",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Suburban Legends (Taylor's Version) (From The Vault)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "1989 (Taylor's Version)",
-    releaseDate: "2023-10-26",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273904445d70d04eb24d6bb79ac",
-    trackName: "Suburban Legends (Taylor's Version) (From The Vault)",
-    trackDuration: "02:51",
-  },
-  {
-    id: "7G0gBu6nLdhFDPRLc0HdDG",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Mine (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Mine (Taylor's Version)",
-    trackDuration: "03:51",
-  },
-  {
-    id: "3MytWN8L7shNYzGl4tAKRp",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Sparks Fly (Taylor’s Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Sparks Fly (Taylor’s Version)",
-    trackDuration: "04:21",
-  },
-  {
-    id: "79uDOz0zuuWS7HWxzMmTa2",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Back To December (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Back To December (Taylor's Version)",
-    trackDuration: "04:54",
-  },
-  {
-    id: "5xXqyjLicvEpch72qEryFT",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Speak Now (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Speak Now (Taylor's Version)",
-    trackDuration: "04:02",
-  },
-  {
-    id: "1zU8j1x3yi9xalMF96pzKp",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Dear John (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Dear John (Taylor's Version)",
-    trackDuration: "06:45",
-  },
-  {
-    id: "30Y4CV7A6YqtQtTTo7Ue4j",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Mean (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Mean (Taylor's Version)",
-    trackDuration: "03:58",
-  },
-  {
-    id: "6dTA6y0C2ReQklntzZl8l3",
-    name: "Taylor Swift",
-    genres: [],
-    song: "The Story Of Us (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "The Story Of Us (Taylor's Version)",
-    trackDuration: "04:27",
-  },
-  {
-    id: "2EFZ9emtKWEglWUQGEQ3P9",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Never Grow Up (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Never Grow Up (Taylor's Version)",
-    trackDuration: "04:52",
-  },
-  {
-    id: "3sW3oSbzsfecv9XoUdGs7h",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Enchanted (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Enchanted (Taylor's Version)",
-    trackDuration: "05:53",
-  },
-  {
-    id: "0NwGC0v03ysCYINtg6ns58",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Better Than Revenge (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Better Than Revenge (Taylor's Version)",
-    trackDuration: "03:40",
-  },
-  {
-    id: "12nBPF4Rh4XLFJV0YLN7uj",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Innocent (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Innocent (Taylor's Version)",
-    trackDuration: "05:01",
-  },
-  {
-    id: "4tMzIAFTFdqGBQLdfbPces",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Haunted (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Haunted (Taylor's Version)",
-    trackDuration: "04:05",
-  },
-  {
-    id: "59KOoHFcw5XfICnO57holu",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Last Kiss (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Last Kiss (Taylor's Version)",
-    trackDuration: "06:09",
-  },
-  {
-    id: "4hqJ4bSlYJOXb6Z4SRmzxs",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Long Live (Taylor's Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Long Live (Taylor's Version)",
-    trackDuration: "05:17",
-  },
-  {
-    id: "3yNJkriPzWjkkDAWHIAVUq",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Ours (Taylor’s Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Ours (Taylor’s Version)",
-    trackDuration: "03:55",
-  },
-  {
-    id: "4evLyY5Ue1Wesc61t2KXAU",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Superman (Taylor’s Version)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "Superman (Taylor’s Version)",
-    trackDuration: "04:34",
-  },
-  {
-    id: "4e3ZNTAV6PCrdYMUrUlMpQ",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Electric Touch (feat. Fall Out Boy) (Taylor’s Version) (From The Vault)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName:
-      "Electric Touch (feat. Fall Out Boy) (Taylor’s Version) (From The Vault)",
-    trackDuration: "04:26",
-  },
-  {
-    id: "0zo975x58DlXbZllWvfYhg",
-    name: "Taylor Swift",
-    genres: [],
-    song: "When Emma Falls in Love (Taylor’s Version) (From The Vault)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "When Emma Falls in Love (Taylor’s Version) (From The Vault)",
-    trackDuration: "04:12",
-  },
-  {
-    id: "5kHMfzgLZP95O9NBy0ku4v",
-    name: "Taylor Swift",
-    genres: [],
-    song: "I Can See You (Taylor’s Version) (From The Vault)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName: "I Can See You (Taylor’s Version) (From The Vault)",
-    trackDuration: "04:33",
-  },
-  {
-    id: "4ABYxlb92WBIjHu7TIKmml",
-    name: "Taylor Swift",
-    genres: [],
-    song: "Castles Crumbling (feat. Hayley Williams) (Taylor’s Version) (From The Vault)",
-    artists: ["Taylor Swift"],
-    popularity: 97,
-    followers: 134256182,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676",
-    albumsName: "Speak Now (Taylor's Version)",
-    releaseDate: "2023-07-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481",
-    trackName:
-      "Castles Crumbling (feat. Hayley Williams) (Taylor’s Version) (From The Vault)",
-    trackDuration: "05:06",
-  },
-  {
-    id: "0XbHqCn0SIBKLaZvZWPPII",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Deep in Love",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "Deep in Love",
-    trackDuration: "03:47",
-  },
-  {
-    id: "3G3c7sWlKSv12ft9TGy3D0",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Sweet Chaos",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "Sweet Chaos",
-    trackDuration: "03:47",
-  },
-  {
-    id: "3SRBulKSpzAhdmkfDQLMoA",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "EMERGENCY",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "EMERGENCY",
-    trackDuration: "03:17",
-  },
-  {
-    id: "1Kuk3gJSZO6bci1TM5byIh",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Rescue Me",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "Rescue Me",
-    trackDuration: "03:21",
-  },
-  {
-    id: "6CUx9eLEzPayC722kcZ06L",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "365247",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "365247",
-    trackDuration: "02:53",
-  },
-  {
-    id: "5wq51Xh3FVP3d5cvEFuTbU",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "지금쯤",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "지금쯤",
-    trackDuration: "02:59",
-  },
-  {
-    id: "6HTWcnxSBP0deTtyoX67vl",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "아야야",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "아야야",
-    trackDuration: "03:17",
-  },
-  {
-    id: "65Ru3CZvxISXgmKHEscQeJ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Not Fine (나빠)",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "Not Fine (나빠)",
-    trackDuration: "03:35",
-  },
-  {
-    id: "68z5zvtHbNji2SgPM0LKof",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "막말",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "막말",
-    trackDuration: "03:46",
-  },
-  {
-    id: "3D9imDVFZ58EjgIe6XVu3M",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Not Mine",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "Not Mine",
-    trackDuration: "03:15",
-  },
-  {
-    id: "63SkuEP4wJNMgg7SovncQc",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "마치 흘러가는 바람처럼",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "The Book of Us : Entropy",
-    releaseDate: "2019-10-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e3f3b11777ef77dcf72d9cd2",
-    trackName: "마치 흘러가는 바람처럼",
-    trackDuration: "03:22",
-  },
-  {
-    id: "3TwVNsQwKqPuLUgVctugum",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Better Better",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "Better Better",
-    trackDuration: "03:30",
-  },
-  {
-    id: "3Xbp3hF6DOjfjixm707B0i",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "좋아합니다",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "좋아합니다",
-    trackDuration: "04:00",
-  },
-  {
-    id: "43AQ3dY0lOge0dKRQNQ2qx",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "좋은걸 뭐 어떡해",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "좋은걸 뭐 어떡해",
-    trackDuration: "03:52",
-  },
-  {
-    id: "5GKiaClanFqql87PpVq94G",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "남겨둘게",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "남겨둘게",
-    trackDuration: "03:54",
-  },
-  {
-    id: "2SZsyEzCNp6C8oCdQYuMfQ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "놀래!",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "놀래!",
-    trackDuration: "03:16",
-  },
-  {
-    id: "2PVAEjSJw2KPdY6vYJW4g4",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Be Lazy",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "Be Lazy",
-    trackDuration: "03:14",
-  },
-  {
-    id: "1UjbGZK9k48SsCAtMWa4In",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Hi Hello",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "Hi Hello",
-    trackDuration: "03:52",
-  },
-  {
-    id: "6pXrKg2fKzRICc0SghWrTl",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "I Loved You",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "I Loved You",
-    trackDuration: "03:54",
-  },
-  {
-    id: "419Oc8GGyLPEpR6UNWgdqO",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "그렇더라고요",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "그렇더라고요",
-    trackDuration: "03:46",
-  },
-  {
-    id: "0OqxKqWVtehnFPhosPnsGQ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "혼자야",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "혼자야",
-    trackDuration: "03:44",
-  },
-  {
-    id: "1nFJ78pqJW8GBIxqqx6RYu",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "쏟아진다",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "쏟아진다",
-    trackDuration: "04:05",
-  },
-  {
-    id: "18KrJhfAdDpXbGB4xoTWBj",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "누군가 필요해",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "누군가 필요해",
-    trackDuration: "03:38",
-  },
-  {
-    id: "4rHyldhPUWBot22JmVpmZb",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "노력해볼게요",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "MOONRISE",
-    releaseDate: "2017-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273bfd1ec8181e0446123237a89",
-    trackName: "노력해볼게요",
-    trackDuration: "03:43",
-  },
-  {
-    id: "6i1PzZO32sfJMvTvVx23sK",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "오늘은 내게",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "오늘은 내게",
-    trackDuration: "03:29",
-  },
-  {
-    id: "7tkQWycd9o8c4JVW5BG6p8",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "반드시 웃는다",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "반드시 웃는다",
-    trackDuration: "03:47",
-  },
-  {
-    id: "1vGoAFGWSDMZkpZCqSYsu8",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Man in a Movie",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "Man in a Movie",
-    trackDuration: "03:46",
-  },
-  {
-    id: "4b6PRYBb9LjvaaI7sGvH8i",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "아 왜 (I Wait)",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "아 왜 (I Wait)",
-    trackDuration: "03:38",
-  },
-  {
-    id: "1gakoxacOGcAA4K9HjXkdU",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "어떻게 말해",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "어떻게 말해",
-    trackDuration: "03:21",
-  },
-  {
-    id: "0wuqq3gYZikqRbneejkBVQ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "놓아 놓아 놓아 - Rebooted Ver.",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "놓아 놓아 놓아 - Rebooted Ver.",
-    trackDuration: "04:14",
-  },
-  {
-    id: "6BOK6dVXcXVoQkr9duErE0",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "그럴 텐데",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "그럴 텐데",
-    trackDuration: "03:43",
-  },
-  {
-    id: "0mXcNZr47c20zd4yEXDQlj",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "겨울이 간다",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "겨울이 간다",
-    trackDuration: "03:07",
-  },
-  {
-    id: "5Bv2De7EzaryH40FUz0wMh",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "장난 아닌데",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "장난 아닌데",
-    trackDuration: "03:14",
-  },
-  {
-    id: "1Qc7n76Tqmaj7KnhYMTMMN",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Say Wow",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "Say Wow",
-    trackDuration: "03:09",
-  },
-  {
-    id: "4cJQcQQDLdPWy6YcmsxkVZ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "DANCE DANCE",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "DANCE DANCE",
-    trackDuration: "03:43",
-  },
-  {
-    id: "0w55rt5Hi2orJ8IWCU6EDq",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "My Day",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "My Day",
-    trackDuration: "03:00",
-  },
-  {
-    id: "3HAkoNmThZhyFejhpRXXYI",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "예뻤어",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "예뻤어",
-    trackDuration: "04:43",
-  },
-  {
-    id: "2vyNjrBXARiT1BXBQ9sCHB",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Congratulations - Final Ver.",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "SUNRISE",
-    releaseDate: "2017-06-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b3773dc742bde1298ea9399f",
-    trackName: "Congratulations - Final Ver.",
-    trackDuration: "03:49",
-  },
-  {
-    id: "4a4pBfIkHEUAYRdJHQX73G",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "괴물 Monster",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "괴물 Monster",
-    trackDuration: "03:36",
-  },
-  {
-    id: "5Invv3m92xZvztdCbZrmZ6",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "녹아내려요 Melt Down",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "녹아내려요 Melt Down",
-    trackDuration: "02:45",
-  },
-  {
-    id: "0KluOoZx03KC3NucRSm8n4",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "그녀가 웃었다 She Smiled",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "그녀가 웃었다 She Smiled",
-    trackDuration: "03:22",
-  },
-  {
-    id: "3HC3QgThjUtZcqiHM0neAJ",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "망겜 Shxtty Game",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "망겜 Shxtty Game",
-    trackDuration: "03:09",
-  },
-  {
-    id: "49mntFe7XtS9Zut6ySEdtw",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "도와줘요 Rock&Roll Help Me Rock&Roll",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "도와줘요 Rock&Roll Help Me Rock&Roll",
-    trackDuration: "02:36",
-  },
-  {
-    id: "2qKBDTag2pLh9aJwKTyB6M",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "COUNTER",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "COUNTER",
-    trackDuration: "02:58",
-  },
-  {
-    id: "1l8MduTqOzwfr9f53JY5o1",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "I'm Fine",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "I'm Fine",
-    trackDuration: "03:15",
-  },
-  {
-    id: "0PtsUJhLbQUlnfCleLUFHl",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "아직 거기 살아 Still There",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Band Aid",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27342e0fe9e101c705fe7edf5a2",
-    trackName: "아직 거기 살아 Still There",
-    trackDuration: "03:19",
-  },
-  {
-    id: "1Mr0PGyergfMZ7swKiWiBP",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Psycho",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Psycho, Loveholic [THE SEASONS: Red Carpet with Lee Hyo Ri]",
-    releaseDate: "2024-03-31",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734986931fbb88f0db947335cd",
-    trackName: "Psycho",
-    trackDuration: "03:32",
-  },
-  {
-    id: "66cl9dpkfm7WMJcfufL0Tu",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Loveholic",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Psycho, Loveholic [THE SEASONS: Red Carpet with Lee Hyo Ri]",
-    releaseDate: "2024-03-31",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734986931fbb88f0db947335cd",
-    trackName: "Loveholic",
-    trackDuration: "03:38",
-  },
-  {
-    id: "0mP5g0VVh3TenBszcphqM9",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Psycho - Instrumental",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Psycho, Loveholic [THE SEASONS: Red Carpet with Lee Hyo Ri]",
-    releaseDate: "2024-03-31",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734986931fbb88f0db947335cd",
-    trackName: "Psycho - Instrumental",
-    trackDuration: "03:32",
-  },
-  {
-    id: "110Xlv114Asg9s4Ujhf8aD",
-    name: "DAY6",
-    genres: ["k-rock", "k-pop"],
-    song: "Loveholic - Instrumental",
-    artists: ["DAY6"],
-    popularity: 69,
-    followers: 3642605,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb10e83b0ca558533d0f3c376c",
-    albumsName: "Psycho, Loveholic [THE SEASONS: Red Carpet with Lee Hyo Ri]",
-    releaseDate: "2024-03-31",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2734986931fbb88f0db947335cd",
-    trackName: "Loveholic - Instrumental",
-    trackDuration: "03:38",
-  },
-  {
-    id: "1IthE5GNiRzFN5CVaCa445",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Born Singer",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Born Singer",
-    trackDuration: "03:58",
-  },
-  {
-    id: "27S8iOXD7Z58yvJtyk2S9j",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "No More Dream",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "No More Dream",
-    trackDuration: "03:42",
-  },
-  {
-    id: "2GEnvQgSJhedm2sqZlOP8o",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "N.O",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "N.O",
-    trackDuration: "03:29",
-  },
-  {
-    id: "0vMk4IrUfSJQkhwZnVX6us",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Boy In Luv",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Boy In Luv",
-    trackDuration: "03:51",
-  },
-  {
-    id: "0Q53fuiKLGjDKD7Mme7EoQ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Danger",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Danger",
-    trackDuration: "04:05",
-  },
-  {
-    id: "1GunnGtZCSjLUAPG6yrDUC",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "I NEED U",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "I NEED U",
-    trackDuration: "03:30",
-  },
-  {
-    id: "20Qqyt4bd1oe4KmkTagb2K",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "RUN",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "RUN",
-    trackDuration: "03:56",
-  },
-  {
-    id: "5cQPIQAF2T1elxWs7EqB9W",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Burning Up (FIRE)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Burning Up (FIRE)",
-    trackDuration: "03:23",
-  },
-  {
-    id: "1wiqEFd8phSCSlteDLSyp2",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Blood Sweat & Tears",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Blood Sweat & Tears",
-    trackDuration: "03:37",
-  },
-  {
-    id: "4upRoEWkMWhhMfEgPZMFRP",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Spring Day",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Spring Day",
-    trackDuration: "04:34",
-  },
-  {
-    id: "2Ygw4CPjg1lg4zxTITYY2V",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "DNA",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "DNA",
-    trackDuration: "03:43",
-  },
-  {
-    id: "3YspylwDrs1LuzPONbKmAL",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "FAKE LOVE",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "FAKE LOVE",
-    trackDuration: "04:02",
-  },
-  {
-    id: "0KCvsHmGvW2XcsxEWJvLPr",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "IDOL",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "IDOL",
-    trackDuration: "03:42",
-  },
-  {
-    id: "07qrA1FxZpXy383wX3IDEb",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Boy With Luv (Feat. Halsey)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Boy With Luv (Feat. Halsey)",
-    trackDuration: "03:49",
-  },
-  {
-    id: "0U4hNZFJYNFdEAXZcHbkkc",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "ON",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "ON",
-    trackDuration: "04:06",
-  },
-  {
-    id: "1hIuSG6xV4RDgD8bDVKP7N",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Dynamite",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Dynamite",
-    trackDuration: "03:19",
-  },
-  {
-    id: "1VjqXwHU3isibdXLEtXc4q",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Life Goes On",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Life Goes On",
-    trackDuration: "03:28",
-  },
-  {
-    id: "6jjYDGxVJsWS0a5wlVF5vS",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Butter",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Butter",
-    trackDuration: "02:44",
-  },
-  {
-    id: "10SRMwb9EuVS1K9rYsBfHQ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Yet To Come",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Yet To Come",
-    trackDuration: "03:13",
-  },
-  {
-    id: "69xohKu8C1fsflYAiSNbwM",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Run BTS",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "Proof",
-    releaseDate: "2022-06-10",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
-    trackName: "Run BTS",
-    trackDuration: "03:24",
-  },
-  {
-    id: "2klid0zSCvIkOjXa0EKbVd",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Life Goes On",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "Life Goes On",
-    trackDuration: "03:27",
-  },
-  {
-    id: "5JcUAMvjUUM0z3OVIcnuvM",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "내 방을 여행하는 법",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "내 방을 여행하는 법",
-    trackDuration: "03:42",
-  },
-  {
-    id: "7jn7Twa2blnw4sx8w9Igu9",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Blue & Grey",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "Blue & Grey",
-    trackDuration: "04:14",
-  },
-  {
-    id: "5WAiTRzC981eOxgldlxVd5",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Skit",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "Skit",
-    trackDuration: "02:59",
-  },
-  {
-    id: "6XesM5tApm8ARWMjoD1EMm",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "잠시",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "잠시",
-    trackDuration: "03:22",
-  },
-  {
-    id: "6aGtSx8xkaDULmxdx92gkO",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "병",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "병",
-    trackDuration: "03:59",
-  },
-  {
-    id: "7izAEpXmZjjmvKKYuoSLRP",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Stay",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "Stay",
-    trackDuration: "03:24",
-  },
-  {
-    id: "5aHwYjiSGgJAxy10mBMlDT",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Dynamite",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "BE",
-    releaseDate: "2020-11-20",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273184d20129ccf5aafcc776d11",
-    trackName: "Dynamite",
-    trackDuration: "03:19",
-  },
-  {
-    id: "5raJ9QoZOdoRZ1MZOcygkR",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "INTRO : Calling",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "INTRO : Calling",
-    trackDuration: "01:24",
-  },
-  {
-    id: "3Ys2PYl1wyPKQIwyqhP9cQ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Stay Gold",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Stay Gold",
-    trackDuration: "04:03",
-  },
-  {
-    id: "1GAAUZBTaIM1LwNpOJQJrZ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Boy With Luv - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Boy With Luv - Japanese ver.",
-    trackDuration: "03:50",
-  },
-  {
-    id: "6P0Ni8GrnwRScC4uk8tKqM",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Make It Right - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Make It Right - Japanese ver.",
-    trackDuration: "03:45",
-  },
-  {
-    id: "6j0NiWoRQDiNC05RwVVZNa",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Dionysus - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Dionysus - Japanese ver.",
-    trackDuration: "04:08",
-  },
-  {
-    id: "2vYF5MHeCNtqCVastthDAo",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "IDOL - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "IDOL - Japanese ver.",
-    trackDuration: "03:43",
-  },
-  {
-    id: "4EeVAiJtyblHzvkN9sZCmM",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Airplane pt.2 - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Airplane pt.2 - Japanese ver.",
-    trackDuration: "03:40",
-  },
-  {
-    id: "4jTEbIwCMcHSwlSEiR4NlQ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "FAKE LOVE - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "FAKE LOVE - Japanese ver.",
-    trackDuration: "04:03",
-  },
-  {
-    id: "5smmjzMNkj4YSacTBH6taZ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Black Swan - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Black Swan - Japanese ver.",
-    trackDuration: "03:18",
-  },
-  {
-    id: "2hhizKAVm9wNn0d2N05jkG",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "ON - Japanese ver.",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "ON - Japanese ver.",
-    trackDuration: "04:07",
-  },
-  {
-    id: "3TDUktzfYXMWjkWqwoT5F1",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Lights",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Lights",
-    trackDuration: "04:52",
-  },
-  {
-    id: "3TZ7NHkMT82AhwuYsd00Hz",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Your eyes tell",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "Your eyes tell",
-    trackDuration: "04:05",
-  },
-  {
-    id: "0VF357Gjay5vvCqWA1kSu6",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "OUTRO : The Journey",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7 ~ THE JOURNEY ~",
-    releaseDate: "2020-07-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273da9c76ed020a7894443a3f97",
-    trackName: "OUTRO : The Journey",
-    trackDuration: "01:16",
-  },
-  {
-    id: "2xKpEiPm7SWJTxUJgUI7Wg",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Intro : Persona",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Intro : Persona",
-    trackDuration: "02:51",
-  },
-  {
-    id: "5sF9xwCDidhTovLRrr22sT",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "작은 것들을 위한 시 (Boy With Luv) [feat. Halsey]",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "작은 것들을 위한 시 (Boy With Luv) [feat. Halsey]",
-    trackDuration: "03:49",
-  },
-  {
-    id: "0nAK07NX5OQYibxYZJKthX",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Make It Right",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Make It Right",
-    trackDuration: "03:46",
-  },
-  {
-    id: "1Gz07U8Hhet3cVEeeqVel6",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Jamais Vu",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Jamais Vu",
-    trackDuration: "03:47",
-  },
-  {
-    id: "6n0nzGXOD3mbJwX8tvkOqA",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Dionysus",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Dionysus",
-    trackDuration: "04:09",
-  },
-  {
-    id: "6dTQxiNU1qc0ob4BV9AxrH",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Interlude : Shadow",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Interlude : Shadow",
-    trackDuration: "04:19",
-  },
-  {
-    id: "31UyoQYfXdquugSTclaPG1",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Black Swan",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Black Swan",
-    trackDuration: "03:18",
-  },
-  {
-    id: "1MIUb1YqTmBRnZrSxgxXEd",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Filter",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Filter",
-    trackDuration: "03:00",
-  },
-  {
-    id: "4Yqung81v8CmhDCEXUyjTm",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "시차",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "시차",
-    trackDuration: "03:54",
-  },
-  {
-    id: "12oB9TEj1ILuQEZt4VAs5e",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Louder than bombs",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Louder than bombs",
-    trackDuration: "03:37",
-  },
-  {
-    id: "2vh6yTfSkyO37hj5M3A3JW",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "ON",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "ON",
-    trackDuration: "04:06",
-  },
-  {
-    id: "4QWPKecgt2lc4GpWtYgYtJ",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "욱 (UGH!)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "욱 (UGH!)",
-    trackDuration: "03:45",
-  },
-  {
-    id: "39qNsDe6e6y0ZMBFYfVdx9",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "00:00 (Zero O’Clock)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "00:00 (Zero O’Clock)",
-    trackDuration: "04:10",
-  },
-  {
-    id: "42TGLajWw43lkOF671gtDE",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Inner Child",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Inner Child",
-    trackDuration: "03:53",
-  },
-  {
-    id: "4NQ8DTueMrnI7u5qUEaR7b",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "친구",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "친구",
-    trackDuration: "03:19",
-  },
-  {
-    id: "4IyZRfH1jGzXjVg9RH6a3p",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Moon",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Moon",
-    trackDuration: "03:28",
-  },
-  {
-    id: "1nkQNNXQIUvzA2kicC7mfX",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Respect",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Respect",
-    trackDuration: "03:57",
-  },
-  {
-    id: "4kHoeGe1iDCSdyueYtb3EV",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "We are Bulletproof : the Eternal",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "We are Bulletproof : the Eternal",
-    trackDuration: "04:21",
-  },
-  {
-    id: "12aSYs0fRflbzSeaaQzZtp",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Outro : Ego",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "Outro : Ego",
-    trackDuration: "03:16",
-  },
-  {
-    id: "2WLVBA5fOIIAHYb0DsRhDk",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "ON (Feat. Sia)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : 7",
-    releaseDate: "2020-02-21",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a305c82beadd829638dd8c36",
-    trackName: "ON (Feat. Sia)",
-    trackDuration: "04:06",
-  },
-  {
-    id: "1e60XXx2p9W87HCEZlnaB3",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Intro : Persona",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "Intro : Persona",
-    trackDuration: "02:51",
-  },
-  {
-    id: "2V7Gxq4QW2Fm4zizDF0V6Z",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "작은 것들을 위한 시 (Boy With Luv) (feat. Halsey)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "작은 것들을 위한 시 (Boy With Luv) (feat. Halsey)",
-    trackDuration: "03:49",
-  },
-  {
-    id: "6QVXzFvWhzDFNMjSlMCH77",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "소우주 (Mikrokosmos)",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "소우주 (Mikrokosmos)",
-    trackDuration: "03:44",
-  },
-  {
-    id: "106Xfvha3rKf5z5gCSUtFX",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Make It Right",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "Make It Right",
-    trackDuration: "03:46",
-  },
-  {
-    id: "6BppPBOUSoZmpTLuVqwfNt",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "HOME",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "HOME",
-    trackDuration: "03:54",
-  },
-  {
-    id: "5pDabSsxF2KphzQZMcPo1J",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Jamais Vu",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "Jamais Vu",
-    trackDuration: "03:47",
-  },
-  {
-    id: "1BodW0D2wzSDFozd1GlZOn",
-    name: "BTS",
-    genres: ["k-pop"],
-    song: "Dionysus",
-    artists: ["BTS"],
-    popularity: 87,
-    followers: 78281254,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a",
-    albumsName: "MAP OF THE SOUL : PERSONA",
-    releaseDate: "2019-04-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27346d3e73ccbfde4ee771b7e76",
-    trackName: "Dionysus",
-    trackDuration: "04:09",
-  },
-  {
-    id: "4u43I0LP2Xf85OAS85eG0R",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "CN TOWER",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "CN TOWER",
-    trackDuration: "04:01",
-  },
-  {
-    id: "7DL2F2bueQycqYjqsjHYjG",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "MOTH BALLS",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "MOTH BALLS",
-    trackDuration: "03:32",
-  },
-  {
-    id: "1F6nHHDJyTHLgDDFj1ZZDt",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "SOMETHING ABOUT YOU",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "SOMETHING ABOUT YOU",
-    trackDuration: "03:38",
-  },
-  {
-    id: "5aIEFCKhVUM5sKkwOSdFiM",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "CRYING IN CHANEL",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "CRYING IN CHANEL",
-    trackDuration: "03:19",
-  },
-  {
-    id: "4GqhG9rDuRUoNyDSMJ0Brq",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "SPIDER-MAN SUPERMAN",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "SPIDER-MAN SUPERMAN",
-    trackDuration: "03:23",
-  },
-  {
-    id: "4JeD0FGslDsMeeahEGZa2L",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "DEEPER",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "DEEPER",
-    trackDuration: "02:52",
-  },
-  {
-    id: "1YHQQFtKqFSFrqL4cNvstU",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "SMALL TOWN FAME",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "SMALL TOWN FAME",
-    trackDuration: "02:28",
-  },
-  {
-    id: "3CY3zAjrxKVInh2Lq1QiRb",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "PIMMIE'S DILEMMA",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "PIMMIE'S DILEMMA",
-    trackDuration: "01:58",
-  },
-  {
-    id: "3FHO87BSOEVAsedSnCTnvz",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "BRIAN STEEL",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "BRIAN STEEL",
-    trackDuration: "01:51",
-  },
-  {
-    id: "5Nz7hI3cCOHmMR4vSLJ1An",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "GIMME A HUG",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "GIMME A HUG",
-    trackDuration: "03:13",
-  },
-  {
-    id: "2xxb5zW09uwbgyLprALi9E",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "RAINING IN HOUSTON",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "RAINING IN HOUSTON",
-    trackDuration: "04:04",
-  },
-  {
-    id: "2vjFTjmvpFjFM01cNdG2ik",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "LASERS",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "LASERS",
-    trackDuration: "03:18",
-  },
-  {
-    id: "0o5p5zzRN84q6qVbOVONPM",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "MEET YOUR PADRE",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "MEET YOUR PADRE",
-    trackDuration: "04:31",
-  },
-  {
-    id: "2u9S9JJ6hTZS3Vf22HOZKg",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "NOKIA",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "NOKIA",
-    trackDuration: "04:01",
-  },
-  {
-    id: "0NUqi0ps17YpLUC3kgsZq0",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "DIE TRYING",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "DIE TRYING",
-    trackDuration: "03:15",
-  },
-  {
-    id: "2kZoOj1n5vk9BuF0sih58M",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "SOMEBODY LOVES ME",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "SOMEBODY LOVES ME",
-    trackDuration: "03:02",
-  },
-  {
-    id: "578CwfxpfH2HxlENOCHc2n",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "CELIBACY",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "CELIBACY",
-    trackDuration: "03:55",
-  },
-  {
-    id: "775a936b2Vzl3fw86FaVat",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "OMW",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "OMW",
-    trackDuration: "03:53",
-  },
-  {
-    id: "1mKNJs35ede94bTPWveVOo",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "GLORIOUS",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "GLORIOUS",
-    trackDuration: "03:25",
-  },
-  {
-    id: "6mmPe3Y3SEtYb9HZsHTyrj",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "WHEN HE'S GONE",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "$ome $exy $ongs 4 U",
-    releaseDate: "2025-02-14",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273fcb7f84280bc41e3c4c873ac",
-    trackName: "WHEN HE'S GONE",
-    trackDuration: "03:29",
-  },
-  {
-    id: "6YV2AI87l1n2fzqU8Dyo05",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Virginia Beach",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Virginia Beach",
-    trackDuration: "04:11",
-  },
-  {
-    id: "59ZmQR4pwCaa5iM3veM7Cs",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Amen (feat. Teezo Touchdown)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Amen (feat. Teezo Touchdown)",
-    trackDuration: "02:21",
-  },
-  {
-    id: "2R30S0W4JCM9JaQWlpmeWn",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Calling For You (feat. 21 Savage)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Calling For You (feat. 21 Savage)",
-    trackDuration: "04:45",
-  },
-  {
-    id: "6LFW4dEsLeiGluniXRgVYr",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Fear Of Heights",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Fear Of Heights",
-    trackDuration: "02:35",
-  },
-  {
-    id: "1us5wNgZc0YLT8RQQs2Q7L",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Daylight",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Daylight",
-    trackDuration: "02:44",
-  },
-  {
-    id: "6xIsHPRHdbzU6UMVFn4wh8",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "First Person Shooter (feat. J. Cole)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "First Person Shooter (feat. J. Cole)",
-    trackDuration: "04:07",
-  },
-  {
-    id: "2uvBprdlMpzeN5Bq0PzMBI",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "IDGAF (feat. Yeat)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "IDGAF (feat. Yeat)",
-    trackDuration: "04:20",
-  },
-  {
-    id: "0pdMOh52apEWAS1xELJY7Q",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "7969 Santa",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "7969 Santa",
-    trackDuration: "04:19",
-  },
-  {
-    id: "4gQBXN2GBRpemMuxg5y3h9",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Slime You Out (feat. SZA)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Slime You Out (feat. SZA)",
-    trackDuration: "05:10",
-  },
-  {
-    id: "3nHat22UwPywIevUrXIhy1",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Bahamas Promises",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Bahamas Promises",
-    trackDuration: "03:04",
-  },
-  {
-    id: "5BTu8L170anjdgSohdBkkv",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Tried Our Best",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Tried Our Best",
-    trackDuration: "03:29",
-  },
-  {
-    id: "71VKjJjn76sn5Tt8X8Ay8c",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Screw The World - Interlude",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Screw The World - Interlude",
-    trackDuration: "01:52",
-  },
-  {
-    id: "7jKNxYzPFGDWEemcRVebLb",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Drew A Picasso",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Drew A Picasso",
-    trackDuration: "04:22",
-  },
-  {
-    id: "7uHF03xE84sQ5PicRNH3yu",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Members Only (feat. PARTYNEXTDOOR)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Members Only (feat. PARTYNEXTDOOR)",
-    trackDuration: "04:37",
-  },
-  {
-    id: "4e0uZkMYa8e8HJ5TEUN417",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "What Would Pluto Do",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "What Would Pluto Do",
-    trackDuration: "03:02",
-  },
-  {
-    id: "04BF53Rb6LOpDUJG518IqS",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "All The Parties (feat. Chief Keef)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "All The Parties (feat. Chief Keef)",
-    trackDuration: "03:38",
-  },
-  {
-    id: "1dKXBUKx7oCB2UXlkihNn8",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "8am in Charlotte",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "8am in Charlotte",
-    trackDuration: "04:26",
-  },
-  {
-    id: "4bF4MxTGnNj8dTW0LZmAx5",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "BBL Love - Interlude",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "BBL Love - Interlude",
-    trackDuration: "02:41",
-  },
-  {
-    id: "3BE3IYsAhqkTiRIR7T7x7M",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Gently (feat. Bad Bunny)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Gently (feat. Bad Bunny)",
-    trackDuration: "02:13",
-  },
-  {
-    id: "2DSy4HfDQoBsPPcRSoeM16",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Rich Baby Daddy (feat. Sexyy Red & SZA)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs Scary Hours Edition",
-    releaseDate: "2023-11-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e286ee36b4015afa8832356a",
-    trackName: "Rich Baby Daddy (feat. Sexyy Red & SZA)",
-    trackDuration: "05:19",
-  },
-  {
-    id: "3eP13S8D5m2cweMEg3ZDed",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Virginia Beach",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Virginia Beach",
-    trackDuration: "04:11",
-  },
-  {
-    id: "0Mrnt1YqVuW2bqmwu4VxDt",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Amen (feat. Teezo Touchdown)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Amen (feat. Teezo Touchdown)",
-    trackDuration: "02:21",
-  },
-  {
-    id: "2nibvvDdAQkVraYP00z2RS",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Calling For You (feat. 21 Savage)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Calling For You (feat. 21 Savage)",
-    trackDuration: "04:45",
-  },
-  {
-    id: "53KaP77tkliz36LPxWGlWK",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Fear Of Heights",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Fear Of Heights",
-    trackDuration: "02:35",
-  },
-  {
-    id: "4ZT0wGKwlJRjpMUuwZVy3p",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Daylight",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Daylight",
-    trackDuration: "02:44",
-  },
-  {
-    id: "7aqfrAY2p9BUSiupwk3svU",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "First Person Shooter (feat. J. Cole)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "First Person Shooter (feat. J. Cole)",
-    trackDuration: "04:07",
-  },
-  {
-    id: "2YSzYUF3jWqb9YP9VXmpjE",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "IDGAF (feat. Yeat)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "IDGAF (feat. Yeat)",
-    trackDuration: "04:20",
-  },
-  {
-    id: "1GpWY5RiInhezB8wGWs6oN",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "7969 Santa",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "7969 Santa",
-    trackDuration: "04:19",
-  },
-  {
-    id: "0AYt6NMyyLd0rLuvr0UkMH",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Slime You Out (feat. SZA)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Slime You Out (feat. SZA)",
-    trackDuration: "05:10",
-  },
-  {
-    id: "3JZjcKImHcmOI9ylL4zrSc",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Bahamas Promises",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Bahamas Promises",
-    trackDuration: "03:04",
-  },
-  {
-    id: "3IHt4j5uAEl7iBu8Utn985",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Tried Our Best",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Tried Our Best",
-    trackDuration: "03:29",
-  },
-  {
-    id: "0ArVfVP8B5svkfj8clHNzB",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Screw The World - Interlude",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Screw The World - Interlude",
-    trackDuration: "01:52",
-  },
-  {
-    id: "03rwnftfgpYVO6QDWOZcG6",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Drew A Picasso",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Drew A Picasso",
-    trackDuration: "04:22",
-  },
-  {
-    id: "24FUBxaAYSBlWsbSnEzDcn",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Members Only (feat. PARTYNEXTDOOR)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Members Only (feat. PARTYNEXTDOOR)",
-    trackDuration: "04:37",
-  },
-  {
-    id: "1DAibqbopEYULPEtE8WHTE",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "What Would Pluto Do",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "What Would Pluto Do",
-    trackDuration: "03:02",
-  },
-  {
-    id: "1PIgY9ybyFT9uWLM5POYGY",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "All The Parties (feat. Chief Keef)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "All The Parties (feat. Chief Keef)",
-    trackDuration: "03:38",
-  },
-  {
-    id: "0w3Mfe4PIVjuFjJbe3OlYv",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "8am in Charlotte",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "8am in Charlotte",
-    trackDuration: "04:26",
-  },
-  {
-    id: "1mjAD7IYvI5UGiB7WnppMf",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "BBL Love - Interlude",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "BBL Love - Interlude",
-    trackDuration: "02:41",
-  },
-  {
-    id: "6ZprqcYFC6D9eIZaCoqrSn",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Gently (feat. Bad Bunny)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Gently (feat. Bad Bunny)",
-    trackDuration: "02:13",
-  },
-  {
-    id: "1yeB8MUNeLo9Ek1UEpsyz6",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Rich Baby Daddy (feat. Sexyy Red & SZA)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "For All The Dogs",
-    releaseDate: "2023-10-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737d384516b23347e92a587ed1",
-    trackName: "Rich Baby Daddy (feat. Sexyy Red & SZA)",
-    trackDuration: "05:19",
-  },
-  {
-    id: "1bDbXMyjaUIooNwFE9wn0N",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Rich Flex",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Rich Flex",
-    trackDuration: "03:59",
-  },
-  {
-    id: "46s57QULU02Voy0Kup6UEb",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Major Distribution",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Major Distribution",
-    trackDuration: "02:50",
-  },
-  {
-    id: "34tz0eDhGuFErIuW3q4mPX",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "On BS",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "On BS",
-    trackDuration: "04:21",
-  },
-  {
-    id: "0wshkEEcJUQU33RSRBb5dv",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "BackOutsideBoyz",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "BackOutsideBoyz",
-    trackDuration: "02:32",
-  },
-  {
-    id: "7l2nxyx7IkBX5orhkALg0V",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Privileged Rappers",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Privileged Rappers",
-    trackDuration: "02:40",
-  },
-  {
-    id: "2ZL7WZcjuYKi1KUDtp4kCC",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Spin Bout U",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Spin Bout U",
-    trackDuration: "03:34",
-  },
-  {
-    id: "0sSRLXxknVTQDStgU1NqpY",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Hours In Silence",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Hours In Silence",
-    trackDuration: "06:39",
-  },
-  {
-    id: "4Flfb4fGscN9kXPOduQLrv",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Treacherous Twins",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Treacherous Twins",
-    trackDuration: "03:00",
-  },
-  {
-    id: "7GeTsDIc5ykNB6lORO6Cee",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Circo Loco",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Circo Loco",
-    trackDuration: "03:56",
-  },
-  {
-    id: "2KLwPaRDOB87XOYAT2fgxh",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Pussy & Millions (feat. Travis Scott)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Pussy & Millions (feat. Travis Scott)",
-    trackDuration: "04:02",
-  },
-  {
-    id: "45pUWUeEWGoSdH6UF162G8",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Broke Boys",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Broke Boys",
-    trackDuration: "03:45",
-  },
-  {
-    id: "410TZrK18uRjtsTunG14cl",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Middle of the Ocean",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Middle of the Ocean",
-    trackDuration: "05:56",
-  },
-  {
-    id: "2ZlABhxMMa43COmZ97kKsJ",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Jumbotron Shit Poppin",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "Jumbotron Shit Poppin",
-    trackDuration: "02:17",
-  },
-  {
-    id: "29YW2xXlo6Pc6M0SBTCXYN",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "More M’s",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "More M’s",
-    trackDuration: "03:41",
-  },
-  {
-    id: "1MTXYvJ9TSqg9x6WPCDx2n",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "3AM on Glenwood",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "3AM on Glenwood",
-    trackDuration: "02:58",
-  },
-  {
-    id: "31bsuKDOzFGzBAoXxtnAJm",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "I Guess It’s Fuck Me",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Her Loss",
-    releaseDate: "2022-11-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302854a7060fccc1a66a4b5ad",
-    trackName: "I Guess It’s Fuck Me",
-    trackDuration: "04:23",
-  },
-  {
-    id: "1kNdtonJXHorsVpWerK8C2",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Intro",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Intro",
-    trackDuration: "00:36",
-  },
-  {
-    id: "1vbn9fEyw1IYhqgZJdu9ZB",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Falling Back",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Falling Back",
-    trackDuration: "04:26",
-  },
-  {
-    id: "4FIgHqXd4KkOwxrGeLDYM2",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Texts Go Green",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Texts Go Green",
-    trackDuration: "05:08",
-  },
-  {
-    id: "1eCFz60zd7mAXgWLapPd9B",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Currents",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Currents",
-    trackDuration: "02:37",
-  },
-  {
-    id: "0nAZGkBGKQCXyaoSJfRhC1",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "A Keeper",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "A Keeper",
-    trackDuration: "02:53",
-  },
-  {
-    id: "7sT7kZEYd1MrmzLLIRVZas",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Calling My Name",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Calling My Name",
-    trackDuration: "02:09",
-  },
-  {
-    id: "4rmVZajAF7PkrCagGPHbqa",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Sticky",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Sticky",
-    trackDuration: "04:03",
-  },
-  {
-    id: "28JBD8p18xNuOfyV7Cotdn",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Massive",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Massive",
-    trackDuration: "05:36",
-  },
-  {
-    id: "6Yj7Zhxt73uvwFFvzQXdxO",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Flight's Booked",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Flight's Booked",
-    trackDuration: "04:14",
-  },
-  {
-    id: "7hRlTK3mgFTBEjX7DjqBsI",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Overdrive",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Overdrive",
-    trackDuration: "03:22",
-  },
-  {
-    id: "3N3d4OWbPVxTQVBFqNyykk",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Down Hill",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Down Hill",
-    trackDuration: "04:10",
-  },
-  {
-    id: "1XsRwo2it6QHdV2OiT6IzF",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Tie That Binds",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Tie That Binds",
-    trackDuration: "05:36",
-  },
-  {
-    id: "2vy9Ry1TNjCD85TiCbTz0r",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Liability",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Liability",
-    trackDuration: "03:57",
-  },
-  {
-    id: "3F5CgOj3wFlRv51JsHbxhe",
-    name: "Drake",
-    genres: ["rap", "hip hop"],
-    song: "Jimmy Cooks (feat. 21 Savage)",
-    artists: ["Drake"],
-    popularity: 97,
-    followers: 97050366,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
-    albumsName: "Honestly, Nevermind",
-    releaseDate: "2022-06-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738dc0d801766a5aa6a33cbe37",
-    trackName: "Jimmy Cooks (feat. 21 Savage)",
-    trackDuration: "03:38",
-  },
-  {
-    id: "4gxEY3Mh5FZZDAJAKPNrCS",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY",
-    trackDuration: "02:44",
-  },
-  {
-    id: "69MMbwpvp5I9QTIzJeinpe",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (English ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (English ver.)",
-    trackDuration: "02:44",
-  },
-  {
-    id: "3s31zhHgCzJKhXGXPiTs4F",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Vogue Remix) (feat. Dashaun Wesley)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Vogue Remix) (feat. Dashaun Wesley)",
-    trackDuration: "02:28",
-  },
-  {
-    id: "1PW3XIvHX9HLKjSfUs2mEV",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Bounce Up Remix)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Bounce Up Remix)",
-    trackDuration: "02:36",
-  },
-  {
-    id: "5qg6dX7tOVlT5XtySVRRhY",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Dance Remix)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Dance Remix)",
-    trackDuration: "02:47",
-  },
-  {
-    id: "4WePneCUYtptHiDHuLQzQw",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Sped Up ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Sped Up ver.)",
-    trackDuration: "02:02",
-  },
-  {
-    id: "6CLFYe1yKG6DlEqE6dTjt9",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Slowed + Reverb ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Slowed + Reverb ver.)",
-    trackDuration: "03:25",
-  },
-  {
-    id: "0ZnkkW6pf3S9e9IKBZNrm9",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "CRAZY (Instrumental)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "CRAZY (Party Remixes 1)",
-    releaseDate: "2024-09-02",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d49db78bd7ea1f7229865baa",
-    trackName: "CRAZY (Instrumental)",
-    trackDuration: "02:44",
-  },
-  {
-    id: "2JGsTyLC4gLCWXVmvUn5Wi",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "The World Is My Oyster (2023 Ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "The World Is My Oyster (2023 Ver.)",
-    trackDuration: "01:46",
-  },
-  {
-    id: "4K8jDTlNhZWEdnzZVGRMtN",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "FEARLESS (2023 Ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "FEARLESS (2023 Ver.)",
-    trackDuration: "02:48",
-  },
-  {
-    id: "2ahp0wvyEzyvgWfOhStHWp",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Blue Flame (2023 Ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Blue Flame (2023 Ver.)",
-    trackDuration: "03:21",
-  },
-  {
-    id: "72RWX5lMa27RQG5DzbGaoj",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "The Hydra",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "The Hydra",
-    trackDuration: "01:44",
-  },
-  {
-    id: "0bMoNdAnxNR0OuQbGDovrr",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "ANTIFRAGILE",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "ANTIFRAGILE",
-    trackDuration: "03:04",
-  },
-  {
-    id: "7mYwDmbbp8UPLlnRjTJ54X",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Impurities",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Impurities",
-    trackDuration: "03:16",
-  },
-  {
-    id: "3NJ5Ksj7LNbvfNgEtl3o6Z",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Burn the Bridge",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Burn the Bridge",
-    trackDuration: "02:34",
-  },
-  {
-    id: "51vRumtqbkNW9wrKfESwfu",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "UNFORGIVEN (feat. Nile Rodgers)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "UNFORGIVEN (feat. Nile Rodgers)",
-    trackDuration: "03:02",
-  },
-  {
-    id: "6DSGb5CmwHX4pvclq8HUU1",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "No-Return (Into the unknown)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "No-Return (Into the unknown)",
-    trackDuration: "03:04",
-  },
-  {
-    id: "4QhnNyKDsAkXPwHkSnuc89",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Eve, Psyche & The Bluebeard’s wife",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Eve, Psyche & The Bluebeard’s wife",
-    trackDuration: "03:05",
-  },
-  {
-    id: "0sNfFxw3pJkVmRsgY781vM",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "FEARNOT (Between you, me and the lamppost)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "FEARNOT (Between you, me and the lamppost)",
-    trackDuration: "03:26",
-  },
-  {
-    id: "74cpuIw43kA8xPgbQEPdss",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Flash Forward",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Flash Forward",
-    trackDuration: "03:15",
-  },
-  {
-    id: "05RlBHEZg1RmL9DnPgv9Qq",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "Fire in the belly",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "UNFORGIVEN",
-    releaseDate: "2023-05-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273d71fd77b89d08bc1bda219c7",
-    trackName: "Fire in the belly",
-    trackDuration: "03:18",
-  },
-  {
-    id: "2ThrRg4rj3syCaROoNZD3z",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT",
-    trackDuration: "02:23",
-  },
-  {
-    id: "3RH8MZU18p1Tp2lFxJylE9",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (KIM CHAEWON ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT (KIM CHAEWON ver.)",
-    trackDuration: "02:42",
-  },
-  {
-    id: "51dzPsthZo6vv3dpr8dmlc",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (SAKURA ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT (SAKURA ver.)",
-    trackDuration: "02:16",
-  },
-  {
-    id: "4VoZLrS5KS5A7P67ujxx8l",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (HUH YUNJIN ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT (HUH YUNJIN ver.)",
-    trackDuration: "03:05",
-  },
-  {
-    id: "1fwBUAXdD4j8YeJgBUrWhg",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (KAZUHA ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT (KAZUHA ver.)",
-    trackDuration: "02:09",
-  },
-  {
-    id: "5GTVROehshYBZP8lvrUVI1",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (HONG EUNCHAE ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (LE SSERAFIM Package)",
-    releaseDate: "2025-03-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e721dd048f1511401d6f1ea0",
-    trackName: "HOT (HONG EUNCHAE ver.)",
-    trackDuration: "02:31",
-  },
-  {
-    id: "7DiNz8GX8Tw66ZVxJZNs9R",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (English ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737439e1a5b8ff259d5acae738",
-    trackName: "HOT (English ver.)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "5teKP1Xm5SnUsYDCjPKKNm",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737439e1a5b8ff259d5acae738",
-    trackName: "HOT",
-    trackDuration: "02:23",
-  },
-  {
-    id: "2SRWvcXOUaNVCjJpQpQZkv",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Sped Up ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737439e1a5b8ff259d5acae738",
-    trackName: "HOT (Sped Up ver.)",
-    trackDuration: "01:47",
-  },
-  {
-    id: "4ljCeTrFEmUNuZ0lgvkUQN",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Slowed + Reverb ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737439e1a5b8ff259d5acae738",
-    trackName: "HOT (Slowed + Reverb ver.)",
-    trackDuration: "03:29",
-  },
-  {
-    id: "3blImx4cXQGUsT3E0GciWl",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Instrumental)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2737439e1a5b8ff259d5acae738",
-    trackName: "HOT (Instrumental)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "0dcfrljmlnUEypYAF4aPFi",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e829ec8ff3543142dd473cfc",
-    trackName: "HOT",
-    trackDuration: "02:23",
-  },
-  {
-    id: "33cc6g7mDVbXXCjqsG25OB",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (English ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e829ec8ff3543142dd473cfc",
-    trackName: "HOT (English ver.)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "2If5qKv7BUfVR36x0XYOh4",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Sped Up ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e829ec8ff3543142dd473cfc",
-    trackName: "HOT (Sped Up ver.)",
-    trackDuration: "01:47",
-  },
-  {
-    id: "6SkK9MV9YXb0h4BRTzZcNK",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Slowed + Reverb ver.)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e829ec8ff3543142dd473cfc",
-    trackName: "HOT (Slowed + Reverb ver.)",
-    trackDuration: "03:29",
-  },
-  {
-    id: "7iH1crFi3c1dNsAkgYLhxC",
-    name: "LE SSERAFIM",
-    genres: ["k-pop"],
-    song: "HOT (Instrumental)",
-    artists: ["LE SSERAFIM"],
-    popularity: 80,
-    followers: 6788954,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb593f35db6f6837e1047a5e33",
-    albumsName: "HOT (English ver.)",
-    releaseDate: "2025-03-17",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273e829ec8ff3543142dd473cfc",
-    trackName: "HOT (Instrumental)",
-    trackDuration: "02:23",
-  },
-  {
-    id: "0hDo3EPwvhCSggmqkVvJPX",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "number one girl",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "number one girl",
-    trackDuration: "03:36",
-  },
-  {
-    id: "1j9Y2na5KDqntYChmIRUGf",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "3am",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "3am",
-    trackDuration: "02:34",
-  },
-  {
-    id: "7hOwyq4JU1Fkw2UZGIcvHZ",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "two years",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "two years",
-    trackDuration: "02:47",
-  },
-  {
-    id: "30HIJzJEUYcL9Qng15UeBo",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "toxic till the end",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "toxic till the end",
-    trackDuration: "02:36",
-  },
-  {
-    id: "4JV9Kb9qxNr5YiIbAXdvDT",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "drinks or coffee",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "drinks or coffee",
-    trackDuration: "02:13",
-  },
-  {
-    id: "0JLcfQTtEf3Whtj59OhS0f",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "APT.",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "APT.",
-    trackDuration: "02:49",
-  },
-  {
-    id: "5IZfqpeQOX2pSXTlsOGMbh",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "gameboy",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "gameboy",
-    trackDuration: "02:46",
-  },
-  {
-    id: "1PfLL0JosQTX6d2c2nes7g",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "stay a little longer",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "stay a little longer",
-    trackDuration: "04:06",
-  },
-  {
-    id: "4ZrIvXRkOIvSpszy8mJvPW",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "not the same",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "not the same",
-    trackDuration: "03:04",
-  },
-  {
-    id: "51RVssSB8iuq9llBacPbER",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "call it the end",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "call it the end",
-    trackDuration: "02:21",
-  },
-  {
-    id: "0kLzF2Cl3zvFOyzgE86ssW",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "too bad for us",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "too bad for us",
-    trackDuration: "03:56",
-  },
-  {
-    id: "05v68b039L6DcXHhbkL2wO",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "dance all night",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "rosie",
-    releaseDate: "2024-12-06",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273a9fb6e00986e42ad4764b1f3",
-    trackName: "dance all night",
-    trackDuration: "03:34",
-  },
-  {
-    id: "6BZdmmwNrZlE8QvNU15Jbv",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "number one girl",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "number one girl",
-    releaseDate: "2024-11-22",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273c782fa0fb8845dd6fd594e08",
-    trackName: "number one girl",
-    trackDuration: "03:36",
-  },
-  {
-    id: "2vDkR3ctidSd17d2CygVzS",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "APT.",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "APT.",
-    releaseDate: "2024-10-18",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27359639b3440e708daa35987be",
-    trackName: "APT.",
-    trackDuration: "02:49",
-  },
-  {
-    id: "2xgACMNtJ5YktyvOC83SPO",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "On The Ground",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "R",
-    releaseDate: "2021-03-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fdd9fc8745ed9185dc95873",
-    trackName: "On The Ground",
-    trackDuration: "02:48",
-  },
-  {
-    id: "2ayIgfvWo3SfYP2pVOr4pC",
-    name: "ROSÉ",
-    genres: ["k-pop"],
-    song: "Gone",
-    artists: ["ROSÉ"],
-    popularity: 86,
-    followers: 10665386,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5eb727a1f1f508238a20ac9fdbf",
-    albumsName: "R",
-    releaseDate: "2021-03-12",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2730fdd9fc8745ed9185dc95873",
-    trackName: "Gone",
-    trackDuration: "03:27",
-  },
-  {
-    id: "0T3Hw3kPj9T2E4UoaSXmfn",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Disease",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Disease",
-    trackDuration: "03:49",
-  },
-  {
-    id: "2LHNTC9QZxsL3nWpt8iaSR",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Abracadabra",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Abracadabra",
-    trackDuration: "03:43",
-  },
-  {
-    id: "4mUR5Tv0CvJtpmnUtzeIgd",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Garden Of Eden",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Garden Of Eden",
-    trackDuration: "03:59",
-  },
-  {
-    id: "0Tqn5Th0wk55eLdga96vZM",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Perfect Celebrity",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Perfect Celebrity",
-    trackDuration: "03:49",
-  },
-  {
-    id: "5IoPnNiYAOvHHJpz13wzRL",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Vanish Into You",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Vanish Into You",
-    trackDuration: "04:04",
-  },
-  {
-    id: "4pNzBbGcqXofx8mLBPTeih",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Killah (feat. Gesaffelstein)",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Killah (feat. Gesaffelstein)",
-    trackDuration: "03:30",
-  },
-  {
-    id: "0ElVpg9XIswx3XWs6kUj6a",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Zombieboy",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Zombieboy",
-    trackDuration: "03:33",
-  },
-  {
-    id: "3hcivoswCVR8LZkHR8MYA5",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "LoveDrug",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "LoveDrug",
-    trackDuration: "03:13",
-  },
-  {
-    id: "2rvd6akG8qEtBNUvQpN7iY",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "How Bad Do U Want Me",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "How Bad Do U Want Me",
-    trackDuration: "03:58",
-  },
-  {
-    id: "0uoWOZeZZiC90RMNDQBqj4",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Don't Call Tonight",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Don't Call Tonight",
-    trackDuration: "03:45",
-  },
-  {
-    id: "6OC87jHRiovNPEUrgaqFSu",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Shadow Of A Man",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Shadow Of A Man",
-    trackDuration: "03:19",
-  },
-  {
-    id: "08svDlp6TNFlfMIgjjZlYI",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "The Beast",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "The Beast",
-    trackDuration: "03:54",
-  },
-  {
-    id: "7xIoinMSiwIp5BWR7toO1O",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Blade Of Grass",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Blade Of Grass",
-    trackDuration: "04:17",
-  },
-  {
-    id: "7so0lgd0zP2Sbgs2d7a1SZ",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Die With A Smile",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "MAYHEM",
-    releaseDate: "2025-03-07",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273b0860cf0a98e09663c82290c",
-    trackName: "Die With A Smile",
-    trackDuration: "04:11",
-  },
-  {
-    id: "5sdmtQqSDr1kUbnnUK1RXY",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Slap That Bass | Get Happy | What The World Needs Now Is Love - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName:
-      "Slap That Bass | Get Happy | What The World Needs Now Is Love - Music From The Motion Picture",
-    trackDuration: "03:16",
-  },
-  {
-    id: "69xu2EnbSJ8oODVH2ovjmr",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "For Once in My Life - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "For Once in My Life - Music From The Motion Picture",
-    trackDuration: "02:49",
-  },
-  {
-    id: "18YKCiNw0gjK025fTAb8Dd",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "If My Friends Could See Me Now - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "If My Friends Could See Me Now - Music From The Motion Picture",
-    trackDuration: "03:12",
-  },
-  {
-    id: "4Twrnhrg6yIFCdor6yoFvW",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Folie à Deux - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "Folie à Deux - Music From The Motion Picture",
-    trackDuration: "01:44",
-  },
-  {
-    id: "7HlcqBxEZfCFLxtQPTC6EF",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Bewitched - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "Bewitched - Music From The Motion Picture",
-    trackDuration: "02:58",
-  },
-  {
-    id: "1X3NvqJ7ki9rDJz4nIc6Fb",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "That's Entertainment - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "That's Entertainment - Music From The Motion Picture",
-    trackDuration: "01:40",
-  },
-  {
-    id: "4dnoQrufD23hPUuK3RTqEp",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "When You’re Smiling (The Whole World Smiles With You) - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName:
-      "When You’re Smiling (The Whole World Smiles With You) - Music From The Motion Picture",
-    trackDuration: "01:45",
-  },
-  {
-    id: "7FyQqFixAnYRi64pcM63Nx",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "To Love Somebody - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "To Love Somebody - Music From The Motion Picture",
-    trackDuration: "01:49",
-  },
-  {
-    id: "3R1GEnPh6Y3rW7bCxRezjw",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "(They Long To Be) Close To You - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "(They Long To Be) Close To You - Music From The Motion Picture",
-    trackDuration: "02:48",
-  },
-  {
-    id: "4J6WjnT9kU3inMBlqZrEvS",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "The Joker - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "The Joker - Music From The Motion Picture",
-    trackDuration: "03:41",
-  },
-  {
-    id: "6o2TEwdOdXgM6U7lWj5MrY",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Gonna Build a Mountain - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "Gonna Build a Mountain - Music From The Motion Picture",
-    trackDuration: "03:18",
-  },
-  {
-    id: "6rT6dNA98lt4kxsluyWM7X",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "I've Got the World On A String - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "I've Got the World On A String - Music From The Motion Picture",
-    trackDuration: "02:05",
-  },
-  {
-    id: "1JFk2pK3n99dbS77xs1ifW",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "If You Go Away - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "If You Go Away - Music From The Motion Picture",
-    trackDuration: "03:19",
-  },
-  {
-    id: "0nCikBJkUVkejWitX3CiGO",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Gonna Build a Mountain (Reprise) - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName:
-      "Gonna Build a Mountain (Reprise) - Music From The Motion Picture",
-    trackDuration: "01:52",
-  },
-  {
-    id: "4ph4EHuQi2tKtvNU12UTRu",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "That's Life - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName: "That's Life - Music From The Motion Picture",
-    trackDuration: "03:03",
-  },
-  {
-    id: "4wM7clk6X7Cr6KoPUHjXs4",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "True Love Will Find You in The End - Music From The Motion Picture",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Joker: Folie à Deux (Music From The Motion Picture)",
-    releaseDate: "2024-10-04",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27335a31bf0be66fc393f3a5874",
-    trackName:
-      "True Love Will Find You in The End - Music From The Motion Picture",
-    trackDuration: "02:02",
-  },
-  {
-    id: "6RyJt2SvLFghIDe1eCviD9",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Good Morning",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "Good Morning",
-    trackDuration: "02:46",
-  },
-  {
-    id: "2YQ0DrIFS90FEK8T4JOa8W",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Get Happy (2024)",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "Get Happy (2024)",
-    trackDuration: "03:11",
-  },
-  {
-    id: "2Qt1GqEOR6gfBCNTZv9Q8P",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Oh, When The Saints",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "Oh, When The Saints",
-    trackDuration: "03:42",
-  },
-  {
-    id: "1CmyFUdrzcI2TldyJzOHSb",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "World On A String",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "World On A String",
-    trackDuration: "02:37",
-  },
-  {
-    id: "0I27tCo8rexgdYnhkSaL7k",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "If My Friends Could See Me Now",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "If My Friends Could See Me Now",
-    trackDuration: "02:41",
-  },
-  {
-    id: "2zOSxEAk90JTKYNHqE8LXc",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "That's Entertainment",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "That's Entertainment",
-    trackDuration: "04:09",
-  },
-  {
-    id: "38ILZqA8DlkbKfjosEDSb1",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "sMILE",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "sMILE",
-    trackDuration: "03:38",
-  },
-  {
-    id: "5zZoEDawAlJNgUzxknlV9V",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "The Joker",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "The Joker",
-    trackDuration: "02:54",
-  },
-  {
-    id: "1ud0FiEQLVIDlWEqDIEvwW",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Folie à Deux",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "Folie à Deux",
-    trackDuration: "02:58",
-  },
-  {
-    id: "2KniNOsSdTc2XUewjfoRyF",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Gonna Build A Mountain",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "Gonna Build A Mountain",
-    trackDuration: "02:51",
-  },
-  {
-    id: "6DqmPvzGa002Qa2NQ14hCV",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Close To You",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "Close To You",
-    trackDuration: "02:44",
-  },
-  {
-    id: "5DQIZ8XC0EP7cfRFrtzY5h",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Happy Mistake",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "Happy Mistake",
-    trackDuration: "04:05",
-  },
-  {
-    id: "7jTLS32BMC2UyTTjEUW6BT",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "That's Life",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Harlequin",
-    releaseDate: "2024-09-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b2738c6bfaa9549f8438bcafb668",
-    trackName: "That's Life",
-    trackDuration: "03:04",
-  },
-  {
-    id: "74BfFG9qR85KXxN49esFVA",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Main Titles (You’ve Been Called Back to Top Gun)",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "Main Titles (You’ve Been Called Back to Top Gun)",
-    trackDuration: "02:30",
-  },
-  {
-    id: "4XGl23ZBBQQ7KD9uSpvswx",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Danger Zone",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "Danger Zone",
-    trackDuration: "03:35",
-  },
-  {
-    id: "5jximgvZO7gGAFQndsSltj",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Darkstar",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "Darkstar",
-    trackDuration: "03:01",
-  },
-  {
-    id: "79iLGWV1TP277jSF8QJEo3",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Great Balls Of Fire - Live",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "Great Balls Of Fire - Live",
-    trackDuration: "01:54",
-  },
-  {
-    id: "5aAFhwGmoTsYd3ICgj5Ms2",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "You’re Where You Belong / Give ‘Em Hell",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "You’re Where You Belong / Give ‘Em Hell",
-    trackDuration: "05:46",
-  },
-  {
-    id: "73PAbYaVbnFG0tQ4aBfxeN",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "I Ain't Worried",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "I Ain't Worried",
-    trackDuration: "02:28",
-  },
-  {
-    id: "3Wceo1KylCeOUKJv8EVrMy",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Dagger One Is Hit / Time To Let Go",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "Dagger One Is Hit / Time To Let Go",
-    trackDuration: "05:06",
-  },
-  {
-    id: "2RfBOqxUl9g0fHJ0NuYFAO",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Tally Two / What’s The Plan / F-14",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "Tally Two / What’s The Plan / F-14",
-    trackDuration: "04:34",
-  },
-  {
-    id: "3vPFtJIPNknOiMK7IcBtzn",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "The Man, The Legend / Touchdown",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "The Man, The Legend / Touchdown",
-    trackDuration: "03:54",
-  },
-  {
-    id: "0hGL3mxCQJB5l64LsWcSN5",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Penny Returns - Interlude",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "Penny Returns - Interlude",
-    trackDuration: "02:47",
-  },
-  {
-    id: "1c2hJSwcCfoPEw1su83Sw0",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Hold My Hand",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "Hold My Hand",
-    trackDuration: "03:45",
-  },
-  {
-    id: "1ZkmPku85veww4fF66aUFF",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Top Gun Anthem",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Top Gun: Maverick (Music From The Motion Picture)",
-    releaseDate: "2022-05-27",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b27302701cfe03aca6827b5c5449",
-    trackName: "Top Gun Anthem",
-    trackDuration: "02:28",
-  },
-  {
-    id: "5i6SVeYn0jb3yMp9fsQGto",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "It's De-Lovely",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "It's De-Lovely",
-    trackDuration: "02:53",
-  },
-  {
-    id: "0ZzE3KupbceBjr17DMhWAo",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Night And Day",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "Night And Day",
-    trackDuration: "03:42",
-  },
-  {
-    id: "4biVNJdcVpAljZjpiO9B4Z",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Love For Sale",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "Love For Sale",
-    trackDuration: "03:40",
-  },
-  {
-    id: "7fGcPsneoxIweHKdc14vlw",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Do I Love You",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "Do I Love You",
-    trackDuration: "04:48",
-  },
-  {
-    id: "6jz5HzDmPuQ24U7u7KfKGw",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "I've Got You Under My Skin",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "I've Got You Under My Skin",
-    trackDuration: "03:05",
-  },
-  {
-    id: "1Z2el1XLsdJwt6Kefb2F5p",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "I Concentrate On You",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "I Concentrate On You",
-    trackDuration: "03:56",
-  },
-  {
-    id: "6tANJIaIQAFhMxgnafAZd2",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "I Get A Kick Out Of You",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "I Get A Kick Out Of You",
-    trackDuration: "03:33",
-  },
-  {
-    id: "3cvdaHJUFir8IQhHO0XD0j",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "So In Love",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "So In Love",
-    trackDuration: "04:31",
-  },
-  {
-    id: "0dImZ1ZhnS1xfhYVkPPeqE",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Let's Do It",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "Let's Do It",
-    trackDuration: "03:36",
-  },
-  {
-    id: "7kjzAKTVd9umvnChTkzTNd",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Dream Dancing",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "Dream Dancing",
-    trackDuration: "04:16",
-  },
-  {
-    id: "0Kdtya9rpac1Da89XBZ52O",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "Just One Of Those Things",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "Just One Of Those Things",
-    trackDuration: "02:59",
-  },
-  {
-    id: "5ueoGQzXQDQazPcPq5UvOQ",
-    name: "Lady Gaga",
-    genres: ["art pop", "pop"],
-    song: "You're The Top",
-    artists: ["Lady Gaga"],
-    popularity: 94,
-    followers: 35924464,
-    artistsImageUrl:
-      "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-    albumsName: "Love For Sale (Deluxe)",
-    releaseDate: "2021-10-01",
-    albumImageUrl:
-      "https://i.scdn.co/image/ab67616d0000b273574feb25f2b0f16dee365ab2",
-    trackName: "You're The Top",
-    trackDuration: "02:49",
-  },
 ];
 
 const AlbumComponent = () => {
@@ -31589,20 +12858,38 @@ const AlbumComponent = () => {
     setLoading(true);
     try {
       const albumCollection = collection(firestore, "Album"); // 🔹 컬렉션 참조 가져오기
-      const albumPromises = albums.map((album) => {
-        addDoc(albumCollection, album); // ✅ 문서 ID 자동 생성
-        console.log(`앨범 추가됨: ${album.name}`); // ✅ Firestore 문서 ID 출력
-      });
-      //   const albumRef = doc(firestore, "Album", albumName); // 🔹 문서 ID를 앨범 이름으로 설정
-      //   const albumPromises = albums.map(async (album) => {
-      //     const albumRef = doc(albumCollection, album.name); // 🔹 문서 ID를 album.name으로 설정
-      //     await setDoc(albumRef, album);
-      //     console.log(`앨범 추가됨: ${album.name}`); // ✅ Firestore 문서 ID 출력
+
+      // ✅ Firestore에 저장할 앨범 리스트 확인
+      console.log(`추가할 앨범 개수: ${Albums.length}개`);
+
+      // ✅ Firestore에 데이터 추가 (문서 ID 자동 생성)
+
+      // const albumPromises = Albums.map((Albums) => {
+      //   const albumSizeKB = JSON.stringify(Albums).length / 1024;
+      //   console.log(
+      //     `📦 저장할 앨범: ${Albums.name}, 데이터 크기: ${albumSizeKB.toFixed(
+      //       2
+      //     )} KB`
+      //   );
+
+      //   return addDoc(albumCollection, Albums).then(() => {
+      //     console.log(`✅ Firestore에 저장 완료: ${Albums.name}`);
       //   });
+      // });
+
+      const albumPromises = Albums.map(async (album) => {
+        const albumDocRef = doc(albumCollection, album.id); // ID를 직접 지정
+        const docSnapshot = await setDoc(albumDocRef, album);
+
+        console.log(`✅ Firestore에 저장 완료: ${album.albumsName}`);
+      });
+
+      // 모든 앨범이 저장될 때까지 대기
       await Promise.all(albumPromises);
-      console.log("모든 앨범이 Firestore에 추가됨!");
+
+      console.log("🚀 모든 앨범이 Firestore에 추가됨!");
     } catch (error) {
-      console.error("데이터 추가 중 오류 발생:", error);
+      console.error("❌ 데이터 추가 중 오류 발생:", error);
     }
     setLoading(false);
   };
