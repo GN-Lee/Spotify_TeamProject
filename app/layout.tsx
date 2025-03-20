@@ -30,10 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex" style={{ backgroundColor: Colorize.Secondary_02 }}>
-        <div className="flex-1/6 justify-center">
+        <div className="justify-center flex-1/12">
           <Aside />
         </div>
-        <div className="flex-5/6 ml-1">
+        <div className="ml-1 flex-5/6">
           <Header />
           <div className="p-12">{children}</div>
           <Footer />
