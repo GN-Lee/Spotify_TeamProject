@@ -5,16 +5,16 @@ import { IoSearchOutline } from "react-icons/io5";
 const Header = () => {
   return (
     <section
-      className="text-white w-full px-8 py-1.5"
+      className="w-full px-8 py-5 text-white "
       style={{ backgroundColor: Colorize.Secondary_01 }}
     >
       <figure className="flex justify-between">
         <div className="flex items-center gap-3">
-          <div className="flex text-2xl">
+          <div className="flex gap-3 text-2xl">
             <IoIosArrowBack />
             <IoIosArrowForward />
           </div>
-          <div className="bg-white text-gray-400 flex items-center justify-between px-4 py-2 2xl:rounded-3xl">
+          <div className="flex items-center justify-between px-4 py-2 text-gray-400 bg-white 2xl:rounded-3xl">
             <IoSearchOutline className="mr-2.5" />
             <input
               className="outline-0 w-3xs"
@@ -24,8 +24,15 @@ const Header = () => {
           </div>
         </div>
         <div className="flex gap-4">
-          <button>Sign up</button>
-          <button>Log in</button>
+          <button
+            className="font-semibold w-28 "
+            style={{ color: Colorize.Neutral_01 }}
+          >
+            Sign up
+          </button>
+          <button className="font-semibold text-black bg-white w-28 border-1 rounded-3xl">
+            Log in
+          </button>
         </div>
       </figure>
     </section>
