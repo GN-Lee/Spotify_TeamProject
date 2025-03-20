@@ -37,7 +37,6 @@ export default function RootLayout({
           <Header />
           <div className="p-12">{children}</div>
           <Footer />
-          <PlayBtn />
         </div>
       </body>
     </html>

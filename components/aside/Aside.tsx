@@ -25,7 +25,8 @@ const Aside = () => {
           Home
         </div>
       </a>
-      <div
+      <a
+        href="https://accounts.spotify.com/ko/login?continue=https%3A%2F%2Fopen.spotify.com%2F"
         className="flex items-center w-full h-8 p-4 rounded-md"
         style={{
           color: Colorize.Secondary_03,
@@ -35,7 +36,7 @@ const Aside = () => {
         <div className="text-xs font-semibold" style={headerFont.Header04}>
           Log in
         </div>
-      </div>
+      </a>
     </section>
   );
 };

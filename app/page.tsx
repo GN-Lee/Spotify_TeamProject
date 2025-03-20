@@ -1,3 +1,4 @@
+"use client";
 import Artist from "@/components/artist/Artist";
 import ArtistHover from "@/components/artist/ArtistHover";
 import Music from "@/components/artist/Music";
@@ -18,7 +19,6 @@ export default function Home() {
         <Music />
         <Album />
       </article>
-      s
     </section>
   );
 }
