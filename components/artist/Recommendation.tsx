@@ -2,17 +2,19 @@ import Image from "next/image";
 
 const Recommendation = () => {
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      style={{
+        width: "343px",
+        height: "270px",
+      }}
+    >
       <Image
         src={"/user.jpg"}
         alt="Album Background"
         width={343}
         height={253}
         className="object-cover rounded-lg w-sm h-[270px]"
-        // style={{
-        //   width: "343px",
-        //   height: "270px",
-        // }}
       />
       {/* 검정 오버레이 */}
       <div className=" absolute inset-0 bg-black/20"></div>
