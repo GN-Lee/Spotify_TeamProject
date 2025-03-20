@@ -30,26 +30,20 @@ const Header = () => {
             />
           </div>
         </div>
-        <div className="flex gap-4">
-          <button
-            onClick={() =>
-              (window.location.href =
-                "https://www.spotify.com/kr-ko/signup?flow_id=9a56012b-c077-458e-b8e9-bacf6074b794%3A1742483401&forward_url=https%3A%2F%2Fopen.spotify.com%2F%3Fflow_ctx%3D9a56012b-c077-458e-b8e9-bacf6074b794%253A1742483401")
-            }
-            className="font-semibold w-28 "
+        <div className="flex items-center justify-center gap-4 text-center">
+          <a
+            href="https://www.spotify.com/kr-ko/signup?flow_id=9a56012b-c077-458e-b8e9-bacf6074b794%3A1742483401&forward_url=https%3A%2F%2Fopen.spotify.com%2F%3Fflow_ctx%3D9a56012b-c077-458e-b8e9-bacf6074b794%253A1742483401"
+            className="flex items-center justify-center h-10 font-semibold w-30 "
             style={{ color: Colorize.Neutral_01 }}
           >
             Sign up
-          </button>
-          <button
-            onClick={() =>
-              (window.location.href =
-                "https://accounts.spotify.com/ko/login?continue=https%3A%2F%2Fopen.spotify.com%2F")
-            }
-            className="font-semibold text-black bg-white w-28 border-1 rounded-3xl"
+          </a>
+          <a
+            href="https://accounts.spotify.com/ko/login?continue=https%3A%2F%2Fopen.spotify.com%2F"
+            className="flex items-center justify-center h-10 font-semibold text-black bg-white w-30 border-1 rounded-3xl "
           >
             Log in
-          </button>
+          </a>
         </div>
       </figure>
     </section>
