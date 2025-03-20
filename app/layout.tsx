@@ -5,6 +5,7 @@ import { Colorize } from "@/common/Style/color";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import Aside from "@/components/aside/Aside";
+import PlayBtn from "@/components/playButton/PlayBtn";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
           <Header />
           <div className="p-12">{children}</div>
           <Footer />
+          <PlayBtn />
         </div>
       </body>
     </html>

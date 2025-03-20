@@ -16,7 +16,6 @@ import Image from "next/image";
 type Album = {
   id: number;
   name: string;
-  //   song: string[];
   artists: string[];
   genres: string[];
   popularity: number;
@@ -122,15 +121,6 @@ const AdminPage = () => {
             placeholder="앨범 이름 입력"
           />
         </div>
-        {/* <div style={{ display: "flex", gap: "5px" }}>
-          <p>노래 입력 -</p>
-          <input
-            type="text"
-            value={song}
-            onChange={(e) => setSong(e.target.value)}
-            placeholder="노래 입력"
-          />
-        </div> */}
         <div style={{ display: "flex", gap: "5px" }}>
           <p>아티스트 입력 -</p>
           <input

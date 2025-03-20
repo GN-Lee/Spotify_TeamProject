@@ -1,22 +1,47 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type List = {
-  artist: string;
-  image: string;
-  albumName: string;
+type Album = {
+  id: number;
+  name: string;
+  artists: string[];
+  genres: string[];
+  popularity: number;
+  followers: number;
+  artistsImageUrl: string;
+  albumImageUrl: string;
+  releaseDate: string;
+  trackName: string;
+  trackDuration: string;
 };
 
-const DetailPage = ({ artist, image, albumName }: List) => {
+type AlbumListProps = {
+  albums: Album[];
+};
+
+const DetailPage: React.FC<AlbumListProps> = ({ albums }) => {
   return (
     <div>
-      <Link href={`/${artist}`}>
-        <Image width={96} height={96} src={`${image}`} alt={artist} />
-        <h3>{albumName}</h3>
-        <p>{artist}</p>
-      </Link>
+      {albums.map((album) => (
+        <div key={album.id}>
+          <Link href={`/${album.artists}`} passHref>
+            <a>
+              <Image
+                width={96}
+                height={96}
+                src={album.albumImageUrl}
+                alt={album.name}
+                onError={(e) => (e.currentTarget.style.display = "none")}
+              />
+              <h3>{album.artists.join(", ")}</h3>
+              <p>아티스트</p>
+            </a>
+          </Link>
+        </div>
+      ))}
     </div>
   );
 };
+console.log(DetailPage);
 
 export default DetailPage;
